@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "name": "Article",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "category": {
+      "model": "category",
+      "via": "articles"
+    },
+    "edition": {
+      "via": "articles",
+      "model": "edition"
+    },
+    "author": {
+      "via": "articles",
+      "model": "author"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "articleCardImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Galery": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

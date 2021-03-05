@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "editions",
+  "info": {
+    "name": "Edition",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "articles": {
+      "collection": "article",
+      "via": "edition"
+    },
+    "Picture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "frontpage": {
+      "type": "boolean"
+    },
+    "pdf": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

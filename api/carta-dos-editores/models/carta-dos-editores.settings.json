@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "carta_dos_editores",
+  "info": {
+    "name": "carta dos editores",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Texto": {
+      "type": "richtext"
+    }
+  }
+}
