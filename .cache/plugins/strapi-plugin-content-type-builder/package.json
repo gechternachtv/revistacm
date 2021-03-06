@@ -1,40 +1,12 @@
 {
-  "_from": "strapi-plugin-content-type-builder@3.5.2",
-  "_id": "strapi-plugin-content-type-builder@3.5.2",
-  "_inBundle": false,
-  "_integrity": "sha512-cP5C+aZJm23/ppcbSCGdglGBXclg5u0HT/t65jqCaWzyAAcIrYDBbJkYN1LcbMAsqa33DdjIBDaV4L3Xg2kVfg==",
-  "_location": "/strapi-plugin-content-type-builder",
-  "_phantomChildren": {
-    "@babel/runtime": "7.13.9",
-    "synchronous-promise": "2.0.15",
-    "toposort": "2.0.2"
+  "name": "strapi-plugin-content-type-builder",
+  "version": "3.5.2",
+  "description": "Strapi plugin to create content type (API).",
+  "strapi": {
+    "name": "Content Type Builder",
+    "icon": "paint-brush",
+    "description": "content-type-builder.plugin.description"
   },
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "strapi-plugin-content-type-builder@3.5.2",
-    "name": "strapi-plugin-content-type-builder",
-    "escapedName": "strapi-plugin-content-type-builder",
-    "rawSpec": "3.5.2",
-    "saveSpec": null,
-    "fetchSpec": "3.5.2"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.5.2.tgz",
-  "_shasum": "ec1ff795cd4f9afb345e57705988ddac343cc4b4",
-  "_spec": "strapi-plugin-content-type-builder@3.5.2",
-  "_where": "/home/schnell/Desktop/blog-strapi/my-project",
-  "author": {
-    "name": "Strapi team",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
-  },
-  "bugs": {
-    "url": "https://github.com/strapi/strapi/issues"
-  },
-  "bundleDependencies": false,
   "dependencies": {
     "@buffetjs/core": "3.3.4",
     "@buffetjs/custom": "3.3.4",
@@ -63,15 +35,11 @@
     "strapi-utils": "3.5.2",
     "yup": "^0.27.0"
   },
-  "deprecated": false,
-  "description": "Strapi plugin to create content type (API).",
-  "engines": {
-    "node": ">=10.16.0 <=14.x.x",
-    "npm": ">=6.0.0"
+  "author": {
+    "name": "Strapi team",
+    "email": "hi@strapi.io",
+    "url": "https://strapi.io"
   },
-  "gitHead": "1a472c98a7738ae3746c4a8e535c5e9cfcfe5926",
-  "homepage": "https://github.com/strapi/strapi#readme",
-  "license": "SEE LICENSE IN LICENSE",
   "maintainers": [
     {
       "name": "Strapi team",
@@ -79,15 +47,14 @@
       "url": "https://strapi.io"
     }
   ],
-  "name": "strapi-plugin-content-type-builder",
   "repository": {
     "type": "git",
     "url": "git://github.com/strapi/strapi.git"
   },
-  "strapi": {
-    "name": "Content Type Builder",
-    "icon": "paint-brush",
-    "description": "content-type-builder.plugin.description"
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
   },
-  "version": "3.5.2"
+  "license": "SEE LICENSE IN LICENSE",
+  "gitHead": "1a472c98a7738ae3746c4a8e535c5e9cfcfe5926"
 }

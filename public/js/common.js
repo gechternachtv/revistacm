@@ -1,3 +1,4 @@
+console.log('hello')
 async function graphqlQuery(queryBody) {
     return (await fetch('/graphql', {
         method: 'POST',
