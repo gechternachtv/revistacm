@@ -1,0 +1,84 @@
+
+> my-project@0.1.0 develop
+> strapi develop
+
+
+ Project information
+
+[90m┌────────────────────[39m[90m┬──────────────────────────────────────────────────┐[39m
+[90m│[39m Time               [90m│[39m Fri Mar 12 2021 00:16:44 GMT+0000 (Coordinated … [90m│[39m
+[90m│[39m Launched in        [90m│[39m 2844 ms                                          [90m│[39m
+[90m│[39m Environment        [90m│[39m development                                      [90m│[39m
+[90m│[39m Process PID        [90m│[39m 32420                                            [90m│[39m
+[90m│[39m Version            [90m│[39m 3.5.2 (node v14.16.0)                            [90m│[39m
+[90m│[39m Edition            [90m│[39m Community                                        [90m│[39m
+[90m└────────────────────[39m[90m┴──────────────────────────────────────────────────┘[39m
+
+ Actions available
+
+Welcome back!
+To manage your project 🚀, go to the administration panel at:
+http://localhost:3000/admin
+
+To access the server ⚡️, go to:
+http://localhost:3000
+
+[2021-03-12T00:16:44.167Z] info File changed: /home/adminjulian/strapi/nohup.out
+[2021-03-12T00:16:44.170Z] info The server is restarting
+
+
+ Project information
+
+[90m┌────────────────────[39m[90m┬──────────────────────────────────────────────────┐[39m
+[90m│[39m Time               [90m│[39m Fri Mar 12 2021 00:16:47 GMT+0000 (Coordinated … [90m│[39m
+[90m│[39m Launched in        [90m│[39m 2838 ms                                          [90m│[39m
+[90m│[39m Environment        [90m│[39m development                                      [90m│[39m
+[90m│[39m Process PID        [90m│[39m 32439                                            [90m│[39m
+[90m│[39m Version            [90m│[39m 3.5.2 (node v14.16.0)                            [90m│[39m
+[90m│[39m Edition            [90m│[39m Community                                        [90m│[39m
+[90m└────────────────────[39m[90m┴──────────────────────────────────────────────────┘[39m
+
+ Actions available
+
+Welcome back!
+To manage your project 🚀, go to the administration panel at:
+http://localhost:3000/admin
+
+To access the server ⚡️, go to:
+http://localhost:3000
+
+[2021-03-12T00:16:47.856Z] info File changed: /home/adminjulian/strapi/nohup.out
+[2021-03-12T00:16:47.857Z] info The server is restarting
+
+
+> my-project@0.1.0 develop
+> strapi develop
+
+
+ Project information
+
+[90m┌────────────────────[39m[90m┬──────────────────────────────────────────────────┐[39m
+[90m│[39m Time               [90m│[39m Fri Mar 12 2021 00:17:00 GMT+0000 (Coordinated … [90m│[39m
+[90m│[39m Launched in        [90m│[39m 2979 ms                                          [90m│[39m
+[90m│[39m Environment        [90m│[39m development                                      [90m│[39m
+[90m│[39m Process PID        [90m│[39m 32518                                            [90m│[39m
+[90m│[39m Version            [90m│[39m 3.5.2 (node v14.16.0)                            [90m│[39m
+[90m│[39m Edition            [90m│[39m Community                                        [90m│[39m
+[90m└────────────────────[39m[90m┴──────────────────────────────────────────────────┘[39m
+
+ Actions available
+
+Welcome back!
+To manage your project 🚀, go to the administration panel at:
+http://localhost:3000/admin
+
+To access the server ⚡️, go to:
+http://localhost:3000
+
+[2021-03-12T00:17:00.105Z] info File changed: /home/adminjulian/strapi/nohup.out
+[2021-03-12T00:17:00.108Z] info The server is restarting
+
+
+> my-project@0.1.0 develop
+> strapi develop
+
