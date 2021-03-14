@@ -41,6 +41,14 @@ type UserPermissionsPasswordPayload {
   ok: Boolean!
 }
 
+enum ENUM_ARTICLE_TEMPLATE {
+  template1
+  template2
+  template3
+  template4
+  template5
+}
+
 type Article {
   id: ID!
   created_at: DateTime!
@@ -52,6 +60,8 @@ type Article {
   author: Author
   Description: String
   articleCardImage: UploadFile
+  template: ENUM_ARTICLE_TEMPLATE
+  quotes: [ComponentQuoteQuotes]
   published_at: DateTime
   Galery(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -78,6 +88,7 @@ type ArticleGroupBy {
   author: [ArticleConnectionAuthor]
   Description: [ArticleConnectionDescription]
   articleCardImage: [ArticleConnectionArticleCardImage]
+  template: [ArticleConnectionTemplate]
   published_at: [ArticleConnectionPublished_at]
 }
 
@@ -131,6 +142,11 @@ type ArticleConnectionArticleCardImage {
   connection: ArticleConnection
 }
 
+type ArticleConnectionTemplate {
+  key: String
+  connection: ArticleConnection
+}
+
 type ArticleConnectionPublished_at {
   key: DateTime
   connection: ArticleConnection
@@ -145,6 +161,8 @@ input ArticleInput {
   Description: String
   articleCardImage: ID
   Galery: [ID]
+  template: ENUM_ARTICLE_TEMPLATE
+  quotes: [ComponentQuoteQuoteInput]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -159,6 +177,8 @@ input editArticleInput {
   Description: String
   articleCardImage: ID
   Galery: [ID]
+  template: ENUM_ARTICLE_TEMPLATE
+  quotes: [editComponentQuoteQuoteInput]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -380,7 +400,7 @@ type Category {
   created_at: DateTime!
   updated_at: DateTime!
   Title: String
-  Color: String
+  Class: String
   published_at: DateTime
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
 }
@@ -401,7 +421,7 @@ type CategoryGroupBy {
   created_at: [CategoryConnectionCreated_at]
   updated_at: [CategoryConnectionUpdated_at]
   Title: [CategoryConnectionTitle]
-  Color: [CategoryConnectionColor]
+  Class: [CategoryConnectionClass]
   published_at: [CategoryConnectionPublished_at]
 }
 
@@ -425,7 +445,7 @@ type CategoryConnectionTitle {
   connection: CategoryConnection
 }
 
-type CategoryConnectionColor {
+type CategoryConnectionClass {
   key: String
   connection: CategoryConnection
 }
@@ -438,7 +458,7 @@ type CategoryConnectionPublished_at {
 input CategoryInput {
   articles: [ID]
   Title: String
-  Color: String
+  Class: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -447,7 +467,7 @@ input CategoryInput {
 input editCategoryInput {
   articles: [ID]
   Title: String
-  Color: String
+  Class: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -1047,7 +1067,27 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Article | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnectionId | ArticleConnectionCreated_at | ArticleConnectionUpdated_at | ArticleConnectionTitle | ArticleConnectionContent | ArticleConnectionCategory | ArticleConnectionEdition | ArticleConnectionAuthor | ArticleConnectionDescription | ArticleConnectionArticleCardImage | ArticleConnectionPublished_at | createArticlePayload | updateArticlePayload | deleteArticlePayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionAbout | AuthorConnectionBio | AuthorConnectionPublished_at | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | BannerHome | updateBannerHomePayload | deleteBannerHomePayload | CartaDosEditores | updateCartaDosEditorePayload | deleteCartaDosEditorePayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionTitle | CategoryConnectionColor | CategoryConnectionPublished_at | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Edition | EditionConnection | EditionAggregator | EditionGroupBy | EditionConnectionId | EditionConnectionCreated_at | EditionConnectionUpdated_at | EditionConnectionTitle | EditionConnectionPicture | EditionConnectionFrontpage | EditionConnectionPdf | EditionConnectionPublished_at | createEditionPayload | updateEditionPayload | deleteEditionPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+type ComponentQuoteQuotes {
+  id: ID!
+  quote1: String
+  quote2: String
+  quote3: String
+}
+
+input ComponentQuoteQuoteInput {
+  quote1: String
+  quote2: String
+  quote3: String
+}
+
+input editComponentQuoteQuoteInput {
+  id: ID
+  quote1: String
+  quote2: String
+  quote3: String
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Article | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnectionId | ArticleConnectionCreated_at | ArticleConnectionUpdated_at | ArticleConnectionTitle | ArticleConnectionContent | ArticleConnectionCategory | ArticleConnectionEdition | ArticleConnectionAuthor | ArticleConnectionDescription | ArticleConnectionArticleCardImage | ArticleConnectionTemplate | ArticleConnectionPublished_at | createArticlePayload | updateArticlePayload | deleteArticlePayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionAbout | AuthorConnectionBio | AuthorConnectionPublished_at | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | BannerHome | updateBannerHomePayload | deleteBannerHomePayload | CartaDosEditores | updateCartaDosEditorePayload | deleteCartaDosEditorePayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionTitle | CategoryConnectionClass | CategoryConnectionPublished_at | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Edition | EditionConnection | EditionAggregator | EditionGroupBy | EditionConnectionId | EditionConnectionCreated_at | EditionConnectionUpdated_at | EditionConnectionTitle | EditionConnectionPicture | EditionConnectionFrontpage | EditionConnectionPdf | EditionConnectionPublished_at | createEditionPayload | updateEditionPayload | deleteEditionPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentQuoteQuotes
 
 input InputID {
   id: ID!

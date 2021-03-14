@@ -18,16 +18,16 @@
       "type": "richtext"
     },
     "category": {
-      "model": "category",
-      "via": "articles"
+      "via": "articles",
+      "model": "category"
     },
     "edition": {
-      "via": "articles",
-      "model": "edition"
+      "model": "edition",
+      "via": "articles"
     },
     "author": {
-      "via": "articles",
-      "model": "author"
+      "model": "author",
+      "via": "articles"
     },
     "Description": {
       "type": "text"
@@ -53,6 +53,21 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "template": {
+      "type": "enumeration",
+      "enum": [
+        "template1",
+        "template2",
+        "template3",
+        "template4",
+        "template5"
+      ]
+    },
+    "quotes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quote.quotes"
     }
   }
 }

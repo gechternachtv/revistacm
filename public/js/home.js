@@ -25,7 +25,7 @@ window.addEventListener('load', async () => {
             categories{
           id
           Title
-          Color
+          Class
         }
 
         bannerHome{
@@ -42,6 +42,7 @@ window.addEventListener('load', async () => {
         }
     }
     `);
+    console.log(homeData)
 
     //banner
     homeData.data.bannerHome.galeria.forEach(banner => {
@@ -56,16 +57,20 @@ window.addEventListener('load', async () => {
 
     //categories
     const categories = homeData.data.categories;
-    const articleContainer = document.querySelector('.article-container')
+    const mainContainer = document.querySelector('.main-container')
     categories.forEach(category => {
         const categoryBox = document.createElement('div');
-        categoryBox.classList.add('category-box');
+        categoryBox.classList.add('article-holder-full');
         categoryBox.style.backgroundColor = category.Color;
         categoryBox.innerHTML = `
-            <div id="category-${category.id}" class="category-title">${category.Title}</div>
-            <div id="article-holder-${category.id}" class="article-holder"></div>
+        <div class="article-container">
+          <div class="category-box ${category.Class}">
+              <div id="category-${category.id}" class="category-title">${category.Title}</div>
+              <div id="article-holder-${category.id}" class="article-holder"></div>
+          </div>
+        </div>
         `
-        articleContainer.append(categoryBox)
+        mainContainer.append(categoryBox)
     })
 
     //articles
@@ -78,8 +83,10 @@ window.addEventListener('load', async () => {
         articleBox.innerHTML = `
         <a href="/post?id=${article.id}">
             <div class="article-box__picture"><img src="${article.articleCardImage.url}" /></div>
-            <div class="article-box__title">${article.Title}</div>
-            <div class="article-box__author">${article.author.Name}</div>
+            <div class="article-box__box">
+              <div class="article-box__title">${article.Title}</div>
+              <div class="article-box__author">${article.author.Name}</div>
+            </div>
         </a>
         `
         document.querySelector(`#article-holder-${article.category.id}`).append(articleBox)
@@ -87,7 +94,7 @@ window.addEventListener('load', async () => {
     })
     //carta
     const markd = new Remarkable();
-    document.querySelector('.carta-container').innerHTML = markd.render(homeData.data.cartaDosEditore.Texto)
+    document.querySelector('.carta-container .max-container').innerHTML = markd.render(homeData.data.cartaDosEditore.Texto)
 
 
 })

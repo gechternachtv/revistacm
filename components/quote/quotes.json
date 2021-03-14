@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_quote_quotes",
+  "info": {
+    "name": "quotes",
+    "icon": "quote-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "quote1": {
+      "type": "text"
+    },
+    "quote2": {
+      "type": "text"
+    },
+    "quote3": {
+      "type": "text"
+    }
+  }
+}

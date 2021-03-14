@@ -17,7 +17,7 @@ window.addEventListener('load', async () => {
           url
         }
         category{
-          Color
+          Class
         }
         author{
           id
@@ -37,11 +37,22 @@ window.addEventListener('load', async () => {
     //header
     const articleHeader = document.querySelector('.article-header')
     articleHeader.innerHTML = `
+    <div class="article-header ${articleData.category.Class}">
+    <div class="article-header__border"></div>
+    <div class="article-header__author-card">
     <a href="/colaboradores?id=${articleData.author.id}"> 
-      <img src="${articleData.author.Picture[0].url}"> ${articleData.author.Name}
+      <img src="${articleData.author.Picture[0].url}"> 
+      <span>${articleData.author.Name}</span>
     </a>
+    </div>
+    <div class="article-header__border"></div>
+    </div>
     `
-    articleHeader.style.backgroundColor = articleData.category.Color
+
+
+
+
+    //articleHeader.style.backgroundColor = articleData.category.Color
     //body
     const markd = new Remarkable();
     document.querySelector('.article-container').innerHTML = markd.render(articleData.Content)

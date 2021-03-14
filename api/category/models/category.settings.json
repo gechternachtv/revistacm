@@ -12,13 +12,13 @@
   },
   "attributes": {
     "articles": {
-      "via": "category",
-      "collection": "article"
+      "collection": "article",
+      "via": "category"
     },
     "Title": {
       "type": "string"
     },
-    "Color": {
+    "Class": {
       "type": "string"
     }
   }
