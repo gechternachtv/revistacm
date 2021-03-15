@@ -45,8 +45,6 @@ enum ENUM_ARTICLE_TEMPLATE {
   template1
   template2
   template3
-  template4
-  template5
 }
 
 type Article {
@@ -58,10 +56,9 @@ type Article {
   category: Category
   edition: Edition
   author: Author
-  Description: String
   articleCardImage: UploadFile
   template: ENUM_ARTICLE_TEMPLATE
-  quotes: [ComponentQuoteQuotes]
+  quotes: ComponentQuoteQuotes
   published_at: DateTime
   Galery(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -86,9 +83,9 @@ type ArticleGroupBy {
   category: [ArticleConnectionCategory]
   edition: [ArticleConnectionEdition]
   author: [ArticleConnectionAuthor]
-  Description: [ArticleConnectionDescription]
   articleCardImage: [ArticleConnectionArticleCardImage]
   template: [ArticleConnectionTemplate]
+  quotes: [ArticleConnectionQuotes]
   published_at: [ArticleConnectionPublished_at]
 }
 
@@ -132,11 +129,6 @@ type ArticleConnectionAuthor {
   connection: ArticleConnection
 }
 
-type ArticleConnectionDescription {
-  key: String
-  connection: ArticleConnection
-}
-
 type ArticleConnectionArticleCardImage {
   key: ID
   connection: ArticleConnection
@@ -144,6 +136,11 @@ type ArticleConnectionArticleCardImage {
 
 type ArticleConnectionTemplate {
   key: String
+  connection: ArticleConnection
+}
+
+type ArticleConnectionQuotes {
+  key: ID
   connection: ArticleConnection
 }
 
@@ -158,11 +155,10 @@ input ArticleInput {
   category: ID
   edition: ID
   author: ID
-  Description: String
   articleCardImage: ID
   Galery: [ID]
   template: ENUM_ARTICLE_TEMPLATE
-  quotes: [ComponentQuoteQuoteInput]
+  quotes: ComponentQuoteQuoteInput
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -174,11 +170,10 @@ input editArticleInput {
   category: ID
   edition: ID
   author: ID
-  Description: String
   articleCardImage: ID
   Galery: [ID]
   template: ENUM_ARTICLE_TEMPLATE
-  quotes: [editComponentQuoteQuoteInput]
+  quotes: editComponentQuoteQuoteInput
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -324,77 +319,6 @@ type deleteAuthorPayload {
   author: Author
 }
 
-type BannerHome {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  titulobanner: UploadFile
-  published_at: DateTime
-  galeria(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
-}
-
-input BannerHomeInput {
-  galeria: [ID]
-  titulobanner: ID
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editBannerHomeInput {
-  galeria: [ID]
-  titulobanner: ID
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input updateBannerHomeInput {
-  data: editBannerHomeInput
-}
-
-type updateBannerHomePayload {
-  bannerHome: BannerHome
-}
-
-type deleteBannerHomePayload {
-  bannerHome: BannerHome
-}
-
-type CartaDosEditores {
-  id: ID!
-  created_at: DateTime!
-  updated_at: DateTime!
-  Texto: String
-  published_at: DateTime
-}
-
-input CartaDosEditoreInput {
-  Texto: String
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input editCartaDosEditoreInput {
-  Texto: String
-  published_at: DateTime
-  created_by: ID
-  updated_by: ID
-}
-
-input updateCartaDosEditoreInput {
-  data: editCartaDosEditoreInput
-}
-
-type updateCartaDosEditorePayload {
-  cartaDosEditore: CartaDosEditores
-}
-
-type deleteCartaDosEditorePayload {
-  cartaDosEditore: CartaDosEditores
-}
-
 type Category {
   id: ID!
   created_at: DateTime!
@@ -506,8 +430,12 @@ type Edition {
   Picture: UploadFile
   frontpage: Boolean
   pdf: UploadFile
+  subTitle: String
+  CartaDosEditores: String
+  bannerTitle: UploadFile
   published_at: DateTime
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
+  GaleryHome(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
 
 type EditionConnection {
@@ -529,6 +457,9 @@ type EditionGroupBy {
   Picture: [EditionConnectionPicture]
   frontpage: [EditionConnectionFrontpage]
   pdf: [EditionConnectionPdf]
+  subTitle: [EditionConnectionSubTitle]
+  CartaDosEditores: [EditionConnectionCartaDosEditores]
+  bannerTitle: [EditionConnectionBannerTitle]
   published_at: [EditionConnectionPublished_at]
 }
 
@@ -567,6 +498,21 @@ type EditionConnectionPdf {
   connection: EditionConnection
 }
 
+type EditionConnectionSubTitle {
+  key: String
+  connection: EditionConnection
+}
+
+type EditionConnectionCartaDosEditores {
+  key: String
+  connection: EditionConnection
+}
+
+type EditionConnectionBannerTitle {
+  key: ID
+  connection: EditionConnection
+}
+
 type EditionConnectionPublished_at {
   key: DateTime
   connection: EditionConnection
@@ -578,6 +524,10 @@ input EditionInput {
   Picture: ID
   frontpage: Boolean
   pdf: ID
+  subTitle: String
+  CartaDosEditores: String
+  GaleryHome: [ID]
+  bannerTitle: ID
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -589,6 +539,10 @@ input editEditionInput {
   Picture: ID
   frontpage: Boolean
   pdf: ID
+  subTitle: String
+  CartaDosEditores: String
+  GaleryHome: [ID]
+  bannerTitle: ID
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -1087,7 +1041,7 @@ input editComponentQuoteQuoteInput {
   quote3: String
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Article | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnectionId | ArticleConnectionCreated_at | ArticleConnectionUpdated_at | ArticleConnectionTitle | ArticleConnectionContent | ArticleConnectionCategory | ArticleConnectionEdition | ArticleConnectionAuthor | ArticleConnectionDescription | ArticleConnectionArticleCardImage | ArticleConnectionTemplate | ArticleConnectionPublished_at | createArticlePayload | updateArticlePayload | deleteArticlePayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionAbout | AuthorConnectionBio | AuthorConnectionPublished_at | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | BannerHome | updateBannerHomePayload | deleteBannerHomePayload | CartaDosEditores | updateCartaDosEditorePayload | deleteCartaDosEditorePayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionTitle | CategoryConnectionClass | CategoryConnectionPublished_at | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Edition | EditionConnection | EditionAggregator | EditionGroupBy | EditionConnectionId | EditionConnectionCreated_at | EditionConnectionUpdated_at | EditionConnectionTitle | EditionConnectionPicture | EditionConnectionFrontpage | EditionConnectionPdf | EditionConnectionPublished_at | createEditionPayload | updateEditionPayload | deleteEditionPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentQuoteQuotes
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Article | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnectionId | ArticleConnectionCreated_at | ArticleConnectionUpdated_at | ArticleConnectionTitle | ArticleConnectionContent | ArticleConnectionCategory | ArticleConnectionEdition | ArticleConnectionAuthor | ArticleConnectionArticleCardImage | ArticleConnectionTemplate | ArticleConnectionQuotes | ArticleConnectionPublished_at | createArticlePayload | updateArticlePayload | deleteArticlePayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionAbout | AuthorConnectionBio | AuthorConnectionPublished_at | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionTitle | CategoryConnectionClass | CategoryConnectionPublished_at | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Edition | EditionConnection | EditionAggregator | EditionGroupBy | EditionConnectionId | EditionConnectionCreated_at | EditionConnectionUpdated_at | EditionConnectionTitle | EditionConnectionPicture | EditionConnectionFrontpage | EditionConnectionPdf | EditionConnectionSubTitle | EditionConnectionCartaDosEditores | EditionConnectionBannerTitle | EditionConnectionPublished_at | createEditionPayload | updateEditionPayload | deleteEditionPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentQuoteQuotes
 
 input InputID {
   id: ID!
@@ -1112,8 +1066,6 @@ type Query {
   author(id: ID!, publicationState: PublicationState): Author
   authors(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Author]
   authorsConnection(sort: String, limit: Int, start: Int, where: JSON): AuthorConnection
-  bannerHome(publicationState: PublicationState): BannerHome
-  cartaDosEditore(publicationState: PublicationState): CartaDosEditores
   category(id: ID!, publicationState: PublicationState): Category
   categories(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Category]
   categoriesConnection(sort: String, limit: Int, start: Int, where: JSON): CategoryConnection
@@ -1142,10 +1094,6 @@ type Mutation {
   createAuthor(input: createAuthorInput): createAuthorPayload
   updateAuthor(input: updateAuthorInput): updateAuthorPayload
   deleteAuthor(input: deleteAuthorInput): deleteAuthorPayload
-  updateBannerHome(input: updateBannerHomeInput): updateBannerHomePayload
-  deleteBannerHome: deleteBannerHomePayload
-  updateCartaDosEditore(input: updateCartaDosEditoreInput): updateCartaDosEditorePayload
-  deleteCartaDosEditore: deleteCartaDosEditorePayload
   createCategory(input: createCategoryInput): createCategoryPayload
   updateCategory(input: updateCategoryInput): updateCategoryPayload
   deleteCategory(input: deleteCategoryInput): deleteCategoryPayload

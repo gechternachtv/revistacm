@@ -12,8 +12,8 @@
   },
   "attributes": {
     "articles": {
-      "collection": "article",
-      "via": "category"
+      "via": "category",
+      "collection": "article"
     },
     "Title": {
       "type": "string"

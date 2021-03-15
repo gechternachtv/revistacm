@@ -42,6 +42,34 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "CartaDosEditores": {
+      "type": "richtext"
+    },
+    "GaleryHome": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "bannerTitle": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

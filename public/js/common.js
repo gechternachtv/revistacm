@@ -1,6 +1,3 @@
-
-
-
 console.log('Desenvolvido por: Gabriel Echternacht')
 async function graphqlQuery(queryBody) {
     return (await fetch('/graphql', {

@@ -18,8 +18,8 @@
       "type": "richtext"
     },
     "category": {
-      "via": "articles",
-      "model": "category"
+      "model": "category",
+      "via": "articles"
     },
     "edition": {
       "model": "edition",
@@ -28,9 +28,6 @@
     "author": {
       "model": "author",
       "via": "articles"
-    },
-    "Description": {
-      "type": "text"
     },
     "articleCardImage": {
       "model": "file",
@@ -59,14 +56,12 @@
       "enum": [
         "template1",
         "template2",
-        "template3",
-        "template4",
-        "template5"
+        "template3"
       ]
     },
     "quotes": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "quote.quotes"
     }
   }

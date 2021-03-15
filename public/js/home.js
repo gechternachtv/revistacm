@@ -8,6 +8,15 @@ window.addEventListener('load', async () => {
         editions(where: {
           ${edition}
         }){
+          subTitle
+      		CartaDosEditores
+      		GaleryHome{
+            	url
+          }
+      		bannerTitle{
+            url
+          }
+      
           articles{
             Title
             id
@@ -28,32 +37,20 @@ window.addEventListener('load', async () => {
           Class
         }
 
-        bannerHome{
-          galeria{
-            url
-          }
-          titulobanner{
-            url
-          }
-        }
-
-        cartaDosEditore{
-          Texto
-        }
     }
     `);
     console.log(homeData)
 
     //banner
-    homeData.data.bannerHome.galeria.forEach(banner => {
+    homeData.data.editions[0].GaleryHome.forEach(banner => {
         const bannerEl = document.createElement('img');
         bannerEl.setAttribute('src', banner.url)
         document.querySelector('.banner-principal').append(bannerEl)
 
     })
     //banner-title
-    document.querySelector('.banner-title').innerHTML = `<img src="${homeData.data.bannerHome.titulobanner.url}"/>`
-
+    document.querySelector('.banner-title').innerHTML = `<img src="${homeData.data.editions[0].bannerTitle.url}"/>`
+    document.querySelector('.banner-title__sub').innerHTML = homeData.data.editions[0].subTitle
 
     //categories
     const categories = homeData.data.categories;
@@ -94,7 +91,7 @@ window.addEventListener('load', async () => {
     })
     //carta
     const markd = new Remarkable();
-    document.querySelector('.carta-container .max-container').innerHTML = markd.render(homeData.data.cartaDosEditore.Texto)
+    document.querySelector('.carta-container .max-container').innerHTML = markd.render(homeData.data.editions[0].CartaDosEditores)
 
 
 })

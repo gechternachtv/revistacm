@@ -20,7 +20,7 @@ const allAuthors = async () => {
       }
   }
   `);
-    console.log(authorData)
+    console.log('authorData',authorData)
     const authors = authorData.data.authors;
 
     //card grid
@@ -29,9 +29,14 @@ const allAuthors = async () => {
         authorCard.classList.add('author-card')
         authorCard.innerHTML = `
     <a href="?id=${author.id}"> 
-      <img src="${author.Picture[0].url}"> 
-      <div class="author-card__name">${author.Name}</div>
-      <div class="author-card__about">${author.About}</div>
+      <img src="${author.Picture[0] ? author.Picture[0].url : 'img/authorpic.png'}">
+      <div>
+        <div class="author-card__name">${author.Name}</div>
+        <div class="author-card__about">${author.About}</div>
+        <div class="author-card__bio">${author.bio}</div>
+      </div>
+
+      <div class="author-card__tooltip">${author.bio}</div>
     </a>
   `
         document.querySelector('.author-card-container').append(authorCard)
@@ -47,13 +52,20 @@ const singleAuthor = async () => {
       }){
         About
         Name
+        bio
         Picture{
           url
         }
         articles{
           id
           Title
-          Description
+          edition{
+            id
+          }
+          category{
+            Title
+            Class
+          }
           created_at
           articleCardImage{
             url
@@ -63,7 +75,7 @@ const singleAuthor = async () => {
       }
   }
 `);
-    //console.log(authorData)
+    console.log('authorData',authorData)
     const authors = authorData.data.authors;
 
     //card grid
@@ -71,10 +83,18 @@ const singleAuthor = async () => {
         const authorCard = document.createElement('div');
         authorCard.classList.add('author-card')
         authorCard.innerHTML = `
-  <img src="${author.Picture[0].url}"> 
-  <div class="author-card__name">${author.Name}</div>
-  <div class="author-card__about">${author.About}</div>
-`
+        <a href="?id=${author.id}"> 
+        <img src="${author.Picture[0] ? author.Picture[0].url : 'img/authorpic.png'}">
+        <div>
+          <div class="author-card__name">${author.Name}</div>
+          <div class="author-card__about">${author.About}</div>
+          <div class="author-card__bio">${author.bio}</div>
+        </div>
+  
+        <div class="author-card__tooltip">${author.bio}</div>
+      </a>
+`       
+        document.querySelector('.author-card-container').classList.add('single-author')
         document.querySelector('.author-card-container').append(authorCard)
     });
 
@@ -85,9 +105,13 @@ const singleAuthor = async () => {
         const articleBox = document.createElement('div');
         articleBox.classList.add('article-box');
         articleBox.innerHTML = `
-        <a href="./post?id=${article.id}">
+        <a href="/post?id=${article.id}">
             <div class="article-box__picture"><img src="${article.articleCardImage.url}" /></div>
-            <div class="article-box__title">${article.Title}</div>
+            <div class="article-box__box">
+              <div class="article-box__title">${article.Title}</div>
+              <div class="article-card__edition">Revista ${article.edition.id}</div>
+              <div class="article-box__category ${article.category.Class}">${article.category.Title}</div>
+            </div>
         </a>
         `
         articlesContainer.append(articleBox);

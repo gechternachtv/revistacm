@@ -1,3 +1,128 @@
+
+/* The work below, CSSBox, is released under the Creative Commons
+   Attribution-ShareAlike 4.0 license and is available on
+   https://github.com/TheLastProject/CSSBox. You are not required to add
+   additional credit to your website, just leave the above text in this file */
+   div.cssbox {
+    display: inline-block;
+  }
+  
+  span.cssbox_full {
+    z-index: 999999;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    cursor: default;
+    transition: opacity 0.5s linear;
+  }
+  
+  span.cssbox_full img {
+    position: fixed;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    max-height: 90%;
+    max-width: 90%;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px black;
+  }
+  
+  a.cssbox_close,
+  a.cssbox_prev,
+  a.cssbox_next {
+    z-index: 999999;
+    position: fixed;
+    text-decoration: none;
+    visibility: hidden;
+    color: white;
+    font-size: 36px;
+  }
+  
+  a.cssbox_close {
+    top: 1%;
+    right: 1%
+  }
+  
+  a.cssbox_close::after {
+    content: '\00d7';
+  }
+  
+  a.cssbox_prev,
+  a.cssbox_next {
+    top: 50%;
+    transform: translate(0%, -50%);
+  }
+  
+  a.cssbox_prev {
+    left: 5%;
+  }
+  
+  a.cssbox_next {
+    right: 5%;
+  }
+  
+  a:target ~ a.cssbox_close,
+  a:target ~ a.cssbox_prev,
+  a:target ~ a.cssbox_next {
+    visibility: visible;
+  }
+  
+  a:target > img.cssbox_thumb + span.cssbox_full {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: initial;
+  }
+  /* This is the end of CSSBox */
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
     font-family: 'Kiona-Bold';
     src: url('Kiona-Bold.ttf') format('truetype');
@@ -511,10 +636,38 @@ transform-origin: 17px 33px;
 
 .banner-title {
     text-align: center;
-    margin: 41px;
+    margin: auto;
   }
-
+  .banner-title img{
+      max-width:100%;
+  }
+  .title.max-container{
+      margin:41px auto;
+      text-align:center;
+  }
+ 
   
+  /* Element | http://localhost:3000/index-dev.html */
+  
+  .title > div:nth-child(3) {
+    font-size: 14px;
+    margin-top: 7px;
+  }
+  
+  /* Element | http://localhost:3000/index-dev.html */
+  
+  .title > h1:nth-child(1) > span:nth-child(1) {
+    letter-spacing: 6px;
+  }
+  
+  /* Element | http://localhost:3000/index-dev.html */
+  
+  .title > h1:nth-child(1) > div:nth-child(2) {
+    font-family: 'Kiona-Bold';
+    margin-bottom: 13px;
+  }
+  
+
 .article-box {
     background-color: transparent;
     height: 100%;
@@ -596,7 +749,7 @@ div.article-holder-full:nth-child(2) {
     width: 90%;
     margin: auto;
     margin-top: -11px;
-    z-index: 1;
+
     position: relative;
     padding: 5px;
     box-sizing: border-box;
@@ -614,6 +767,7 @@ div.article-holder-full:nth-child(2) {
         background-color:white;
         border-radius: 60px;
         margin-right:14px;
+        max-width:128px;
     }
 
     .article-header a{
@@ -667,7 +821,7 @@ div.article-holder-full:nth-child(2) {
    text-align: center;
    font-size: 33px;
    padding: 35px 0;
-   margin-top: -47px;
+   margin-top: -49px;
    box-sizing: border-box;
    border-right: 91px solid white;
    border-left: 91px solid white;
@@ -862,3 +1016,304 @@ div.article-holder-full:nth-child(2) {
   }
   
 
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  @media only screen and (max-width: 991px) {
+
+
+
+/* style.css | http://localhost:3000/style.css */
+
+.article-holder {
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, 154px); */
+    /* grid-gap: 32px 10px; */
+    /* padding: 10px 0; */
+    padding:0px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    box-sizing: border-box;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(300px);
+    scroll-snap-type: y mandatory;
+  }
+  
+  .article-box {
+    /* height: 100%; */
+    /* width: 100%; */
+    height: auto;
+    width: auto;
+    min-width: 154px;
+    margin-right: 22px;
+    padding: 0 24px;
+    scroll-snap-align: start;
+  }
+  
+  .category-box {
+    box-sizing: border-box;
+  }
+  
+/* style.css | http://localhost:3000/style.css */
+
+.category-box.documento-template .category-title, .category-box.resenha-template .category-title {
+    /* border-right: 91px solid white; */
+    /* border-left: 91px solid white; */
+    border-right: 41px solid white;
+    border-left: 41px solid white;
+  }
+  
+  .category-box.resenha-template .category-title {
+    /* border-right: 182px solid white; */
+    /* border-left: 182px solid white; */
+    border-right: 41px solid white;
+    border-left: 41px solid white;
+  }
+  
+}
+
+.post-container h1{
+    font-weight: bold;
+    font-size:25px
+}
+
+
+
+/*post templates:===================================*/
+
+/*quotes*/
+.quoteEl{
+    background-color:#f4f4f4;
+    color:#9b9b9b;
+    position: absolute;
+    max-width: 140px;
+    text-align: center;
+    padding:20px 10px;
+    font-size:14px;
+  }
+  
+  .quoteEl:before{
+    content:'';
+    display: block;
+    width:50px;
+    height:50px;
+    background-color:turquoise;
+    position:absolute;
+    top:-29px;
+    left:-10px
+    
+  }
+  
+  .quoteEl1{
+
+    right: -200px;
+    bottom:-180px;
+  }
+  
+  .quoteEl2{
+
+    left: -200px;
+    top:20px;
+  }
+  
+  .quoteEl3{
+
+    right: -200px;
+    bottom:180px;
+  }
+  
+/*quotes*/
+  
+.template1 .boof img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    display:block;
+  }
+  
+  .template1 .boof{
+    display:flex;
+    margin-right:auto;
+    width: 100%;
+  }
+  
+  .template1 .boof:nth-child(odd){
+    justify-content: flex-end;
+    margin-left:auto;
+    margin-right: unset;
+  }
+
+  .template1 .article-Banner.boof{
+    margin:auto;
+    width: 100%;
+    justify-content: center;
+  }
+
+
+
+
+
+
+  .template2 .boof img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    display:block;
+    
+  }
+  
+  .template2 .boof{
+    display:flex;
+    margin-right:auto;
+    margin-left:-100px;
+    width: 100%;
+  }
+  
+  .template2 .boof:nth-child(even){
+    justify-content: flex-end;
+    margin-right:-100px;
+    margin-left:auto;
+  }
+
+  .template2 .article-Banner.boof{
+    margin:auto;
+    justify-content: center;
+  }
+
+
+
+/*post templates:===================================*/
+
+.galery-container{
+    max-width:850px;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, 170px);
+    grid-gap:15px;
+}
+
+.galery-container img{
+    max-width:100%;
+}
+
+/*author page*/
+
+.author-page {
+  background-color:#eaeaea;
+  padding: 54px 0;
+}
+
+.author-card-container{
+
+  margin:auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 290px);
+  grid-template-rows: auto auto;
+  grid-gap:15px;
+  grid-gap:5px;
+  width: 90%;
+max-width: 1300px;
+}
+
+
+.author-card a{
+
+  display:grid;
+  grid-template-columns: 111px auto;
+font-size: 13px;
+  grid-gap:0 10px;
+  color: black;
+text-decoration: none;
+position:relative;
+}
+
+
+.author-card img{
+
+  max-width:100%;
+}
+
+.author-card__name{
+  padding-top: 21px;
+font-weight: bold;
+font-size: 17px;
+}
+
+.author-card__bio{
+  overflow: hidden;
+max-height: 46px;
+opacity: 0.3;
+}
+
+.author-card__bio{
+  position: relative;
+  max-width: 85%;
+}
+
+.author-card__bio:before{
+  content:'';
+  display: block;
+
+  position: absolute;
+  width:100%;
+  height: 100%;
+  opacity: 1;
+  box-shadow: inset -15px -11px 10px #eaeaea;
+}
+
+.author-card__tooltip{
+  background-color:#494d49;
+  color:white;
+  padding:13px;
+  position:absolute;
+  max-width:200px;
+  left:40px;
+  top: 40px;
+  opacity: 0;
+  visibility:hidden;
+  transition:opacity .2s;
+  z-index:1;
+}
+
+.author-card__tooltip:hover,.author-card:hover .author-card__tooltip{
+  opacity: 1;
+  visibility:visible;
+  
+}
+.single-author-articles.article-container{
+  grid-template-columns: repeat(auto-fit, 167px);
+}
+
+/* style.css | http://localhost:3000/style.css */
+
+.article-box__category {
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  min-height: 59px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+}
+
+.author-card-container.single-author{
+  justify-content: center;
+  margin-bottom:33px;
+}
+
+.article-card__edition{
+  font-size:13px;
+  opacity:0.5;
+}
