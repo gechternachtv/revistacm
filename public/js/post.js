@@ -23,12 +23,16 @@ window.addEventListener('load', async () => {
           quote2
           quote3
         }
+        
+        saibamais
+
         category{
           Class
         }
         author{
           id
           Name
+          bio
           Picture{
             url
           }
@@ -81,9 +85,9 @@ window.addEventListener('load', async () => {
         newEl.classList.add('cssbox')
         newEl.innerHTML = `
         <a id="galerypic-${i}" href="#galerypic-${i}">
-        <img lloadingoad=lazy class="cssbox_thumb" src="${picture.url}">
+        <img loading="lazy" class="cssbox_thumb" src="${picture.url}">
         <span class="cssbox_full">
-          <img loading=lazy src="${picture.url}">
+          <img loading="lazy" src="${picture.url}">
         </span>
       </a>
       <a class="cssbox_close" href="#void"></a>
@@ -122,5 +126,30 @@ if (pNumber){
   }
 }
 
+//saibamais
+
+console.log(articleData.saibamais);
+console.log(articleData.author.bio);
+
+const saibaMaisCont = document.querySelector('.saiba-mais-container');
+
+if(articleData.saibamais){
+  const el= document.createElement('div');
+  el.classList.add('saibamaix-box')
+  el.innerHTML = `
+  <img class="saibamaix-box__img" src="img/authorpic.png"/>
+  <div>${articleData.saibamais}</div>
+  `
+  saibaMaisCont.append(el)
+}
+
+if(articleData.author.bio){
+  const el= document.createElement('div');
+  el.classList.add('saibamaix-box')
+  el.innerHTML = `
+  <a href="#" class="saibamaix-box__img"><img src="${articleData.author.Picture[0] ? articleData.author.Picture[0].url : 'img/authorpic.png'}"/></a>
+  <div>${articleData.author.bio}</div>`
+  saibaMaisCont.append(el)
+}
 
 })

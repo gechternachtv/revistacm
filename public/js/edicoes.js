@@ -11,6 +11,9 @@ window.addEventListener('load', async () => {
             Picture{
                 url
             }
+          	pdf{
+              url
+            }
           }
     }
     `);
@@ -25,12 +28,11 @@ window.addEventListener('load', async () => {
     editions.forEach(edition => {
         console.log(edition);
         const editionBox = document.createElement('div');
-        editionBox.classList.add('article-box');
+        editionBox.classList.add('edition-box')
         editionBox.innerHTML = `
-            <a href="/?ed=${edition.id}">
-                <div class="article-box__picture"><img src="${edition.Picture.url}" /></div>
-                <div class="article-box__title">${edition.Title}</div>
-            </a>
+                <div class="edition-box__picture"><img alt="${edition.Title}" src="${edition.Picture.url}" /></div>
+                <a class="edition-box__online" href="/?ed=${edition.id}"><i class="fas fa-link"></i> Edição online</a>
+                ${edition.pdf ? '<a class="edition-box__pdf" target="_blank"1 href="'+edition.pdf.url+'"><i class="far fa-file-pdf"></i>PDF</a>' : ''}
             `
         edicoesContainer.append(editionBox)
 

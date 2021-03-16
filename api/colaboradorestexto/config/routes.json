@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/colaboradorestexto",
+      "handler": "colaboradorestexto.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/colaboradorestexto",
+      "handler": "colaboradorestexto.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/colaboradorestexto",
+      "handler": "colaboradorestexto.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

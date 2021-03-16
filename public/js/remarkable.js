@@ -2814,7 +2814,7 @@
                     l = e[t].title ? ' title="' + i(o(e[t].title)) + '"' : "",
                     a = ' alt="' + (e[t].alt ? i(o(s(e[t].alt))) : "") + '"',
                     c = r.xhtmlOut ? " /" : "";
-                return "<img" + n + a + l + c + ">"
+                return "<img loading=lazy" + n + a + l + c + ">"
             }, l.table_open = function() {
                 return "<table>\n"
             }, l.table_close = function() {

@@ -5,6 +5,10 @@ console.log(postId);
 const allAuthors = async () => {
     const authorData = await graphqlQuery(`
   query{
+    colaboradorestexto{
+      colaboradorestexto
+    }
+    
       authors{
         id
         About
@@ -22,8 +26,13 @@ const allAuthors = async () => {
   `);
     console.log('authorData',authorData)
     const authors = authorData.data.authors;
-
+    const markd = new Remarkable();
+    
+    document.querySelector('.author-card-text').innerHTML = authorData.data.colaboradorestexto ? markd.render(authorData.data.colaboradorestexto.colaboradorestexto) : ''
     //card grid
+
+
+
     authors.forEach(author => {
         const authorCard = document.createElement('div');
         authorCard.classList.add('author-card')
@@ -39,7 +48,7 @@ const allAuthors = async () => {
       <div class="author-card__tooltip">${author.bio}</div>
     </a>
   `
-        document.querySelector('.author-card-container').append(authorCard)
+        document.querySelector('.author-card-grid').append(authorCard)
     });
 
 }
@@ -95,7 +104,7 @@ const singleAuthor = async () => {
       </a>
 `       
         document.querySelector('.author-card-container').classList.add('single-author')
-        document.querySelector('.author-card-container').append(authorCard)
+        document.querySelector('.author-card-grid').append(authorCard)
     });
 
     const articlesContainer = document.querySelector('.single-author-articles');

@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "colaboradorestextos",
+  "info": {
+    "name": "colaboradorestexto"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "colaboradorestexto": {
+      "type": "richtext"
+    }
+  }
+}

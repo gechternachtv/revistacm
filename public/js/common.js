@@ -81,7 +81,6 @@ class navComponent extends HTMLElement {
     
                         <li><a href="/colaboradores">colaboradores</a></li>
                         <li><a href="/edicoes">revistas anteriores</a></li>
-                        <li><a href="/edicoes">revistas em PDF</a></li>
                         <li><a href="#">fale conosco</a></li>
     
                     </ul>
@@ -127,7 +126,6 @@ class footerComponent extends HTMLElement {
 
                     <li><a href=""> colaboradores </a></li>
                     <li><a href="">revistas anteriores</a></li>
-                    <li><a href="">revistas em PDF</a></li>
                     <li><a href="">fale conosco</a></li>
 
                 </ul>
@@ -150,12 +148,12 @@ class footerComponent extends HTMLElement {
                     <h2>Instituidores e Mantenedores</h2>
                 </header>
                 <article>
-                    <img src="img/Marca_-_ABCE.png" alt="">
-                    <img src="img/Marca_-_CEMIG.png" alt="">
-                    <img src="img/Marca_-_LIGHT.png" alt="">
-                    <img src="img/Marca_-_CEEE.png" alt="">
-                    <img src="img/Marca_-_ITAIPU.png" alt="">
-                    <img src="img/Marca_-_ELETROBRAS.png" alt="">
+                    <img loading="lazy" src="img/Marca_-_ABCE.png" alt="">
+                    <img loading="lazy" src="img/Marca_-_CEMIG.png" alt="">
+                    <img loading="lazy" src="img/Marca_-_LIGHT.png" alt="">
+                    <img loading="lazy" src="img/Marca_-_CEEE.png" alt="">
+                    <img loading="lazy" src="img/Marca_-_ITAIPU.png" alt="">
+                    <img loading="lazy" src="img/Marca_-_ELETROBRAS.png" alt="">
 
 
                 </article>
@@ -167,4 +165,34 @@ class footerComponent extends HTMLElement {
     }
 }
 
-window.customElements.define(`footer-component`, footerComponent)
+window.customElements.define(`footer-component`, footerComponent);
+
+
+
+
+
+
+
+
+// class lazyImg extends HTMLElement {
+//     constructor() {
+//         super();
+//           let observer = new IntersectionObserver(e=>{
+//             console.log('tinkle tinkle hoy!', e);
+
+//                     setTimeout(()=>{
+//                         this.outerHTML = `
+//                         <img src="${this.getAttribute('src')}">
+//                     `;
+//                     },2000)
+
+//             }, 
+//               {
+//                 rootMargin: "0px 0px 150px 0px",
+//               });
+
+//           observer.observe(this)
+//     }
+// }
+
+// window.customElements.define(`lazy-img`, lazyImg);

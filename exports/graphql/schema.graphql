@@ -59,6 +59,7 @@ type Article {
   articleCardImage: UploadFile
   template: ENUM_ARTICLE_TEMPLATE
   quotes: ComponentQuoteQuotes
+  saibamais: String
   published_at: DateTime
   Galery(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -86,6 +87,7 @@ type ArticleGroupBy {
   articleCardImage: [ArticleConnectionArticleCardImage]
   template: [ArticleConnectionTemplate]
   quotes: [ArticleConnectionQuotes]
+  saibamais: [ArticleConnectionSaibamais]
   published_at: [ArticleConnectionPublished_at]
 }
 
@@ -144,6 +146,11 @@ type ArticleConnectionQuotes {
   connection: ArticleConnection
 }
 
+type ArticleConnectionSaibamais {
+  key: String
+  connection: ArticleConnection
+}
+
 type ArticleConnectionPublished_at {
   key: DateTime
   connection: ArticleConnection
@@ -159,6 +166,7 @@ input ArticleInput {
   Galery: [ID]
   template: ENUM_ARTICLE_TEMPLATE
   quotes: ComponentQuoteQuoteInput
+  saibamais: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -174,6 +182,7 @@ input editArticleInput {
   Galery: [ID]
   template: ENUM_ARTICLE_TEMPLATE
   quotes: editComponentQuoteQuoteInput
+  saibamais: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -420,6 +429,40 @@ input deleteCategoryInput {
 
 type deleteCategoryPayload {
   category: Category
+}
+
+type Colaboradorestexto {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  colaboradorestexto: String
+  published_at: DateTime
+}
+
+input ColaboradorestextoInput {
+  colaboradorestexto: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editColaboradorestextoInput {
+  colaboradorestexto: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input updateColaboradorestextoInput {
+  data: editColaboradorestextoInput
+}
+
+type updateColaboradorestextoPayload {
+  colaboradorestexto: Colaboradorestexto
+}
+
+type deleteColaboradorestextoPayload {
+  colaboradorestexto: Colaboradorestexto
 }
 
 type Edition {
@@ -1041,7 +1084,7 @@ input editComponentQuoteQuoteInput {
   quote3: String
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Article | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnectionId | ArticleConnectionCreated_at | ArticleConnectionUpdated_at | ArticleConnectionTitle | ArticleConnectionContent | ArticleConnectionCategory | ArticleConnectionEdition | ArticleConnectionAuthor | ArticleConnectionArticleCardImage | ArticleConnectionTemplate | ArticleConnectionQuotes | ArticleConnectionPublished_at | createArticlePayload | updateArticlePayload | deleteArticlePayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionAbout | AuthorConnectionBio | AuthorConnectionPublished_at | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionTitle | CategoryConnectionClass | CategoryConnectionPublished_at | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Edition | EditionConnection | EditionAggregator | EditionGroupBy | EditionConnectionId | EditionConnectionCreated_at | EditionConnectionUpdated_at | EditionConnectionTitle | EditionConnectionPicture | EditionConnectionFrontpage | EditionConnectionPdf | EditionConnectionSubTitle | EditionConnectionCartaDosEditores | EditionConnectionBannerTitle | EditionConnectionPublished_at | createEditionPayload | updateEditionPayload | deleteEditionPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentQuoteQuotes
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Article | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnectionId | ArticleConnectionCreated_at | ArticleConnectionUpdated_at | ArticleConnectionTitle | ArticleConnectionContent | ArticleConnectionCategory | ArticleConnectionEdition | ArticleConnectionAuthor | ArticleConnectionArticleCardImage | ArticleConnectionTemplate | ArticleConnectionQuotes | ArticleConnectionSaibamais | ArticleConnectionPublished_at | createArticlePayload | updateArticlePayload | deleteArticlePayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionAbout | AuthorConnectionBio | AuthorConnectionPublished_at | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionTitle | CategoryConnectionClass | CategoryConnectionPublished_at | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Colaboradorestexto | updateColaboradorestextoPayload | deleteColaboradorestextoPayload | Edition | EditionConnection | EditionAggregator | EditionGroupBy | EditionConnectionId | EditionConnectionCreated_at | EditionConnectionUpdated_at | EditionConnectionTitle | EditionConnectionPicture | EditionConnectionFrontpage | EditionConnectionPdf | EditionConnectionSubTitle | EditionConnectionCartaDosEditores | EditionConnectionBannerTitle | EditionConnectionPublished_at | createEditionPayload | updateEditionPayload | deleteEditionPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentQuoteQuotes
 
 input InputID {
   id: ID!
@@ -1069,6 +1112,7 @@ type Query {
   category(id: ID!, publicationState: PublicationState): Category
   categories(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Category]
   categoriesConnection(sort: String, limit: Int, start: Int, where: JSON): CategoryConnection
+  colaboradorestexto(publicationState: PublicationState): Colaboradorestexto
   edition(id: ID!, publicationState: PublicationState): Edition
   editions(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Edition]
   editionsConnection(sort: String, limit: Int, start: Int, where: JSON): EditionConnection
@@ -1097,6 +1141,8 @@ type Mutation {
   createCategory(input: createCategoryInput): createCategoryPayload
   updateCategory(input: updateCategoryInput): updateCategoryPayload
   deleteCategory(input: deleteCategoryInput): deleteCategoryPayload
+  updateColaboradorestexto(input: updateColaboradorestextoInput): updateColaboradorestextoPayload
+  deleteColaboradorestexto: deleteColaboradorestextoPayload
   createEdition(input: createEditionInput): createEditionPayload
   updateEdition(input: updateEditionInput): updateEditionPayload
   deleteEdition(input: deleteEditionInput): deleteEditionPayload

@@ -44,7 +44,7 @@ window.addEventListener('load', async () => {
     //banner
     homeData.data.editions[0].GaleryHome.forEach(banner => {
         const bannerEl = document.createElement('img');
-        bannerEl.setAttribute('src', banner.url)
+        bannerEl.setAttribute('src', banner.url);
         document.querySelector('.banner-principal').append(bannerEl)
 
     })

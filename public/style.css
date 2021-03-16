@@ -5,8 +5,45 @@
    additional credit to your website, just leave the above text in this file */
    div.cssbox {
     display: inline-block;
+    max-width: 200px;
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    border:5px solid transparent;
   }
-  
+
+  .cssbox:nth-child(2n+0) {
+    background: transparent;
+    justify-content: flex-start;
+    border:5px solid transparent;
+    border-left:20px solid transparent;
+  }
+  .cssbox:nth-child(3n+0) {
+    background: transparent;
+    border:5px solid transparent;
+    border-right:20px solid transparent;
+    border-top:30px solid transparent;
+  }
+  .cssbox:nth-child(4n+0) {
+    background: transparent;
+    border:5px solid transparent;
+    justify-content: flex-end;
+    border-left:20px solid transparent;
+    border-bottom:20px solid transparent;
+  }
+  .cssbox:nth-child(5n+0) {
+    background: transparent;
+    border:5px solid transparent;
+    border:20px solid transparent;
+  }
+  .cssbox:nth-child(8n+0) {
+    background: transparent;
+    border:5px solid transparent;
+    justify-content: center;
+    border-right:20px solid transparent;
+    border-top:10px solid transparent;
+  }
+
   span.cssbox_full {
     z-index: 999999;
     position: fixed;
@@ -252,7 +289,7 @@
                 
                 .max-container {
                     width: 85%;
-                    max-width: 700px;
+                    max-width: 810px;
                     margin: 0 auto
                 }
                 /*header*/
@@ -279,7 +316,7 @@
                 
                 .menu-container div {
                     display: grid;
-                    grid-template-columns: 1fr 700px minmax(112px, 1fr);
+                    grid-template-columns: 1fr 810px minmax(112px, 1fr);
                     justify-content: space-between;
                     margin: 0 auto;
                     width: 90%;
@@ -726,19 +763,20 @@ div.article-holder-full:nth-child(2) {
 }
 
 .article-box__author {
-    font-weight: bold;
+  font-family: 'Kiona-Bold';
 }
 /*articles*/
 .article-container {
-    max-width: 700px;
+    max-width: 810px;
     margin:auto;
+    width: 90vw;
 }
 
 .article-container  img {
     max-width: 100%;
     display: block;
     width:auto;
-    max-height: 221px;
+    max-height: 340px;
     width: 100%;
     height: auto;
     }
@@ -753,6 +791,9 @@ div.article-holder-full:nth-child(2) {
     position: relative;
     padding: 5px;
     box-sizing: border-box;
+    line-height: 18px;
+    font-size:14px;
+    
 }
     .article-header {
         margin-bottom:20px;
@@ -793,6 +834,20 @@ div.article-holder-full:nth-child(2) {
 
 
 
+
+/* Element | http://localhost:3000/post?id=1#void */
+
+nav-component {
+  position: relative;
+  z-index: 3;
+}
+
+/* Element | http://localhost:3000/post?id=1#void */
+
+header-component {
+  position: relative;
+  z-index: 3;
+}
 
 
 
@@ -852,6 +907,51 @@ div.article-holder-full:nth-child(2) {
 
 
 
+  .article-header__author-card > a:nth-child(1) {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .article-header__author-card{
+    position:relative;
+  }
+  .article-header__author-card:after {
+    content:'';
+    color:white;
+    
+    position:absolute;
+  
+    right:0;
+    opacity:.2;
+    font-family: 'Kiona-Bold';
+
+    font-size: 110px;
+    top: -64px;
+
+    --minFontSize: 50px;
+    --maxFontSize: 110px;
+    --scaler: 10vw;
+    font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+
+  }
+
+  .article-header__author-card:before {
+    content:'';
+    color:white;
+
+    position:absolute;
+    opacity:.2;
+    font-family: 'Kiona-Bold';
+    font-size: 44px;
+    top: 49px;
+    right: 281px;
+  
+  }
+
+
+header.article-header {
+  overflow: hidden;
+}
 
 
 
@@ -867,22 +967,34 @@ div.article-holder-full:nth-child(2) {
 
     .entrevista-template{
         background-color:#0f8d78;}
+        .entrevista-template .article-header__author-card:after {content:'ENTREVISTA';}
+        .entrevista-template .article-header__author-card:before {content:'ENTREVISTA';}
     
     .resenha-template{
         background-color:#565656;}
+        .resenha-template .article-header__author-card:after {content:'RESENHA';}
+        .resenha-template .article-header__author-card:before {content:'RESENHA';}
     
     .dossie-template{
         background-color:#f29300;}
+        .dossie-template .article-header__author-card:after {content:'DOSSIE';}
+        .dossie-template .article-header__author-card:before {content:'DOSSIE';}
     
     
     .documento-template{
         background-color:#015172;}
+        .documento-template .article-header__author-card:after {content:'POR DENTRO DO DOCUMENTO';top: -43px;right: -92%;width: 236%;}
+        .documento-template .article-header__author-card:before {content:'POR DENTRO DO DOCUMENTO';right: auto;width: 100%;left: 158px;}
     
     .revisitando-template{
         background-color:#a0a61d;}
-    
+        .revisitando-template .article-header__author-card:before {content:'REVISTANDO';}
+        .revisitando-template .article-header__author-card:after {content:'REVISTANDO';}
+
     .artigos-template{
         background-color:#2bb6b8;}
+        .artigos-template .article-header__author-card:after {content:'ARTIGO';left: 10%;right:auto}
+        .artigos-template .article-header__author-card:before {content:'ARTIGO';left: 40%;right: auto;}
     
 
 
@@ -918,7 +1030,7 @@ div.article-holder-full:nth-child(2) {
     .article-header .artigos-template{
         background-color:#2bb6b8;
         display:grid;
-        grid-template-columns:1fr 700px 1fr;
+        grid-template-columns:1fr 810px 1fr;
     }
     .article-header .artigos-template .article-header__author-card{
             grid-column:span 2;
@@ -936,7 +1048,7 @@ div.article-holder-full:nth-child(2) {
             .article-header .revisitando-template{
         background-color:#a0a61d;
         display:grid;
-        grid-template-columns:1fr 700px 1fr;
+        grid-template-columns:1fr 810px 1fr;
     }
     .article-header .revisitando-template .article-header__border{
         background-color:transparent;
@@ -949,7 +1061,7 @@ div.article-holder-full:nth-child(2) {
     .article-header .documento-template{
         background-color:#015172;
         display:grid;
-        grid-template-columns:1fr 700px 1fr;
+        grid-template-columns:1fr 810px 1fr;
     }
     .article-header .documento-template .article-header__border{
         background-color:transparent;
@@ -964,7 +1076,7 @@ div.article-holder-full:nth-child(2) {
     .article-header .dossie-template{
         background-color:#f29300;
         display:grid;
-        grid-template-columns:1fr 700px 1fr;
+        grid-template-columns:1fr 810px 1fr;
     }
     .article-header .dossie-template .article-header__author-card{
             grid-column:span 2;
@@ -984,7 +1096,7 @@ div.article-holder-full:nth-child(2) {
         .article-header .resenha-template{
             background-color:#565656;
             display:grid;
-            grid-template-columns:1fr 700px 1fr;
+            grid-template-columns:1fr 810px 1fr;
         }
         .article-header .resenha-template .article-header__author-card a {
                 display:none;
@@ -998,7 +1110,7 @@ div.article-holder-full:nth-child(2) {
 
 .article-header .entrevista-template{
     display:grid;
-    grid-template-columns:1fr 700px 1fr;
+    grid-template-columns:1fr 810px 1fr;
 }
 
 .article-header .entrevista-template div.article-header__border:nth-child(3) {
@@ -1027,10 +1139,62 @@ div.article-holder-full:nth-child(2) {
 
 
 
+  @media only screen and (max-width: 1130px) {
 
+    .quoteEl {
+      display: none;
+      }
+    }
 
 
   @media only screen and (max-width: 991px) {
+
+
+
+.article-header__author-card::before {
+  /* top: 49px; */
+  display: none;
+}
+
+.article-header__author-card::after {
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.article-header .entrevista-template {
+  grid-template-columns: auto 100vw auto;
+}
+.article-header .article-header__author-card {
+  grid-column: 2;
+  }
+.article-header .entrevista-template .article-header__author-card a {
+  flex-direction: column;
+}
+
+.article-header a {
+  margin-bottom: -0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1107,9 +1271,12 @@ div.article-holder-full:nth-child(2) {
   .quoteEl:before{
     content:'';
     display: block;
-    width:50px;
     height:50px;
-    background-color:turquoise;
+    width: 69px;
+    background-image: url('img/aspas.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
     position:absolute;
     top:-29px;
     left:-10px
@@ -1135,6 +1302,10 @@ div.article-holder-full:nth-child(2) {
   }
   
 /*quotes*/
+
+
+
+
   
 .template1 .boof img{
     width:auto;
@@ -1159,8 +1330,12 @@ div.article-holder-full:nth-child(2) {
     margin:auto;
     width: 100%;
     justify-content: center;
+
   }
 
+  .template1 .article-Banner.boof img{
+    max-height:unset;
+  }
 
 
 
@@ -1180,17 +1355,31 @@ div.article-holder-full:nth-child(2) {
     margin-left:-100px;
     width: 100%;
   }
+  @media only screen and (max-width: 991px) {
+    .template2 .boof{
+      margin-left:0px;
+    }
+  }
   
   .template2 .boof:nth-child(even){
     justify-content: flex-end;
     margin-right:-100px;
     margin-left:auto;
   }
+  @media only screen and (max-width: 991px) {
+    .template2 .boof:nth-child(even){
+      margin-right:0px;
+    }
+  }
 
   .template2 .article-Banner.boof{
     margin:auto;
     justify-content: center;
   }
+  .template2 .article-Banner.boof img{
+    max-height:unset;
+  }
+
 
 
 
@@ -1199,9 +1388,11 @@ div.article-holder-full:nth-child(2) {
 .galery-container{
     max-width:850px;
     margin:60px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit, 170px);
-    grid-gap:15px;
+
+    display: flex;
+flex-wrap: wrap;
+max-width: 1200px;
+justify-content: center;
 }
 
 .galery-container img{
@@ -1214,8 +1405,13 @@ div.article-holder-full:nth-child(2) {
   background-color:#eaeaea;
   padding: 54px 0;
 }
-
-.author-card-container{
+.author-card-text{
+  width: 90%;
+  max-width: 810px;
+  margin: auto;
+  margin-bottom: 80px;
+}
+.author-card-grid{
 
   margin:auto;
   display: grid;
@@ -1225,6 +1421,7 @@ div.article-holder-full:nth-child(2) {
   grid-gap:5px;
   width: 90%;
 max-width: 1300px;
+justify-content: center;
 }
 
 
@@ -1313,7 +1510,172 @@ flex-direction: column;
   margin-bottom:33px;
 }
 
+
+/* style.css | http://localhost:3000/style.css */
+
+.author-card-container.single-author .author-card__tooltip {
+  position: unset;
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  opacity: 1;
+  visibility: visible;
+  grid-column: span 2;
+  max-width:100%;
+  margin-top: 10px;
+  max-width: 90vw;
+margin-left: -30%;
+margin-right: -30%;
+}
+
+@media only screen and (max-width: 991px) {
+  .author-card-container.single-author .author-card__tooltip {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.author-card-container.single-author .author-card__bio {
+  opacity: 0;
+}
+
+
+
+
 .article-card__edition{
   font-size:13px;
   opacity:0.5;
+}
+
+
+
+.edition-box__picture img{
+  max-width:100%
+}
+
+.edicoes-container{
+  max-width:810px;
+  margin:auto;
+  padding: 20px 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, 184px);
+  grid-gap: 32px 30px;
+}
+
+.edition-box a{
+  color: #696969;
+font-weight: bold;
+  text-decoration:none;
+  display: flex;
+align-items: center;
+margin-top: 9px;
+}
+
+.edicoes-body {
+  background-color:#eaeaea;
+}
+
+.edition-box__pdf > i, .edition-box__online > i {
+  display:inline-block;
+  margin-right: 7px;
+  font-size: 17px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div.saibamaix-box{
+  background-color: #494d49;
+  color: white;
+  padding: 13px;
+  position: relative;
+    /* max-width: 400px; */
+    max-width: 250px;
+    font-size: 12px;
+    margin: auto;
+}
+
+
+.saiba-mais-container {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-gap: 33px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 90px;
+  margin-top: 180px;
+}
+
+
+
+div.saibamaix-box .saibamaix-box__img{
+  position: absolute;
+  width: 60px;
+  top: -59px;
+  left: -59px;
+}
+
+@media only screen and (max-width: 991px) {
+  .saiba-mais-container {
+    grid-template-columns: 1fr;
+    max-width:90vw;
+  }
+
+
+div.saibamaix-box .saibamaix-box__img {
+  /* left: -59px; */
+  left: 0;
+}
+
+div.saibamaix-box {
+
+  margin-top: 44px;
+}
+}
+
+.saibamaix-box__img{
+  display:block;
+}
+
+.saibamaix-box__img img{
+  width:100%;
+}
+
+
+/* style.css | http://localhost:3000/style.css */
+
+.single-author-articles.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.single-author-articles.article-container .article-box {
+  border: 10px solid transparent;
+  max-width: 167px;
+}
+
+.author-page {
+  padding-top: 0px;
+}
+
+.colaboradores-page{
+  background-color:#eaeaea
+}
+
+
+.author-card-text {
+  margin-top: 65px;
 }
