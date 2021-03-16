@@ -1679,3 +1679,8 @@ div.saibamaix-box {
 .author-card-text {
   margin-top: 65px;
 }
+
+
+.article-box__box {
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 255, .06);
+}
