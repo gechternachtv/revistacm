@@ -35,7 +35,7 @@ class headerComponent extends HTMLElement {
                         <li><a href="/colaboradores">Colaboradores</a></li>
                         <li><a href="/edicoes">Revistas anteriores</a></li>
                         <li><a href="/categoria">Categorias</a></li>
-                        <li><a href="#">Fale conosco</a></li>
+                        <li><a href="/fale-conosco">Fale conosco</a></li>
                         <li class="sociais">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-whatsapp"></i></a>
@@ -82,7 +82,7 @@ class navComponent extends HTMLElement {
                         <li><a href="/colaboradores">Colaboradores</a></li>
                         <li><a href="/edicoes">Revistas anteriores</a></li>
                         <li><a href="/categoria">Categorias</a></li>
-                        <li><a href="#">Fale conosco</a></li>
+                        <li><a href="/fale-conosco">Fale conosco</a></li>
     
                     </ul>
                     <ul>

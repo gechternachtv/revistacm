@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <meta name="theme-color" content="#484d49">
+
+    
+    <title>Fale Conosco</title>
+</head>
+
+<body>
+<header-component></header-component>
+<div class="banner-principal"></div>
+<nav-component></nav-component>
+
+    <div class="max-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSck6e0GvlN2blCN5c3IrRqx9vaPzHkySra9lrU_8iX83RAGDA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+    <footer></footer>
+
+    <script src="/js/common.js"></script>
+    <script>
+        window.addEventListener('load', async () => {
+    const homeData = await graphqlQuery(`
+	query{
+        categories{
+            id
+            Title
+          }
+    }
+    `);
+
+
+    //console.log(homeData.data)
+    console.log(homeData)
+    footerCreator(homeData.data.categories);
+})
+    </script>
+</body>
+
+</html>
