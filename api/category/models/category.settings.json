@@ -16,10 +16,12 @@
       "collection": "article"
     },
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Class": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

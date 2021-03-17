@@ -5,6 +5,10 @@ const edition = postId ? `id:${postId}` : `frontpage: true`
 window.addEventListener('load', async () => {
     const homeData = await graphqlQuery(`
 	query{
+    categories{
+      id
+      Title
+    }
         editions(where: {
           ${edition}
         }){
@@ -40,7 +44,7 @@ window.addEventListener('load', async () => {
     }
     `);
     console.log(homeData)
-
+    footerCreator(homeData.data.categories);
     //banner
     homeData.data.editions[0].GaleryHome.forEach(banner => {
         const bannerEl = document.createElement('img');
@@ -62,7 +66,7 @@ window.addEventListener('load', async () => {
         categoryBox.innerHTML = `
         <div class="article-container">
           <div class="category-box ${category.Class}">
-              <div id="category-${category.id}" class="category-title">${category.Title}</div>
+              <a href="/categoria?id=${category.id}" id="category-${category.id}" class="category-title">${category.Title}</a>
               <div id="article-holder-${category.id}" class="article-holder"></div>
           </div>
         </div>
@@ -75,11 +79,12 @@ window.addEventListener('load', async () => {
     console.log(homeData.data.edition)
     articles.forEach(article => {
         console.log(article);
+        if (article){
         const articleBox = document.createElement('div');
         articleBox.classList.add('article-box');
         articleBox.innerHTML = `
         <a href="/post?id=${article.id}">
-            <div class="article-box__picture"><img src="${article.articleCardImage.url}" /></div>
+            <div class="article-box__picture"><img loading="lazy" src="${article.articleCardImage.url}" /></div>
             <div class="article-box__box">
               <div class="article-box__title">${article.Title}</div>
               <div class="article-box__author">${article.author.Name}</div>
@@ -87,7 +92,7 @@ window.addEventListener('load', async () => {
         </a>
         `
         document.querySelector(`#article-holder-${article.category.id}`).append(articleBox)
-
+    }
     })
     //carta
     const markd = new Remarkable();

@@ -12,10 +12,12 @@
   },
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Content": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "category": {
       "model": "category",
@@ -33,12 +35,12 @@
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
         "files",
+        "images",
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "Galery": {
       "collection": "file",
@@ -57,7 +59,8 @@
         "template1",
         "template2",
         "template3"
-      ]
+      ],
+      "default": "template1"
     },
     "quotes": {
       "type": "component",

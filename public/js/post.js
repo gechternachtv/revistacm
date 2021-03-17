@@ -9,6 +9,10 @@ if (!postId) {
 window.addEventListener('load', async () => {
     const postData = await graphqlQuery(`
     query{
+      categories{
+        id
+        Title
+      }
       article(id:${postId}){
         id
         Title
@@ -40,8 +44,12 @@ window.addEventListener('load', async () => {
       }
     }
     `);
-    console.log(postData)
+    console.log(postData);
+    footerCreator(postData.data.categories);
     const articleData = postData.data.article;
+
+    document.querySelector('title').innerHTML = articleData.Title
+
     if (!articleData) {
         window.location.replace("./");
     }
@@ -51,8 +59,8 @@ window.addEventListener('load', async () => {
     <div class="article-header ${articleData.category.Class}">
     <div class="article-header__border"></div>
     <div class="article-header__author-card">
-    <a href="/colaboradores?id=${articleData.author.id}"> 
-      <img src="${articleData.author.Picture[0] ? articleData.author.Picture[0].url : 'img/authorpic.png'}"> 
+    <a class="post-author-link" href="/colaboradores?id=${articleData.author.id}"> 
+      <img loading="lazy" src="${articleData.author.Picture[0] ? articleData.author.Picture[0].url : 'img/authorpic.png'}"> 
       <span>${articleData.author.Name}</span>
     </a>
     </div>
@@ -135,10 +143,12 @@ const saibaMaisCont = document.querySelector('.saiba-mais-container');
 
 if(articleData.saibamais){
   const el= document.createElement('div');
-  el.classList.add('saibamaix-box')
+  el.classList.add('saibamaix-box-holder')
   el.innerHTML = `
-  <img class="saibamaix-box__img" src="img/authorpic.png"/>
-  <div>${articleData.saibamais}</div>
+  <div class="saibamaix-box">
+    <img  loading="lazy" class="saibamaix-box__img" src="img/authorpic.png"/>
+    <div>${articleData.saibamais}</div>
+  </div>
   `
   saibaMaisCont.append(el)
 }
@@ -147,7 +157,7 @@ if(articleData.author.bio){
   const el= document.createElement('div');
   el.classList.add('saibamaix-box')
   el.innerHTML = `
-  <a href="#" class="saibamaix-box__img"><img src="${articleData.author.Picture[0] ? articleData.author.Picture[0].url : 'img/authorpic.png'}"/></a>
+  <a href="#" class="saibamaix-box__img"><img loading="lazy" src="${articleData.author.Picture[0] ? articleData.author.Picture[0].url : 'img/authorpic.png'}"/></a>
   <div>${articleData.author.bio}</div>`
   saibaMaisCont.append(el)
 }

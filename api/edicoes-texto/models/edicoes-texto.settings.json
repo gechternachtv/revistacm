@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "edicoes_textos",
+  "info": {
+    "name": "Edições Texto"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "edicoestexto": {
+      "type": "richtext"
+    }
+  }
+}

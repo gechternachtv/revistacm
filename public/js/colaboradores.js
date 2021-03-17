@@ -5,6 +5,10 @@ console.log(postId);
 const allAuthors = async () => {
     const authorData = await graphqlQuery(`
   query{
+    categories{
+      id
+      Title
+    }
     colaboradorestexto{
       colaboradorestexto
     }
@@ -24,7 +28,8 @@ const allAuthors = async () => {
       }
   }
   `);
-    console.log('authorData',authorData)
+    console.log('authorData',authorData);
+    footerCreator(authorData.data.categories);
     const authors = authorData.data.authors;
     const markd = new Remarkable();
     
@@ -38,7 +43,7 @@ const allAuthors = async () => {
         authorCard.classList.add('author-card')
         authorCard.innerHTML = `
     <a href="?id=${author.id}"> 
-      <img src="${author.Picture[0] ? author.Picture[0].url : 'img/authorpic.png'}">
+      <img loading="lazy" src="${author.Picture[0] ? author.Picture[0].url : 'img/authorpic.png'}">
       <div>
         <div class="author-card__name">${author.Name}</div>
         <div class="author-card__about">${author.About}</div>
@@ -56,6 +61,10 @@ const allAuthors = async () => {
 const singleAuthor = async () => {
     const authorData = await graphqlQuery(`
     query{
+      categories{
+        id
+        Title
+      }
       authors(where:{
         id:${postId}
       }){
@@ -84,7 +93,8 @@ const singleAuthor = async () => {
       }
   }
 `);
-    console.log('authorData',authorData)
+    console.log('authorData',authorData);
+    footerCreator(authorData.data.categories);
     const authors = authorData.data.authors;
 
     //card grid
@@ -93,7 +103,7 @@ const singleAuthor = async () => {
         authorCard.classList.add('author-card')
         authorCard.innerHTML = `
         <a href="?id=${author.id}"> 
-        <img src="${author.Picture[0] ? author.Picture[0].url : 'img/authorpic.png'}">
+        <img loading="lazy" src="${author.Picture[0] ? author.Picture[0].url : 'img/authorpic.png'}">
         <div>
           <div class="author-card__name">${author.Name}</div>
           <div class="author-card__about">${author.About}</div>
@@ -103,6 +113,7 @@ const singleAuthor = async () => {
         <div class="author-card__tooltip">${author.bio}</div>
       </a>
 `       
+        document.querySelector('title').innerHTML = author.Name
         document.querySelector('.author-card-container').classList.add('single-author')
         document.querySelector('.author-card-grid').append(authorCard)
     });
@@ -111,11 +122,12 @@ const singleAuthor = async () => {
 
     authors[0].articles.forEach(article => {
         console.log(article);
+        if(article){
         const articleBox = document.createElement('div');
         articleBox.classList.add('article-box');
         articleBox.innerHTML = `
         <a href="/post?id=${article.id}">
-            <div class="article-box__picture"><img src="${article.articleCardImage.url}" /></div>
+            <div class="article-box__picture"><img loading="lazy" src="${article.articleCardImage.url}" /></div>
             <div class="article-box__box">
               <div class="article-box__title">${article.Title}</div>
               <div class="article-card__edition">Revista ${article.edition.id}</div>
@@ -124,6 +136,7 @@ const singleAuthor = async () => {
         </a>
         `
         articlesContainer.append(articleBox);
+        }
     })
 
 }

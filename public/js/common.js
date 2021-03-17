@@ -32,10 +32,10 @@ class headerComponent extends HTMLElement {
     
                     <ul id="menu">
                         <li><a href="#">uma revista da Memória da Eletricidade</a></li>
-                        <li><a href="/colaboradores">colaboradores</a></li>
-                        <li><a href="/edicoes">revistas anteriores</a></li>
-                        <li><a href="/edicoes">revistas em PDF</a></li>
-                        <li><a href="#">fale conosco</a></li>
+                        <li><a href="/colaboradores">Colaboradores</a></li>
+                        <li><a href="/edicoes">Revistas anteriores</a></li>
+                        <li><a href="/categoria">Categorias</a></li>
+                        <li><a href="#">Fale conosco</a></li>
                         <li class="sociais">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-whatsapp"></i></a>
@@ -79,9 +79,10 @@ class navComponent extends HTMLElement {
                 <div>
                     <ul class="main-menu">
     
-                        <li><a href="/colaboradores">colaboradores</a></li>
-                        <li><a href="/edicoes">revistas anteriores</a></li>
-                        <li><a href="#">fale conosco</a></li>
+                        <li><a href="/colaboradores">Colaboradores</a></li>
+                        <li><a href="/edicoes">Revistas anteriores</a></li>
+                        <li><a href="/categoria">Categorias</a></li>
+                        <li><a href="#">Fale conosco</a></li>
     
                     </ul>
                     <ul>
@@ -115,7 +116,7 @@ window.customElements.define(`nav-component`, navComponent)
 
 
 class footerComponent extends HTMLElement {
-    constructor() {
+    constructor(categoryArr) {
         super();
         this.innerHTML = `
 
@@ -124,20 +125,12 @@ class footerComponent extends HTMLElement {
             <section class="footer-links">
                 <ul>
 
-                    <li><a href=""> colaboradores </a></li>
-                    <li><a href="">revistas anteriores</a></li>
-                    <li><a href="">fale conosco</a></li>
+                    <li><a href="/colaboradores"> colaboradores </a></li>
+                    <li><a href="/edicoes">revistas anteriores</a></li>
+                    <li><a href="/fale-conosco">fale conosco</a></li>
 
                 </ul>
-                <ul>
-                    <li><a href="">revistando</a></li>
-                    <li><a href="">dossie</a></li>
-                    <li><a href="">entrevista</a></li>
-                    <li><a href="">artigos livres</a></li>
-                    <li><a href="">por dentro do documento</a></li>
-                    <li><a href="">resenhas</a></li>
-                    <li><a href="">comunicando</a></li>
-
+                <ul class="footer-categorias">
                 </ul>
             </section>
             <section class="memorial">
@@ -161,6 +154,13 @@ class footerComponent extends HTMLElement {
         </div>
     </footer>
            `;
+        const footerCategorias = this.querySelector('.footer-categorias')
+
+        categoryArr.forEach(categoria => {
+            const el = document.createElement('li');
+            el.innerHTML = `<a href="/categoria?id=${categoria.id}">${categoria.Title}</a>`;
+            footerCategorias.append(el);
+        })
 
     }
 }
@@ -172,27 +172,6 @@ window.customElements.define(`footer-component`, footerComponent);
 
 
 
-
-
-// class lazyImg extends HTMLElement {
-//     constructor() {
-//         super();
-//           let observer = new IntersectionObserver(e=>{
-//             console.log('tinkle tinkle hoy!', e);
-
-//                     setTimeout(()=>{
-//                         this.outerHTML = `
-//                         <img src="${this.getAttribute('src')}">
-//                     `;
-//                     },2000)
-
-//             }, 
-//               {
-//                 rootMargin: "0px 0px 150px 0px",
-//               });
-
-//           observer.observe(this)
-//     }
-// }
-
-// window.customElements.define(`lazy-img`, lazyImg);
+function footerCreator(arr){
+    document.querySelector('footer').append(new footerComponent(arr))
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/edicoes-texto",
+      "handler": "edicoes-texto.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/edicoes-texto",
+      "handler": "edicoes-texto.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/edicoes-texto",
+      "handler": "edicoes-texto.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

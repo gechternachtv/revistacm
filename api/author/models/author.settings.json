@@ -12,28 +12,31 @@
   },
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Picture": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
         "files",
+        "images",
         "videos"
       ],
       "plugin": "upload",
       "required": false
     },
     "About": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "articles": {
       "via": "author",
       "collection": "article"
     },
     "bio": {
-      "type": "text"
+      "type": "text",
+      "required": false
     }
   }
 }

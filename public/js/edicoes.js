@@ -5,6 +5,13 @@ const edition = postId ? `id:${postId}` : `frontpage: true`
 window.addEventListener('load', async () => {
     const homeData = await graphqlQuery(`
 	query{
+        edicoesTexto{
+            edicoestexto
+          }
+        categories{
+            id
+            Title
+          }
         editions{
             id
             Title
@@ -21,7 +28,8 @@ window.addEventListener('load', async () => {
 
     //console.log(homeData.data)
     console.log(homeData)
-
+    footerCreator(homeData.data.categories);
+    
     const edicoesContainer = document.querySelector('.edicoes-container')
     const editions = homeData.data.editions
 
@@ -37,5 +45,7 @@ window.addEventListener('load', async () => {
         edicoesContainer.append(editionBox)
 
     })
+    const markd = new Remarkable();
+    document.querySelector('.edicoes-texto').innerHTML = markd.render(homeData.data.edicoesTexto.edicoestexto)
 
 })

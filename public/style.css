@@ -657,7 +657,7 @@
     font-family:'Kiona-Bold';
     display: block;
     width: 167px;
-
+    text-decoration: none;
     position: absolute;
 left: 0;
 bottom: 0;
@@ -1683,4 +1683,64 @@ div.saibamaix-box {
 
 .article-box__box {
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 255, .06);
+}
+
+.article-box, .post-author-link img{
+  transform: translateY(-0px);
+    transition:all .1s;
+  }
+  .article-box:hover, .post-author-link img:hover {
+  transform: translateY(-3px);
+  }
+  
+  .article-box:active, .post-author-link img:active{
+  opacity:0.8;
+  }
+  
+  *{
+    outline:none !important;
+  }
+
+  .category-title{
+    transition:.3s all;
+  }
+  .category-title:hover{
+    color: #ffffffb5;
+  }
+  
+  .category-page .single-author-articles.article-container {
+    margin-top: -80px;
+    }
+
+
+
+
+
+/* Element | http://localhost:3000/categoria */
+
+.category-box-page a {
+  color: white;
+  font-family: 'Kiona-Bold';
+  text-decoration: none;
+  font-size: 89px;
+  text-align: center;
+  display: block;
+  transition:all .3s;
+}
+.category-box-page a:hover {
+  color: rgba(255, 255, 255, 0.67);
+cursor: pointer;
+}
+
+.category-page-all .single-author-articles.article-container {
+  margin-bottom: 80px;
+}
+
+.category-page-all{
+  background-color:#eaeaea;
+}
+
+.edicoes-texto{
+  margin-top:40px;
+  margin-bottom:20px;
 }
