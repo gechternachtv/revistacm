@@ -1750,3 +1750,35 @@ iframe{
   min-height:900px;
   margin-top:20px;
 }
+
+
+
+.article-container > p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.article-container strong {
+  font-weight: bold;
+}
+
+.article-container em {
+  font-style: italic;
+}
+
+.article-container del{
+  font-size: 0px;
+  color:transparent;
+}
+
+.article-container h2 {
+  font-weight: bold;
+  margin-top:20px;
+  margin-bottom:20px;
+  font-size: 18px;
+}
+
+.article-container h3 {
+  font-weight: bold;
+}

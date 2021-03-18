@@ -16,6 +16,7 @@ window.addEventListener('load', async () => {
       article(id:${postId}){
         id
         Title
+        SubTitle
         Content
         published_at
         template
@@ -61,7 +62,10 @@ window.addEventListener('load', async () => {
     <div class="article-header__author-card">
     <a class="post-author-link" href="/colaboradores?id=${articleData.author.id}"> 
       <img loading="lazy" src="${articleData.author.Picture[0] ? articleData.author.Picture[0].url : 'img/authorpic.png'}"> 
-      <span>${articleData.author.Name}</span>
+      <div>
+        ${articleData.author.Name}
+        <div class="post-author-subtitle">${articleData.SubTitle ? articleData.SubTitle : ''}</div>
+      </div>
     </a>
     </div>
     <div class="article-header__border"></div>
@@ -123,7 +127,7 @@ function quoteCreate(quoteObj,classEl,num){
 if (pNumber){
   if (quotes){
     if (quotes.quote1){
-      quoteCreate(quotes.quote1,'quoteEl1',0)
+      quoteCreate(quotes.quote1,'quoteEl1',1)
     }
     if (quotes.quote2){
       quoteCreate(quotes.quote2,'quoteEl2',Math.ceil(pNumber.length/2))
