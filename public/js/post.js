@@ -16,7 +16,6 @@ window.addEventListener('load', async () => {
       article(id:${postId}){
         id
         Title
-        SubTitle
         Content
         published_at
         template
@@ -42,6 +41,16 @@ window.addEventListener('load', async () => {
             url
           }
         }
+
+        entrevistado{
+          id
+          Name
+          bio
+          Picture{
+            url
+          }
+        }
+
       }
     }
     `);
@@ -54,6 +63,9 @@ window.addEventListener('load', async () => {
     if (!articleData) {
         window.location.replace("./");
     }
+
+
+    const picture = articleData.entrevistado ? articleData.entrevistado.Picture[0].url : articleData.author.Picture[0].url
     //header
     const articleHeader = document.querySelector('.article-header')
     articleHeader.innerHTML = `
@@ -61,10 +73,10 @@ window.addEventListener('load', async () => {
     <div class="article-header__border"></div>
     <div class="article-header__author-card">
     <a class="post-author-link" href="/colaboradores?id=${articleData.author.id}"> 
-      <img loading="lazy" src="${articleData.author.Picture[0] ? articleData.author.Picture[0].url : 'img/authorpic.png'}"> 
+      <img loading="lazy" src="${picture ? picture : 'img/authorpic.png'}"> 
       <div>
-        ${articleData.author.Name}
-        <div class="post-author-subtitle">${articleData.SubTitle ? articleData.SubTitle : ''}</div>
+        ${articleData.entrevistado ? articleData.entrevistado.Name : articleData.author.Name}
+        <div class="post-author-subtitle">${articleData.entrevistado ? ('Por '+ articleData.author.Name) : ''}</div>
       </div>
     </a>
     </div>

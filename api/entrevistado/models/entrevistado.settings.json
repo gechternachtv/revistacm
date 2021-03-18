@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "authors",
+  "collectionName": "entrevistados",
   "info": {
-    "name": "Author",
+    "name": "Entrevistado",
     "description": ""
   },
   "options": {
@@ -12,31 +12,33 @@
   },
   "attributes": {
     "Name": {
-      "type": "string",
-      "required": true
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "articles": {
+      "via": "entrevistado",
+      "collection": "article"
     },
     "Picture": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "files",
         "images",
+        "files",
         "videos"
       ],
       "plugin": "upload",
       "required": false
     },
-    "bio": {
-      "type": "text",
-      "required": false
-    },
-    "articles": {
-      "via": "author",
-      "collection": "article"
-    },
     "shortbio": {
       "type": "string",
       "default": " "
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

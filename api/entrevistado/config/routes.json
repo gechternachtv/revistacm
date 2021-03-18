@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/entrevistados",
+      "handler": "entrevistado.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/entrevistados/count",
+      "handler": "entrevistado.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/entrevistados/:id",
+      "handler": "entrevistado.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/entrevistados",
+      "handler": "entrevistado.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/entrevistados/:id",
+      "handler": "entrevistado.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/entrevistados/:id",
+      "handler": "entrevistado.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

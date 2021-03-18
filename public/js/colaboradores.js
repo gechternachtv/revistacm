@@ -1,5 +1,6 @@
 const params = (new URL(document.location)).searchParams;
 const postId = params.get('id');
+const postentId = params.get('entid');
 console.log(postId);
 
 const allAuthors = async () => {
@@ -15,42 +16,60 @@ const allAuthors = async () => {
     
       authors{
         id
-        About
         Name
         bio
+        shortbio
         Picture{
           url
         }
         articles{
           id
         }
+      }
+
+
+
+      entrevistados{
         id
+        Name
+        bio
+        shortbio
+        active
+        Picture{
+          url
+        }
+        articles{
+          id
+        }
       }
   }
   `);
     console.log('authorData',authorData);
     footerCreator(authorData.data.categories);
     const authors = authorData.data.authors;
+    const entrevistados = authorData.data.entrevistados;
     const markd = new Remarkable();
     
     document.querySelector('.author-card-text').innerHTML = authorData.data.colaboradorestexto ? markd.render(authorData.data.colaboradorestexto.colaboradorestexto) : ''
     //card grid
 
 
+    const colaboradores = authors.concat(entrevistados)
 
-    authors.forEach(author => {
+    colaboradores.forEach(author => {
+      console.log(author)
         const authorCard = document.createElement('div');
         authorCard.classList.add('author-card')
         authorCard.innerHTML = `
-    <a href="?id=${author.id}"> 
+    <a href="${author.active ? '?entid=' : '?id='}${author.id}"> 
       <img loading="lazy" src="${author.Picture[0] ? author.Picture[0].url : 'img/authorpic.png'}">
       <div>
         <div class="author-card__name">${author.Name}</div>
-        <div class="author-card__about">${author.About}</div>
-        <div class="author-card__bio">${author.bio}</div>
+        <div class="author-card__about">${author.shortbio ? author.shortbio : ''}</div>
+        <div class="author-card__bio">${author.bio ? author.bio : ''}</div>
       </div>
 
-      <div class="author-card__tooltip">${author.bio}</div>
+      <div class="author-card__tooltip">${author.bio ? author.bio : ''}</div>
     </a>
   `
         document.querySelector('.author-card-grid').append(authorCard)
@@ -59,43 +78,78 @@ const allAuthors = async () => {
 }
 
 const singleAuthor = async () => {
-    const authorData = await graphqlQuery(`
-    query{
-      categories{
+
+const query = {
+  author:`    query{
+    categories{
+      id
+      Title
+    }
+    authors(where:{
+      id:${postId}
+    }){
+      Name
+      bio
+      Picture{
+        url
+      }
+      articles{
         id
         Title
-      }
-      authors(where:{
-        id:${postId}
-      }){
-        About
-        Name
-        bio
-        Picture{
+        edition{
+          id
+        }
+        category{
+          Title
+          Class
+        }
+        created_at
+        articleCardImage{
           url
         }
-        articles{
-          id
-          Title
-          edition{
-            id
-          }
-          category{
-            Title
-            Class
-          }
-          created_at
-          articleCardImage{
-            url
-          }
-        }
-        id
       }
-  }
-`);
+      id
+    }
+}`,
+  entrevistado:` query{
+    categories{
+      id
+      Title
+    }
+    entrevistados(where:{
+      id:${postentId}
+    }){
+      Name
+      bio
+      Picture{
+        url
+      }
+      articles{
+        id
+        Title
+        edition{
+          id
+        }
+        category{
+          Title
+          Class
+        }
+        created_at
+        articleCardImage{
+          url
+        }
+      }
+      id
+    }
+}`
+} 
+
+
+
+    const authorData = await graphqlQuery(postId ? query.author : query.entrevistado);
     console.log('authorData',authorData);
     footerCreator(authorData.data.categories);
-    const authors = authorData.data.authors;
+    const authors = authorData.data[postId ? 'authors' : 'entrevistados'];
 
     //card grid
     authors.forEach(author => {
@@ -106,11 +160,11 @@ const singleAuthor = async () => {
         <img loading="lazy" src="${author.Picture[0] ? author.Picture[0].url : 'img/authorpic.png'}">
         <div>
           <div class="author-card__name">${author.Name}</div>
-          <div class="author-card__about">${author.About}</div>
-          <div class="author-card__bio">${author.bio}</div>
+          <div class="author-card__about">${author.shortbio ? author.shortbio : ''}</div>
+          <div class="author-card__bio">${author.bio ? author.bio : ''}</div>
         </div>
   
-        <div class="author-card__tooltip">${author.bio}</div>
+        <div class="author-card__tooltip">${author.bio ? author.bio : ''}</div>
       </a>
 `       
         document.querySelector('title').innerHTML = author.Name
@@ -151,4 +205,4 @@ const singleAuthor = async () => {
 
 
 
-window.addEventListener('load', postId ? singleAuthor : allAuthors)
+window.addEventListener('load', (postId ? postId : postentId) ? singleAuthor : allAuthors)
