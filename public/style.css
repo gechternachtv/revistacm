@@ -988,13 +988,13 @@ header.article-header {
     
     .revisitando-template{
         background-color:#a0a61d;}
-        .revisitando-template .article-header__author-card:before {content:'REVISTANDO';}
-        .revisitando-template .article-header__author-card:after {content:'REVISTANDO';}
+        .revisitando-template .article-header__author-card:before {content:'REVISITANDO';}
+        .revisitando-template .article-header__author-card:after {content:'REVISITANDO';}
 
     .artigos-template{
         background-color:#2bb6b8;}
-        .artigos-template .article-header__author-card:after {content:'ARTIGO';left: 10%;right:auto}
-        .artigos-template .article-header__author-card:before {content:'ARTIGO';left: 40%;right: auto;}
+        .artigos-template .article-header__author-card:after {content:'OLHARES';left: 10%;right:auto}
+        .artigos-template .article-header__author-card:before {content:'OLHARES';left: 40%;right: auto;}
     
 
 
