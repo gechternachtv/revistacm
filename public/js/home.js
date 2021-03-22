@@ -34,6 +34,9 @@ window.addEventListener('load', async () => {
             author{
               Name
             }
+            entrevistado{
+              Name
+            }
           }
         }
             categories{
@@ -118,7 +121,8 @@ window.addEventListener('load', async () => {
             <div class="article-box__picture"><img loading="lazy" src="${article.articleCardImage.url}" /></div>
             <div class="article-box__box">
               <div class="article-box__title">${article.Title}</div>
-              <div class="article-box__author">${article.author.Name}</div>
+              <div class="article-box__author box__author--author">${article.author.Name}</div>
+              ${(article.entrevistado ? `<div class="article-box__author box__author--entrevistado"><span class="box__author-e" >E </span><span class="box__author-com">COM </span>${article.entrevistado.Name}` : '')}
             </div>
         </a>
         `

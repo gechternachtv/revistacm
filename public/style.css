@@ -2350,3 +2350,19 @@ a.cssbox_next {
     font-style: italic;
     opacity: .9;
 }
+
+.box__author-com {
+    display: none;
+}
+
+.entrevista-template .box__author-com {
+    display: inline;
+}
+
+.entrevista-template .box__author-e {
+    display: none;
+}
+
+.entrevista-template .box__author--author {
+    display: none;
+}
