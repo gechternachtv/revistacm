@@ -2374,6 +2374,6 @@ a.cssbox_next {
 }
 
 
-a {
+.article-container a {
     word-break: break-all;
 }
