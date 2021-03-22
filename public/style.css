@@ -1505,17 +1505,17 @@ header.article-header {
     width: auto;
     height: auto;
     max-width: 100%;
-    display: block;
+    display: inline-block;
 }
 
 .template1 .boof {
-    display: flex;
+    display: block;
     margin-right: auto;
     width: 100%;
 }
 
 .template1 .boof:nth-child(odd) {
-    justify-content: flex-end;
+    text-align: right;
     margin-left: auto;
     margin-right: unset;
 }
@@ -1523,7 +1523,7 @@ header.article-header {
 .template1 .article-Banner.boof {
     margin: auto;
     width: 100%;
-    justify-content: center;
+    text-align: center;
 
 }
 
@@ -2382,7 +2382,5 @@ a.cssbox_next {
 
 .post-body .article-container {
     /* display: grid; */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: block;
 }
