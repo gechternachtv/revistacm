@@ -52,15 +52,29 @@ window.addEventListener('load', async () => {
         const ownitem = document.createElement('li');
         ownitem.innerHTML = `<a href="${banner.caption ? banner.caption : '#' }"><img src="${banner.url}"/></a>`
         ownitem.classList.add('glide__slide');
-        document.querySelector('.glide__slides').append(ownitem)
+        document.querySelector('.glide__slides').append(ownitem);
 
 
     })
 
-    $('.glide__slides').slick({
-        infinite: true,
-        arrows: false,
-        adaptiveHeight: true
+
+    let imgloaded = 0;
+    let caroulSelrunning = false;
+
+    $('.glide__slides img').on('load', () => {
+        imgloaded++;
+
+        if (!caroulSelrunning && imgloaded === $('.glide__slides img').length) {
+            caroulSelrunning = true;
+
+            console.log(imgloaded, $('.glide__slides img').length)
+            $('.glide__slides').slick({
+                infinite: true,
+                arrows: false,
+                adaptiveHeight: true
+            });
+        }
+
     });
 
 
