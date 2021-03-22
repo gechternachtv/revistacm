@@ -113,13 +113,14 @@ window.addEventListener('load', async () => {
 
         postData.data.article.Galery.forEach((picture, i) => {
             const newEl = document.createElement('div');
-            newEl.classList.add('cssbox')
+            newEl.classList.add('cssbox');
+            const legenda = picture.caption ? `<span class="galery-img-description">${picture.caption}</span>` : ``;
             newEl.innerHTML = `
         <a id="galerypic-${i}" href="#galerypic-${i}">
         <img loading="lazy" class="cssbox_thumb" src="${picture.url/*picture.formats.thumbnail.url*/}">
         <span class="cssbox_full">
           <img loading="lazy" src="${picture.url}">
-          <span class="galery-img-description">${picture.caption}</span>
+          ${legenda}
         </span>
       </a>
       <a class="cssbox_close" href="#void"></a>

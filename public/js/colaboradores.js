@@ -44,20 +44,32 @@ const allAuthors = async () => {
       }
   }
   `);
-    console.log('authorData',authorData);
+    console.log('authorData', authorData);
     footerCreator(authorData.data.categories);
     const authors = authorData.data.authors;
     const entrevistados = authorData.data.entrevistados;
     const markd = new Remarkable();
-    
+
     document.querySelector('.author-card-text').innerHTML = authorData.data.colaboradorestexto ? markd.render(authorData.data.colaboradorestexto.colaboradorestexto) : ''
     //card grid
 
 
-    const colaboradores = authors.concat(entrevistados)
+    const colaboradores = authors.concat(entrevistados);
 
-    colaboradores.forEach(author => {
-      console.log(author)
+
+    const colaboradoresAlf = colaboradores.sort((a, b) => {
+        const nameA = a.Name.toLowerCase(),
+            nameB = b.Name.toLowerCase()
+
+        if (nameA < nameB) //sort string ascending
+            return -1
+        if (nameA > nameB)
+            return 1
+        return 0 //default return value (no sorting)
+    })
+
+    colaboradoresAlf.forEach(author => {
+        console.log(author)
         const authorCard = document.createElement('div');
         authorCard.classList.add('author-card')
         authorCard.innerHTML = `
@@ -79,8 +91,8 @@ const allAuthors = async () => {
 
 const singleAuthor = async () => {
 
-const query = {
-  author:`    query{
+    const query = {
+        author: `    query{
     categories{
       id
       Title
@@ -111,7 +123,7 @@ const query = {
       id
     }
 }`,
-  entrevistado:` query{
+        entrevistado: ` query{
     categories{
       id
       Title
@@ -142,12 +154,12 @@ const query = {
       id
     }
 }`
-} 
+    }
 
 
 
     const authorData = await graphqlQuery(postId ? query.author : query.entrevistado);
-    console.log('authorData',authorData);
+    console.log('authorData', authorData);
     footerCreator(authorData.data.categories);
     const authors = authorData.data[postId ? 'authors' : 'entrevistados'];
 
@@ -166,7 +178,7 @@ const query = {
   
         <div class="author-card__tooltip">${author.bio ? author.bio : ''}</div>
       </a>
-`       
+`
         document.querySelector('title').innerHTML = author.Name
         document.querySelector('.author-card-container').classList.add('single-author')
         document.querySelector('.author-card-grid').append(authorCard)
@@ -176,10 +188,10 @@ const query = {
 
     authors[0].articles.forEach(article => {
         console.log(article);
-        if(article){
-        const articleBox = document.createElement('div');
-        articleBox.classList.add('article-box');
-        articleBox.innerHTML = `
+        if (article) {
+            const articleBox = document.createElement('div');
+            articleBox.classList.add('article-box');
+            articleBox.innerHTML = `
         <a href="/post?id=${article.id}">
             <div class="article-box__picture"><img loading="lazy" src="${article.articleCardImage.url}" /></div>
             <div class="article-box__box">
@@ -189,7 +201,7 @@ const query = {
             </div>
         </a>
         `
-        articlesContainer.append(articleBox);
+            articlesContainer.append(articleBox);
         }
     })
 
