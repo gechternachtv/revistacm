@@ -2372,3 +2372,8 @@ a.cssbox_next {
 .entrevista-template .box__author--author {
     display: none;
 }
+
+
+a {
+    word-break: break-all;
+}
