@@ -71,7 +71,9 @@ window.addEventListener('load', async () => {
             $('.glide__slides').slick({
                 infinite: true,
                 arrows: false,
-                adaptiveHeight: true
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 3200,
             });
         }
 
