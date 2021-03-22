@@ -825,6 +825,11 @@ div.article-holder-full:nth-child(4) {
     box-sizing: border-box;
 }
 
+.article-container>p {
+    max-width: 100%
+}
+
+
 .article-container img {
     max-width: 100%;
     display: block;
