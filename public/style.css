@@ -821,7 +821,7 @@ div.article-holder-full:nth-child(4) {
 .article-container {
     max-width: 810px;
     margin: auto;
-    width: 90vw;
+    width: 90%;
     box-sizing: border-box;
 }
 
