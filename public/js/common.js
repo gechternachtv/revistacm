@@ -172,6 +172,33 @@ window.customElements.define(`footer-component`, footerComponent);
 
 
 
-function footerCreator(arr){
+function footerCreator(arr) {
     document.querySelector('footer').append(new footerComponent(arr))
+}
+
+function dokodon() {
+
+    const dokodon = document.createElement('div');
+    dokodon.classList.add('dokodon')
+    dokodon.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/mlbch74sfG4?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    document.querySelector('nav').append(dokodon)
+
+
+    const dokostyle = document.createElement('style');
+    dokostyle.innerHTML = `
+    .main-head {
+      background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/028379df-afef-4f90-ae79-6651071f9f22/d5sv7p0-54f1d08c-9040-4ef1-a4eb-88769a3107d0.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMDI4Mzc5ZGYtYWZlZi00ZjkwLWFlNzktNjY1MTA3MWY5ZjIyXC9kNXN2N3AwLTU0ZjFkMDhjLTkwNDAtNGVmMS1hNGViLTg4NzY5YTMxMDdkMC5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.dNLfes9mle9PA2mzTL_4pr1oz-6jLDCA7g3-wmyA3vw');
+    }
+    
+    body {
+      background: url('http://blog-imgs-45.fc2.com/t/e/l/teleani/jyoshiraku_04_00.jpg');
+    }
+    
+    .dokodon {
+        position: absolute;
+        width: 700px !important;
+        display: block !important;
+    }
+    `
+    document.querySelector('body').append(dokostyle)
 }

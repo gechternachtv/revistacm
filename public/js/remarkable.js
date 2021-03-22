@@ -2806,7 +2806,7 @@
             }, l.link_open = function(e, t, r) {
                 var n = e[t].title ? ' title="' + i(o(e[t].title)) + '"' : "",
                     s = r.linkTarget ? ' target="' + r.linkTarget + '"' : "";
-                return '<a href="' + i(e[t].href) + '"' + n + s + ">"
+                return '<a target="_blank" href="' + i(e[t].href) + '"' + n + s + ">"
             }, l.link_close = function() {
                 return "</a>"
             }, l.image = function(e, t, r) {

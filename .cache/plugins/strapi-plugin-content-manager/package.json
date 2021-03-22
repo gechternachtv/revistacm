@@ -1,12 +1,43 @@
 {
-  "name": "strapi-plugin-content-manager",
-  "version": "3.5.2",
-  "description": "A powerful UI to easily manage your data.",
-  "strapi": {
-    "name": "Content Manager",
-    "icon": "plug",
-    "description": "content-manager.plugin.description",
-    "required": true
+  "_args": [
+    [
+      "strapi-plugin-content-manager@3.5.2",
+      "/home/schnell/Desktop/revistacm"
+    ]
+  ],
+  "_from": "strapi-plugin-content-manager@3.5.2",
+  "_id": "strapi-plugin-content-manager@3.5.2",
+  "_inBundle": false,
+  "_integrity": "sha512-1lHYPZKKfD7Nrv2osUvMBG+esDW6aeIKqG5Vz8HJ45l8Uuw2dj49wHDV5Z2UjzYvPGesRJEot/X6D9OzVLUbKw==",
+  "_location": "/strapi-plugin-content-manager",
+  "_phantomChildren": {
+    "@babel/runtime": "7.13.9",
+    "synchronous-promise": "2.0.15",
+    "toposort": "2.0.2"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "strapi-plugin-content-manager@3.5.2",
+    "name": "strapi-plugin-content-manager",
+    "escapedName": "strapi-plugin-content-manager",
+    "rawSpec": "3.5.2",
+    "saveSpec": null,
+    "fetchSpec": "3.5.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.5.2.tgz",
+  "_spec": "3.5.2",
+  "_where": "/home/schnell/Desktop/revistacm",
+  "author": {
+    "name": "Strapi team",
+    "email": "hi@strapi.io",
+    "url": "https://strapi.io"
+  },
+  "bugs": {
+    "url": "https://github.com/strapi/strapi/issues"
   },
   "dependencies": {
     "@buffetjs/core": "3.3.4",
@@ -49,11 +80,14 @@
     "strapi-utils": "3.5.2",
     "yup": "^0.27.0"
   },
-  "author": {
-    "name": "Strapi team",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+  "description": "A powerful UI to easily manage your data.",
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
   },
+  "gitHead": "1a472c98a7738ae3746c4a8e535c5e9cfcfe5926",
+  "homepage": "https://github.com/strapi/strapi#readme",
+  "license": "SEE LICENSE IN LICENSE",
   "maintainers": [
     {
       "name": "Strapi team",
@@ -61,14 +95,16 @@
       "url": "https://strapi.io"
     }
   ],
+  "name": "strapi-plugin-content-manager",
   "repository": {
     "type": "git",
     "url": "git://github.com/strapi/strapi.git"
   },
-  "engines": {
-    "node": ">=10.16.0 <=14.x.x",
-    "npm": ">=6.0.0"
+  "strapi": {
+    "name": "Content Manager",
+    "icon": "plug",
+    "description": "content-manager.plugin.description",
+    "required": true
   },
-  "license": "SEE LICENSE IN LICENSE",
-  "gitHead": "1a472c98a7738ae3746c4a8e535c5e9cfcfe5926"
+  "version": "3.5.2"
 }

@@ -1,30 +1,57 @@
 {
-  "name": "strapi-plugin-email",
-  "version": "3.5.2",
-  "description": "Easily configure your Strapi application to send emails.",
-  "strapi": {
-    "name": "Email",
-    "icon": "paper-plane",
-    "description": "email.plugin.description",
-    "required": true
+  "_args": [
+    [
+      "strapi-plugin-email@3.5.2",
+      "/home/schnell/Desktop/revistacm"
+    ]
+  ],
+  "_from": "strapi-plugin-email@3.5.2",
+  "_id": "strapi-plugin-email@3.5.2",
+  "_inBundle": false,
+  "_integrity": "sha512-I5BAk3RfyaSUoLDv/M7MbpIcAXojJ4vndel3sCFt4cOLGjFDdBEhyizL3fpclpNBwOZ1OcwDqfsTh6xL8oF6tA==",
+  "_location": "/strapi-plugin-email",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "strapi-plugin-email@3.5.2",
+    "name": "strapi-plugin-email",
+    "escapedName": "strapi-plugin-email",
+    "rawSpec": "3.5.2",
+    "saveSpec": null,
+    "fetchSpec": "3.5.2"
   },
-  "scripts": {
-    "test": "echo \"no tests yet\""
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.5.2.tgz",
+  "_spec": "3.5.2",
+  "_where": "/home/schnell/Desktop/revistacm",
+  "author": {
+    "name": "Strapi team",
+    "email": "hi@strapi.io",
+    "url": "https://strapi.io"
+  },
+  "bugs": {
+    "url": "https://github.com/strapi/strapi/issues"
   },
   "dependencies": {
     "lodash": "4.17.20",
     "strapi-provider-email-sendmail": "3.5.2",
     "strapi-utils": "3.5.2"
   },
+  "description": "Easily configure your Strapi application to send emails.",
   "devDependencies": {
     "rimraf": "3.0.2",
     "strapi-helper-plugin": "3.5.2"
   },
-  "author": {
-    "name": "Strapi team",
-    "email": "hi@strapi.io",
-    "url": "https://strapi.io"
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
   },
+  "gitHead": "1a472c98a7738ae3746c4a8e535c5e9cfcfe5926",
+  "homepage": "https://github.com/strapi/strapi#readme",
+  "license": "SEE LICENSE IN LICENSE",
   "maintainers": [
     {
       "name": "Strapi team",
@@ -32,14 +59,19 @@
       "url": "https://strapi.io"
     }
   ],
+  "name": "strapi-plugin-email",
   "repository": {
     "type": "git",
     "url": "git://github.com/strapi/strapi.git"
   },
-  "engines": {
-    "node": ">=10.16.0 <=14.x.x",
-    "npm": ">=6.0.0"
+  "scripts": {
+    "test": "echo \"no tests yet\""
   },
-  "license": "SEE LICENSE IN LICENSE",
-  "gitHead": "1a472c98a7738ae3746c4a8e535c5e9cfcfe5926"
+  "strapi": {
+    "name": "Email",
+    "icon": "paper-plane",
+    "description": "email.plugin.description",
+    "required": true
+  },
+  "version": "3.5.2"
 }
