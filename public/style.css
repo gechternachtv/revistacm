@@ -2312,3 +2312,25 @@ a.cssbox_next {
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
 }
+
+
+
+
+
+
+/* style.css | http://localhost:3000/style.css */
+
+.glide__slide a {
+    display: block;
+    width: 100%;
+}
+
+.banner-principal img {
+    width: 100%;
+    height: auto;
+}
+
+.glide__slide {
+    /* height: 100%; */
+    height: auto;
+}

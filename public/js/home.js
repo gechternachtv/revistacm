@@ -63,7 +63,7 @@ window.addEventListener('load', async () => {
         animationDuration: 2000,
         autoplay: 4500,
         focusAt: '1',
-        startAt: 3,
+        startAt: 1,
         perView: 1,
     });
 

@@ -192,7 +192,7 @@ window.addEventListener('load', async () => {
         el.classList.add('saibamaix-box-holder')
         el.innerHTML = `
       <div class="saibamaix-box">
-        <img  loading="lazy" class="saibamaix-box__img" src="img/authorpic.png"/>
+        <img  loading="lazy" class="saibamaix-box__img" src="img/saiba_mais.jpg"/>
         <div>${articleData.saibamais}</div>
       </div>
       `
