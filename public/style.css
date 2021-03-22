@@ -2159,178 +2159,118 @@ a.cssbox_next {
 
 
 
-.glide {
+/* Slider */
+.slick-slider {
     position: relative;
-    width: 100%;
+
+    display: block;
     box-sizing: border-box;
-}
 
-.glide * {
-    box-sizing: inherit;
-}
-
-.glide__track {
-    overflow: hidden;
-}
-
-.glide__slides {
-    position: relative;
-    width: 100%;
-    list-style: none;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    touch-action: pan-Y;
-    overflow: hidden;
-    padding: 0;
-    white-space: nowrap;
-    display: flex;
-    flex-wrap: nowrap;
-    will-change: transform;
-}
-
-.glide__slides--dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
-}
 
-.glide__slide {
-    width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    white-space: initial;
-    user-select: none;
     -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
 
-.glide__slide a {
-    user-select: none;
-    -webkit-user-drag: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
+.slick-list {
+    position: relative;
 
-.glide__arrows {
-    -webkit-touch-callout: none;
-    user-select: none;
-}
-
-.glide__bullets {
-    -webkit-touch-callout: none;
-    user-select: none;
-}
-
-.glide--rtl {
-    direction: rtl;
-}
-
-.glide__arrow {
-    position: absolute;
     display: block;
-    top: 50%;
-    z-index: 2;
-    color: white;
-    text-transform: uppercase;
-    padding: 9px 12px;
-    background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
-    box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
-    text-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
-    opacity: 1;
-    cursor: pointer;
-    transition: opacity 150ms ease, border 300ms ease-in-out;
-    transform: translateY(-50%);
-    line-height: 1;
-}
+    overflow: hidden;
 
-.glide__arrow:focus {
-    outline: none;
-}
-
-.glide__arrow:hover {
-    border-color: white;
-}
-
-.glide__arrow--left {
-    left: 2em;
-}
-
-.glide__arrow--right {
-    right: 2em;
-}
-
-.glide__arrow--disabled {
-    opacity: 0.33;
-}
-
-.glide__bullets {
-    position: absolute;
-    z-index: 2;
-    bottom: 2em;
-    left: 50%;
-    display: inline-flex;
-    list-style: none;
-    transform: translateX(-50%);
-}
-
-.glide__bullet {
-    background-color: rgba(255, 255, 255, 0.5);
-    width: 9px;
-    height: 9px;
+    margin: 0;
     padding: 0;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
-    line-height: 0;
-    box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
-    margin: 0 0.25em;
 }
 
-.glide__bullet:focus {
+.slick-list:focus {
     outline: none;
 }
 
-.glide__bullet:hover,
-.glide__bullet:focus {
-    border: 2px solid white;
-    background-color: rgba(255, 255, 255, 0.5);
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
 }
 
-.glide__bullet--active {
-    background-color: white;
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
-.glide--swipeable {
-    cursor: grab;
-    cursor: -moz-grab;
-    cursor: -webkit-grab;
-}
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
 
-.glide--dragging {
-    cursor: grabbing;
-    cursor: -moz-grabbing;
-    cursor: -webkit-grabbing;
-}
-
-
-
-
-
-
-/* style.css | http://localhost:3000/style.css */
-
-.glide__slide a {
     display: block;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.banner-principal img {
-    width: 100%;
-    height: auto;
+.slick-track:before,
+.slick-track:after {
+    display: table;
+
+    content: '';
 }
 
-.glide__slide {
-    /* height: 100%; */
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+
+.slick-slide img {
+    display: block;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+
     height: auto;
+
+    border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
 }

@@ -57,19 +57,11 @@ window.addEventListener('load', async () => {
 
     })
 
-
-    const glideHero = new Glide('.banner-principal', {
-        type: 'carousel',
-        animationDuration: 2000,
-        autoplay: 4500,
-        focusAt: '1',
-        startAt: 1,
-        perView: 1,
+    $('.glide__slides').slick({
+        infinite: true,
+        arrows: false,
+        adaptiveHeight: true
     });
-
-    glideHero.mount();
-
-
 
 
 
