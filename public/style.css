@@ -821,7 +821,7 @@ div.article-holder-full:nth-child(4) {
 .article-container {
     max-width: 810px;
     margin: auto;
-    width: 90%;
+    width: 90vw;
     box-sizing: border-box;
 }
 
@@ -2373,6 +2373,6 @@ a.cssbox_next {
     display: none;
 }
 
-.post-container a {
+.post-body .post-container a {
     word-break: break-all;
 }
