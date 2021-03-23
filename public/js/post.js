@@ -101,8 +101,13 @@ window.addEventListener('load', async () => {
     document.querySelector('.article-container').classList.add(articleData.template ? articleData.template : 'template1');
     if (document.querySelector('.article-container p > img')) {
         document.querySelector('.article-container p > img').parentNode.classList.add('article-Banner');
-        document.querySelectorAll('.article-container p > img').forEach(item => {
+
+        document.querySelectorAll('.article-container p > img').forEach((item, i) => {
             item.parentNode.classList.add('boof');
+
+            if ((i + 2) % 2 == 0) {
+                item.parentNode.classList.add('faar');
+            }
         })
     }
 

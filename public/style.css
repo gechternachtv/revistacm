@@ -1514,7 +1514,7 @@ header.article-header {
     width: 100%;
 }
 
-.template1 .boof:nth-child(odd) {
+.template1 .boof.faar {
     text-align: right;
     margin-left: auto;
     margin-right: unset;
@@ -1539,38 +1539,52 @@ header.article-header {
     width: auto;
     height: auto;
     max-width: 100%;
-    display: block;
+    display: inline-block;
 
 }
 
 .template2 .boof {
-    display: flex;
+    display: block;
     margin-right: auto;
     margin-left: -100px;
     width: 100%;
+    text-align: left;
 }
 
-@media only screen and (max-width: 991px) {
-    .template2 .boof {
-        margin-left: 0px;
-    }
-}
 
-.template2 .boof:nth-child(even) {
-    justify-content: flex-end;
+.template2 .boof.faar {
+    text-align: right;
     margin-right: -100px;
     margin-left: auto;
 }
 
 @media only screen and (max-width: 991px) {
-    .template2 .boof:nth-child(even) {
+    .template2 .boof {
+        margin-left: 0px;
+        text-align: center;
+    }
+
+    .template2 .boof.faar {
+        margin-left: 0px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .template2 .boof {
         margin-right: 0px;
+        text-align: center;
+    }
+
+    .template2 .boof.faar {
+        margin-right: 0px;
+        text-align: center;
     }
 }
 
 .template2 .article-Banner.boof {
     margin: auto;
-    justify-content: center;
+    text-align: center;
 }
 
 .template2 .article-Banner.boof img {
