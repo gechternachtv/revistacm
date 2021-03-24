@@ -2398,3 +2398,16 @@ a.cssbox_next {
     /* display: grid; */
     display: block;
 }
+
+
+.entrevista-template .secondary-author-pic {
+    display: none;
+}
+
+.secondary-author-pic {
+    margin-left: -30px;
+}
+
+.article-card__edition {
+    text-align: center;
+}

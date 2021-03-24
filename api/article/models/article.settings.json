@@ -27,9 +27,10 @@
       "model": "edition",
       "via": "articles"
     },
-    "author": {
-      "model": "author",
-      "via": "articles"
+    "authors": {
+      "collection": "author",
+      "via": "articles",
+      "dominant": true
     },
     "articleCardImage": {
       "model": "file",

@@ -30,13 +30,13 @@
       "type": "text",
       "required": false
     },
-    "articles": {
-      "via": "author",
-      "collection": "article"
-    },
     "shortbio": {
       "type": "string",
       "default": " "
+    },
+    "articles": {
+      "via": "authors",
+      "collection": "article"
     }
   }
 }

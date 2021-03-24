@@ -34,7 +34,7 @@ window.addEventListener('load', async () => {
           id
           Class
         }
-        author{
+        authors{
           id
           Name
           bio
@@ -66,12 +66,14 @@ window.addEventListener('load', async () => {
     }
 
 
-    const displayImg = articleData.entrevistado ? articleData.entrevistado.Picture : articleData.author.Picture
-    const picture = displayImg[0] ? displayImg[0].url : 'img/authorpic.png';
-
-    const secondarydisplay = articleData.entrevistado ? `<img class="secondary-pic" loading="lazy" src="${articleData.author.Picture[0] ? articleData.author.Picture[0].url : 'img/authorpic.png'}">` : '';
-
-
+    const pictures = {
+        author1: (articleData.authors.length) ? (articleData.authors[0].Picture[0] ? articleData.authors[0].Picture[0].url : 'img/authorpic.png') : null,
+        author2: (articleData.authors.length > 1) ? (articleData.authors[1].Picture[0] ? articleData.authors[1].Picture[0].url : 'img/authorpic.png') : null,
+        entrevistado: articleData.entrevistado ? (articleData.entrevistado.Picture[0] ? articleData.entrevistado.Picture[0].url : 'img/authorpic.png') : null
+    }
+    const fullName = articleData.authors[1] ? `${articleData.authors[0].Name} E ${articleData.authors[1].Name}` : articleData.authors[0].Name;
+    console.log(fullName)
+    console.log(pictures)
     //header
     const articleHeader = document.querySelector('.article-header')
     articleHeader.innerHTML = `
@@ -79,11 +81,11 @@ window.addEventListener('load', async () => {
     <div class="article-header__border"></div>
     <div class="article-header__author-card">
     <a class="post-author-link" href="/categoria?id=${articleData.category.id}"> 
-      <img loading="lazy" src="${picture}">
-      ${secondarydisplay}
+      <img loading="lazy" src="${articleData.entrevistado ? pictures.entrevistado : pictures.author1}">
+      ${pictures.author2 ? `<img class="secondary-author-pic" loading="lazy" src="${pictures.author2}">` : ``}
       <div>
-        ${articleData.entrevistado ? articleData.entrevistado.Name : articleData.author.Name}
-        <div class="post-author-subtitle">${articleData.entrevistado ? ('<span class="por-span">Por </span>'+ articleData.author.Name) : ''}</div>
+        ${articleData.entrevistado ? articleData.entrevistado.Name : fullName}
+        <div class="post-author-subtitle">${articleData.entrevistado ? ('<span class="por-span">Por </span>'+ fullName) : ''}</div>
       </div>
     </a>
     </div>
@@ -184,8 +186,10 @@ window.addEventListener('load', async () => {
         saibaMaisCont.append(el)
     }
 
-    if (articleData.author) {
-        createBio(articleData.author, 'id');
+    if (articleData.authors) {
+        articleData.authors.forEach(author => {
+            createBio(author, 'id');
+        })
     }
 
     if (articleData.entrevistado) {

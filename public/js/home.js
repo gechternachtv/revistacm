@@ -31,7 +31,7 @@ window.addEventListener('load', async () => {
             category{
               id
             }
-            author{
+            authors{
               Name
             }
             entrevistado{
@@ -47,7 +47,7 @@ window.addEventListener('load', async () => {
 
     }
     `);
-    //console.log(homeData)
+    console.log(homeData)
     footerCreator(homeData.data.categories);
     //banner
     homeData.data.editions[0].GaleryHome.forEach(banner => {
@@ -121,8 +121,9 @@ window.addEventListener('load', async () => {
             <div class="article-box__picture"><img loading="lazy" src="${article.articleCardImage.url}" /></div>
             <div class="article-box__box">
               <div class="article-box__title">${article.Title}</div>
-              <div class="article-box__author box__author--author">${article.author.Name}</div>
-              ${(article.entrevistado ? `<div class="article-box__author box__author--entrevistado"><span class="box__author-e" >E </span><span class="box__author-com">COM </span>${article.entrevistado.Name}` : '')}
+              <div class="article-box__author box__author--author">${article.authors[0].Name}</div>
+              ${article.authors[1] ? ` <div class="article-box__author box__author--author">E ${article.authors[1].Name}</div>` : ''}
+              ${(article.entrevistado ? `<div class="article-box__author box__author--entrevistado">COM ${article.entrevistado.Name}` : '')}
             </div>
         </a>
         `
