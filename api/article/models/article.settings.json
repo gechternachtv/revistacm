@@ -74,6 +74,9 @@
     "entrevistado": {
       "model": "entrevistado",
       "via": "articles"
+    },
+    "ordem": {
+      "type": "integer"
     }
   }
 }
