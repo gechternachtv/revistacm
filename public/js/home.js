@@ -23,6 +23,7 @@ window.addEventListener('load', async () => {
           }
       
           articles{
+            ordem
             Title
             id
             articleCardImage{
@@ -110,9 +111,11 @@ window.addEventListener('load', async () => {
     //articles
     const articles = homeData.data.editions[homeData.data.editions.length - 1].articles;
     //console.log(homeData.data.edition)
+    const orderedArticles = articles.sort((a, b) => (a.ordem > b.ordem) ? 1 : -1);
 
-    articles.forEach(article => {
-        //console.log(article);
+
+    orderedArticles.forEach(article => {
+        console.log(article.ordem);
         if (article) {
             const articleBox = document.createElement('div');
             articleBox.classList.add('article-box');
@@ -133,14 +136,14 @@ window.addEventListener('load', async () => {
 
     //
     document.querySelectorAll('.article-holder').forEach(item => {
-        const articles = item.querySelectorAll('.article-box a');
+        const articlesa = item.querySelectorAll('.article-box a');
 
         //console.log(item, articles.length)
-        if (articles.length < 1) {
+        if (articlesa.length < 1) {
             item.parentNode.querySelector('.category-title').classList.add('hidden')
-        } else if (articles.length < 2) {
+        } else if (articlesa.length < 2) {
             item.parentNode.querySelector('.category-title')
-                .setAttribute('href', `${articles[0] ? articles[0].getAttribute('href') : '#' }`);
+                .setAttribute('href', `${articlesa[0] ? articlesa[0].getAttribute('href') : '#' }`);
         }
 
     })
