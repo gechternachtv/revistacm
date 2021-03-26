@@ -122,7 +122,7 @@ const Allcategories = async () => {
 
     const articlesContainer = document.querySelector('.single-author-articles');
     document.querySelector('body').classList.add('category-page-all')
-
+    document.querySelector('.main-container').classList.add('categoriasgrid')
     categories.forEach(category => {
         const el = document.createElement('div');
         el.classList.add('category-box-page')

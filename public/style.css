@@ -2678,7 +2678,7 @@ margin: 60px auto;
 
 
 /* Element | http://localhost:3000/categoria */
-
+@media only screen and (max-width: 991px) {
 .single-author-articles {
     width: 810px;
     border: 10px solid transparent;
@@ -2686,10 +2686,11 @@ margin: 60px auto;
   
   /* Element | http://localhost:3000/categoria */
   
-  .main-container {
+  .main-container.categoriasgrid {
     /* height: 2000px; */
     width: 100vw;
     overflow-y: auto;
     padding-top: 84px;
   }
   
+}
