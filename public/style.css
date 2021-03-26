@@ -1458,7 +1458,9 @@ header.article-header {
     text-align: center;
     padding: 20px 10px;
     font-size: 14px;
+    font-weight: bold;
 }
+
 
 .quoteEl:before {
     content: '';
