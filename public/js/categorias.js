@@ -125,12 +125,17 @@ const Allcategories = async () => {
 
     categories.forEach(category => {
         const el = document.createElement('div');
+        el.classList.add('category-box-page')
+        el.classList.add(category.Class)
         el.innerHTML = `
-        <div class="article-container">
-        <div class="category-box-page ${category.Class}">
-            <a href="/categoria?id=${category.id}" id="category-${category.id}">${category.Title}</a>
-        </div>
-      </div>
+
+            <a href="/categoria?id=${category.id}" id="category-${category.id}">
+                
+                <div class="category-box-title">${category.Title}</div>
+            
+            </a>
+
+
         `
 
         articlesContainer.append(el)
@@ -139,4 +144,4 @@ const Allcategories = async () => {
 }
 
 
-window.addEventListener('load', postId ? categoriaPage : Allcategories)
+window.addEventListener('DOMContentLoaded', postId ? categoriaPage : Allcategories)

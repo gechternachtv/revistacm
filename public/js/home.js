@@ -18,9 +18,6 @@ window.addEventListener('load', async () => {
             	url
               caption
           }
-      		bannerTitle{
-            url
-          }
       
           articles{
             ordem
@@ -74,10 +71,11 @@ window.addEventListener('load', async () => {
             console.log(imgloaded, $('.glide__slides img').length)
             $('.glide__slides').slick({
                 infinite: true,
-                arrows: false,
+                arrows: true,
                 adaptiveHeight: true,
                 autoplay: true,
-                autoplaySpeed: 3200,
+                autoplaySpeed: 4400,
+                dots:true
             });
         }
 
@@ -86,7 +84,6 @@ window.addEventListener('load', async () => {
 
 
     //banner-title
-    document.querySelector('.banner-title').innerHTML = `<img src="${homeData.data.editions[0].bannerTitle.url}"/>`
     document.querySelector('.banner-title__sub').innerHTML = homeData.data.editions[0].subTitle
 
     //categories

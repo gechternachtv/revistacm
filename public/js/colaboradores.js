@@ -217,4 +217,4 @@ const singleAuthor = async () => {
 
 
 
-window.addEventListener('load', (postId ? postId : postentId) ? singleAuthor : allAuthors)
+window.addEventListener('DOMContentLoaded', (postId ? postId : postentId) ? singleAuthor : allAuthors)

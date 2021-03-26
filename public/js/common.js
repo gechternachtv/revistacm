@@ -31,17 +31,16 @@ class headerComponent extends HTMLElement {
                     <span></span>
     
                     <ul id="menu">
-                        <li><a href="#">uma revista da Memória da Eletricidade</a></li>
+                        <li><a href="/sobre">Sobre</a></li>
                         <li><a href="/colaboradores">Colaboradores</a></li>
                         <li><a href="/edicoes">Revistas anteriores</a></li>
-                        <li><a href="/categoria">Categorias</a></li>
+                        <li><a href="/categoria">Seções</a></li>
                         <li><a href="/fale-conosco">Fale conosco</a></li>
                         <li class="sociais">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="https://www.linkedin.com/company/22295805" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.youtube.com/channel/UCPQsvZbAV9pSVfSOlJgXU7A" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/amemoriaoficial/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/amemoriaoficial/" target="_blank"><i class="fab fa-facebook-square"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -78,20 +77,19 @@ class navComponent extends HTMLElement {
             <nav class="menu-container">
                 <div>
                     <ul class="main-menu">
-    
+                        <li><a href="/sobre">Sobre</a></li>
                         <li><a href="/colaboradores">Colaboradores</a></li>
                         <li><a href="/edicoes">Revistas anteriores</a></li>
-                        <li><a href="/categoria">Categorias</a></li>
+                        <li><a href="/categoria">Seções</a></li>
                         <li><a href="/fale-conosco">Fale conosco</a></li>
     
                     </ul>
                     <ul>
                         <li class="sociais">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="https://www.linkedin.com/company/22295805" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.youtube.com/channel/UCPQsvZbAV9pSVfSOlJgXU7A" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/amemoriaoficial/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/amemoriaoficial/" target="_blank"><i class="fab fa-facebook-square"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -125,9 +123,11 @@ class footerComponent extends HTMLElement {
             <section class="footer-links">
                 <ul>
 
-                    <li><a href="/colaboradores"> colaboradores </a></li>
-                    <li><a href="/edicoes">revistas anteriores</a></li>
-                    <li><a href="/fale-conosco">fale conosco</a></li>
+                    <li><a href="/sobre"> Sobre </a></li>
+                    <li><a href="/colaboradores"> Colaboradores </a></li>
+                    <li><a href="/categoria"> Seções </a></li>
+                    <li><a href="/edicoes">Revistas anteriores</a></li>
+                    <li><a href="/fale-conosco">Fale conosco</a></li>
 
                 </ul>
                 <ul class="footer-categorias">

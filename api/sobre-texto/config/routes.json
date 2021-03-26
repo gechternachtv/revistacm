@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sobre-texto",
+      "handler": "sobre-texto.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sobre-texto",
+      "handler": "sobre-texto.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sobre-texto",
+      "handler": "sobre-texto.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

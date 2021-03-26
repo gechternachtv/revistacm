@@ -2,7 +2,7 @@ const params = (new URL(document.location)).searchParams;
 const postId = params.get('ed');
 const edition = postId ? `id:${postId}` : `frontpage: true`
 
-window.addEventListener('load', async () => {
+window.addEventListener('DOMContentLoaded', async () => {
     const homeData = await graphqlQuery(`
 	query{
         edicoesTexto{
