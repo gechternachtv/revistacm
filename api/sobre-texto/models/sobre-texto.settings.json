@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "sobre_textos",
   "info": {
-    "name": "sobre-texto"
+    "name": "sobre-texto",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -17,6 +18,9 @@
       "type": "richtext"
     },
     "Coluna3": {
+      "type": "richtext"
+    },
+    "Maincoluna": {
       "type": "richtext"
     }
   }

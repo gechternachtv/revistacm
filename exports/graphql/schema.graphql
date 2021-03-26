@@ -813,6 +813,7 @@ type SobreTexto {
   Coluna1: String
   Coluna2: String
   Coluna3: String
+  Maincoluna: String
   published_at: DateTime
 }
 
@@ -820,6 +821,7 @@ input SobreTextoInput {
   Coluna1: String
   Coluna2: String
   Coluna3: String
+  Maincoluna: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -829,6 +831,7 @@ input editSobreTextoInput {
   Coluna1: String
   Coluna2: String
   Coluna3: String
+  Maincoluna: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
