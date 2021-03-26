@@ -144,12 +144,12 @@ class footerComponent extends HTMLElement {
                     <h2>Instituidores e Mantenedores</h2>
                 </header>
                 <article>
-                    <img loading="lazy" src="img/Marca_-_ABCE.png" alt="">
-                    <img loading="lazy" src="img/Marca_-_CEMIG.png" alt="">
-                    <img loading="lazy" src="img/Marca_-_LIGHT.png" alt="">
-                    <img loading="lazy" src="img/Marca_-_CEEE.png" alt="">
-                    <img loading="lazy" src="img/Marca_-_ITAIPU.png" alt="">
-                    <img loading="lazy" src="img/Marca_-_ELETROBRAS.png" alt="">
+                    <img loading="lazy" src="img/Logo-ABCE.png" alt="">
+                    <img loading="lazy" src="img/Logo-Light.png" alt="">
+                    <img loading="lazy" src="img/Logo-ACEE.png" alt="">
+                    <img loading="lazy" src="img/Logo-Ons.png" alt="">
+                    <img loading="lazy" src="img/Logo-Itaipu.png" alt="">
+                    <img loading="lazy" src="img/Logo-Eletrobras.png" alt="">
 
 
                 </article>
