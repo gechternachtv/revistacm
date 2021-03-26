@@ -132,6 +132,9 @@ class footerComponent extends HTMLElement {
                 </ul>
                 <ul class="footer-categorias">
                 </ul>
+                <div class="footer-logo">
+                <img loading="lazy" src="/img/logofooter.png"/>
+                </div>
             </section>
             <section class="memorial">
                 <img src="" alt="">

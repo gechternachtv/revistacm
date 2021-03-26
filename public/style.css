@@ -362,7 +362,7 @@ footer {
 
 .footer-links {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
     padding-top: 8px;
     box-sizing: border-box;
 }
@@ -968,8 +968,6 @@ header-component {
 
     padding: 0;
     margin-top: 0;
-    border-right: 182px solid white;
-    border-left: 182px solid white;
     padding-bottom: 3px;
 }
 
@@ -1072,7 +1070,7 @@ header.article-header {
 }
 
 .resenha-template .article-header__author-card:after {
-    content: 'RESENHA';
+    content: 'RESENHAS';
 }
 
 .comunicando-template .article-header__author-card:after {
@@ -1084,7 +1082,7 @@ header.article-header {
 }
 
 .resenha-template .article-header__author-card:before {
-    content: 'RESENHA';
+    content: 'RESENHAS';
 }
 
 .comunicando-template .article-header__author-card:before {
@@ -1268,7 +1266,7 @@ header.article-header {
 
 
 .article-header .resenha-template {
-    background-color: #565656;
+    background-color: #6d63a8;
     display: grid;
     grid-template-columns: 1fr 810px 1fr;
 }
@@ -2440,7 +2438,6 @@ margin: 0 auto;
 /* style.css | http://localhost:3000/style.css */
 
   
-@media only screen and (min-width: 991px) {
 
 
 .category-page-all .editorial-template {
@@ -2508,7 +2505,7 @@ margin: 0 auto;
   }
   
 
- }
+ 
 
 
 
@@ -2530,11 +2527,6 @@ margin: 0 auto;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   
-  @media only screen and (max-width: 991px) {
-    .category-page-all .single-author-articles.article-container {
-        grid-template-columns: 1fr 1fr
-      }
-   }
 
    .sobre-container{
        display:grid;
@@ -2561,7 +2553,7 @@ margin: 60px auto;
 
 .slick-dots {
     position: absolute;
-    bottom: 35px;
+    bottom: 8px;
     list-style: none;
     display: block;
     text-align: center;
@@ -2581,8 +2573,8 @@ margin: 60px auto;
             border: 0;
             background: transparent;
             display: block;
-            height: 12px;
-            width: 12px;
+            height: 10px;
+            width: 10px;
             outline: none;
             line-height: 0;
             font-size: 0;
@@ -2598,8 +2590,8 @@ margin: 60px auto;
 
   .slick-active button{
     opacity:1;
-    height:13px;
-    width:13px;
+    height:12px;
+    width:12px;
 }
 
 .slick-arrow{
@@ -2614,7 +2606,7 @@ margin: 60px auto;
   .slick-prev{
     left:17px;
     border:0px;
-    background:url('/img/icone-editorial.png');
+    background:url('/img/slicknext.png');
     background-size:contain;
     font-size: 0px;
     width:30px;
@@ -2624,7 +2616,7 @@ margin: 60px auto;
   }
   .slick-next{
     right:17px;
-      background:url('/img/icone-editorial.png');
+      background:url('/img/slicknext.png');
       border:0px;
     background-size:contain;
     font-size: 0px;
@@ -2632,3 +2624,72 @@ margin: 60px auto;
     height:30px;
      background-repeat: no-repeat;
   }
+
+
+/* style.css | http://localhost:3000/style.css */
+
+.category-box.resenha-template .category-title, .category-box.comunicando-template .category-title, .category-box.editorial-template .category-title {
+    height: 64px;
+    padding-top: 10px;
+      }
+  
+
+/* Element | http://localhost:3000/ */
+
+.home-body #category-6 {
+    /* background: url(')'); */
+    background: url('/img/tresenhascor.jpg');
+    background-repeat: no-repeat;
+    background-size:cover
+  }
+  
+  /* Element | http://localhost:3000/ */
+  
+  .home-body #category-8 {
+    /* background: url(')'); */
+    background: url('/img/tcomunicandocor.jpg');
+    background-repeat: no-repeat;
+    background-size:cover
+  }
+  
+  .footer-logo{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .footer-logo img{
+    max-width:100%;
+    width:270px;
+    
+  }
+
+  @media only screen and (max-width: 991px) {
+    .footer-logo {
+        
+        grid-column:span 2;
+        flex-direction:row;
+        margin-top:30px
+      }
+      .footer-logo img {
+       max-width:90%;
+       width:200px;   
+    }   
+}  
+
+
+/* Element | http://localhost:3000/categoria */
+
+.single-author-articles {
+    width: 810px;
+    border: 10px solid transparent;
+  }
+  
+  /* Element | http://localhost:3000/categoria */
+  
+  .main-container {
+    /* height: 2000px; */
+    width: 100vw;
+    overflow-y: auto;
+    padding-top: 84px;
+  }
+  
