@@ -2681,14 +2681,14 @@ margin: 60px auto;
 
 /* Element | http://localhost:3000/categoria */
 @media only screen and (max-width: 991px) {
-.single-author-articles {
+.category-page-all .single-author-articles {
     width: 810px;
     border: 10px solid transparent;
   }
   
   /* Element | http://localhost:3000/categoria */
   
-  .main-container.categoriasgrid {
+  .category-page-all .main-container.categoriasgrid {
     /* height: 2000px; */
     width: 100vw;
     overflow-y: auto;
@@ -2703,3 +2703,47 @@ margin: 60px auto;
     margin-bottom:40px;
     border-bottom:4px solid #bababa;
 }
+
+
+
+/* style.css | http://localhost:3000/style.css */
+
+@media only screen and (max-width: 991px) {
+    .colaboradores-page .article-box {
+      margin-right: 0px;
+    }
+  }
+  
+.author-card-34, .saibamaix-box-34{
+    display:none
+}
+
+
+
+/* style.css | http://localhost:3000/style.css */
+@media only screen and (max-width: 334px) {
+.category-box.documento-template .category-title, .category-box.resenha-template .category-title, .category-box.comunicando-template .category-title, .category-box.editorial-template .category-title {
+    /* font-size: 33px; */
+    font-size: 24px;
+  }
+  
+  .category-box.editorial-template .category-title::after {
+    /* height: 40px; */
+    height: 32px;
+  }
+}
+
+.main-sobre-container del {
+    font-size: 0px;
+    color: transparent;
+    margin-top:10px;
+    margin-bottom:10px
+}
+
+
+/* style.css | http://localhost:3000/style.css */
+
+.banner-principal img {
+    width: 100%;
+  }
+  

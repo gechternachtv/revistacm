@@ -15,8 +15,8 @@
       "type": "string"
     },
     "articles": {
-      "via": "edition",
-      "collection": "article"
+      "collection": "article",
+      "via": "edition"
     },
     "Picture": {
       "model": "file",
@@ -62,6 +62,17 @@
     },
     "bannerTitle": {
       "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "GaleryMobile": {
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images",

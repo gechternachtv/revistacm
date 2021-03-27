@@ -178,7 +178,8 @@ window.addEventListener('load', async () => {
     function createBio(target, type) {
         const el = document.createElement('div');
         el.classList.add('saibamaix-box');
-        const bio = target.bio ? `<div>${target.bio}</div>` : ''
+        el.classList.add(`saibamaix-box-${target.id}`);
+        const bio = target.bio ? (target.bio.length ? `<div>${target.bio}</div>` : '') : ''
         el.innerHTML = `
         <a href="/colaboradores?${type}=${target.id}" class="saibamaix-box__img author-pic"><img loading="lazy" src="${target.Picture[0] ? target.Picture[0].url : 'img/authorpic.png'}"/></a>
         ${bio}

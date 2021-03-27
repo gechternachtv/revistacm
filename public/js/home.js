@@ -18,6 +18,10 @@ window.addEventListener('load', async () => {
             	url
               caption
           }
+          GaleryMobile{
+            url
+            caption
+        }
       
           articles{
             ordem
@@ -45,10 +49,12 @@ window.addEventListener('load', async () => {
 
     }
     `);
+
+
     console.log(homeData)
     footerCreator(homeData.data.categories);
     //banner
-    homeData.data.editions[0].GaleryHome.forEach(banner => {
+    homeData.data.editions[0][(screen.width > 580) ? 'GaleryHome' : 'GaleryMobile'].forEach(banner => {
         console.log(banner);
         const ownitem = document.createElement('li');
         ownitem.innerHTML = `<a href="${banner.caption ? banner.caption : '#' }"><img src="${banner.url}"/></a>`

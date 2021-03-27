@@ -71,7 +71,8 @@ const allAuthors = async () => {
     colaboradoresAlf.forEach(author => {
         console.log(author)
         const authorCard = document.createElement('div');
-        authorCard.classList.add('author-card')
+        authorCard.classList.add('author-card');
+        authorCard.classList.add(`author-card-${author.id}`)
         authorCard.innerHTML = `
     <a href="${author.active ? '?entid=' : '?id='}${author.id}"> 
       <img loading="lazy" src="${author.Picture[0] ? author.Picture[0].url : 'img/authorpic.png'}">
@@ -81,7 +82,8 @@ const allAuthors = async () => {
         <div class="author-card__bio">${author.bio ? author.bio : ''}</div>
       </div>
 
-      <div class="author-card__tooltip">${author.bio ? author.bio : ''}</div>
+      ${author.bio ? (author.bio.length ? `<div class="author-card__tooltip">${author.bio}</div>` : '') : ''}
+
     </a>
   `
         document.querySelector('.author-card-grid').append(authorCard)
@@ -175,8 +177,9 @@ const singleAuthor = async () => {
           <div class="author-card__about">${author.shortbio ? author.shortbio : ''}</div>
           <div class="author-card__bio">${author.bio ? author.bio : ''}</div>
         </div>
-  
-        <div class="author-card__tooltip">${author.bio ? author.bio : ''}</div>
+
+        ${author.bio ? (author.bio.length ? `<div class="author-card__tooltip">${author.bio}</div>` : '') : ''}
+
       </a>
 `
         document.querySelector('title').innerHTML = author.Name

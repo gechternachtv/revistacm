@@ -545,6 +545,7 @@ type Edition {
   published_at: DateTime
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
   GaleryHome(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  GaleryMobile(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
 
 type EditionConnection {
@@ -637,6 +638,7 @@ input EditionInput {
   CartaDosEditores: String
   GaleryHome: [ID]
   bannerTitle: ID
+  GaleryMobile: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -652,6 +654,7 @@ input editEditionInput {
   CartaDosEditores: String
   GaleryHome: [ID]
   bannerTitle: ID
+  GaleryMobile: [ID]
   published_at: DateTime
   created_by: ID
   updated_by: ID
