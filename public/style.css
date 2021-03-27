@@ -1385,9 +1385,9 @@ header.article-header {
         flex-direction: row;
         overflow-x: auto;
         box-sizing: border-box;
-        scroll-snap-type: mandatory;
+        /* scroll-snap-type: mandatory;
         scroll-snap-points-x: repeat(300px);
-        scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory; */
         scroll-behavior: smooth;
     }
 
