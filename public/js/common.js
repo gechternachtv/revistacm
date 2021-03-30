@@ -130,10 +130,18 @@ class footerComponent extends HTMLElement {
                     <li><a href="/fale-conosco">Fale conosco</a></li>
 
                 </ul>
-                <ul class="footer-categorias">
+                <ul>
+                    <li><a href="/categoria?id=9">Editorial</a></li>
+                    <li><a href="/categoria?id=4">Revisitando</a></li>
+                    <li><a href="/categoria?id=3">Dossie</a></li>
+                    <li><a href="/categoria?id=1">Entrevista</a></li>
+                    <li><a href="/categoria?id=2">Olhares</a></li>
+                    <li><a href="/categoria?id=5">Por dentro do documento</a></li>
+                    <li><a href="/categoria?id=6">Resenhas</a></li>
+                    <li><a href="/categoria?id=8">Comunicando</a></li>
                 </ul>
                 <div class="footer-logo">
-                <img loading="lazy" src="/img/logofooter.png"/>
+                <a href="https://memoriadaeletricidade.com.br" target="_blank"><img loading="lazy" src="/img/logofooter.png"/></a>
                 </div>
             </section>
             <section class="memorial">
@@ -157,13 +165,13 @@ class footerComponent extends HTMLElement {
         </div>
     </footer>
            `;
-        const footerCategorias = this.querySelector('.footer-categorias')
+        // const footerCategorias = this.querySelector('.footer-categorias')
 
-        categoryArr.forEach(categoria => {
-            const el = document.createElement('li');
-            el.innerHTML = `<a href="/categoria?id=${categoria.id}">${categoria.Title}</a>`;
-            footerCategorias.append(el);
-        })
+        // categoryArr.forEach(categoria => {
+        //     const el = document.createElement('li');
+        //     el.innerHTML = `<a href="/categoria?id=${categoria.id}">${categoria.Title}</a>`;
+        //     footerCategorias.append(el);
+        // })
 
     }
 }

@@ -22,11 +22,12 @@ categories{
     //console.log(homeData.data)
     console.log(homeData)
     footerCreator(homeData.data.categories);
+/*
+    document.querySelector('.main-sobre-container .main-coluna').innerHTML = homeData.data.sobreTexto.Maincoluna; 
+    document.querySelector('.sobre-container .coluna1').innerHTML = homeData.data.sobreTexto.Coluna1; 
+    document.querySelector('.sobre-container .coluna2').innerHTML = homeData.data.sobreTexto.Coluna2; 
+    document.querySelector('.sobre-container .coluna3').innerHTML = homeData.data.sobreTexto.Coluna3; 
+*/
 
-    const markd = new Remarkable();
-    document.querySelector('.main-sobre-container .main-coluna').innerHTML = markd.render(homeData.data.sobreTexto.Maincoluna); 
-    document.querySelector('.sobre-container .coluna1').innerHTML = markd.render(homeData.data.sobreTexto.Coluna1); 
-    document.querySelector('.sobre-container .coluna2').innerHTML = markd.render(homeData.data.sobreTexto.Coluna2); 
-    document.querySelector('.sobre-container .coluna3').innerHTML = markd.render(homeData.data.sobreTexto.Coluna3); 
-
+	
 })

@@ -2535,7 +2535,7 @@ margin: 0 auto;
        display:grid;
        grid-template-columns:1fr 1fr 1fr;
        grid-gap: 22px;
-margin: 60px auto;
+    margin: 60px auto;
    }
    @media only screen and (max-width: 991px) {
     .sobre-container{
@@ -2740,3 +2740,92 @@ margin: 60px auto;
     width: 100%;
   }
   
+
+/* Alterações 29-03 J */
+
+/*image padding*/
+
+.template1 .boof img,
+.template2 .boof img
+ {
+    padding: 20px 0;
+}
+
+/*quote*/
+
+.quoteEl {
+    max-width: 140px;
+    text-align: left;
+    padding-top: 30px;
+    font-size: 18px;
+    background-color: transparent;
+}
+
+
+.quoteEl1 {
+    bottom: -280px;
+}
+
+.quoteEl2 {
+    left: -230px;
+}
+
+/*Sobre*/
+
+.coluna1 li,
+.coluna2 li,
+.coluna3 li {
+    list-style: none;
+}
+
+.linha-sobre {
+    margin-bottom: 40px; 
+}
+
+.linha-sobre p {
+    border-bottom: 3px solid #bababa;
+}
+
+.sobre-container {
+    grid-template-columns:1fr 1fr;
+}
+
+@media only screen and (max-width: 991px) {  /*sei que ele ja tava lá em cima, mas não tava funcionando. Ai repeti aqui.*/
+    .sobre-container{
+        display:grid;
+        grid-template-columns:1fr;
+}
+
+/*Fale Conosco*/
+
+.fale-conosco {
+    padding: 40px 0; 
+}
+
+.fale-conosco img {
+    width: 100%;
+}
+
+.fale-conosco h3 {
+    font-size:24px;
+    margin: 20px 0;
+}
+
+.fale-conosco p {
+    font-size: 22px;
+}
+
+.fale-conosco a {
+    text-decoration: none;
+    color: #000;
+}
+
+i {
+  font-style:italic;
+}
+
+.footer-logo img{
+    max-width:100%;
+    width:270px;
+    max-height: 61px;
+  }
