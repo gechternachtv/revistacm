@@ -5,10 +5,7 @@ const postId = params.get('id');
 const categoriaPage = async () => {
     const authorData = await graphqlQuery(`
     query{
-        categories{
-            id
-            Title
-          }
+
         category(id:${postId}){
 
             Title
@@ -38,7 +35,7 @@ const categoriaPage = async () => {
 `);
     console.log('pageData', authorData.data.category);
     document.querySelector('title').innerHTML = authorData.data.category.Title;
-    footerCreator(authorData.data.categories);
+    footerCreator();
     const articles = authorData.data.category.articles;
 
     //card grid
@@ -115,7 +112,7 @@ const Allcategories = async () => {
         }
     }
 `);
-    footerCreator(authorData.data.categories);
+    footerCreator();
     const categories = authorData.data.categories;
     console.log('pageData', categories)
     //card grid

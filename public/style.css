@@ -2,7 +2,7 @@
    Attribution-ShareAlike 4.0 license and is available on
    https://github.com/TheLastProject/CSSBox. You are not required to add
    additional credit to your website, just leave the above text in this file */
-div.cssbox {
+   div.cssbox {
     display: inline-block;
     max-width: 200px;
     display: inline-flex;
@@ -1594,6 +1594,80 @@ header.article-header {
 
 
 
+
+
+
+
+
+
+
+.template3 .boof img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    display: inline-block;
+
+}
+
+.template3 .boof {
+    display: block;
+    margin-left: auto;
+    margin-right: -100px;
+    width: 100%;
+    text-align: right;
+}
+
+
+.template3 .boof.faar {
+    text-align: left;
+    margin-left: -100px;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 991px) {
+    .template3 .boof {
+        margin-right: 0px;
+        text-align: center;
+    }
+
+    .template3 .boof.faar {
+        margin-right: 0px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .template3 .boof {
+        margin-left: 0px;
+        text-align: center;
+    }
+
+    .template3 .boof.faar {
+        margin-left: 0px;
+        text-align: center;
+    }
+}
+
+.template3 .article-Banner.boof {
+    margin: auto;
+    text-align: center;
+}
+
+.template3 .article-Banner.boof img {
+    max-height: unset;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*post templates:===================================*/
 
 .galery-container {
@@ -1856,9 +1930,9 @@ div.saibamaix-box {
 
 div.saibamaix-box .saibamaix-box__img {
     position: absolute;
-    width: 60px;
-    top: -59px;
-    left: -59px;
+    width: 80px;
+    top: -81px;
+    left: -80px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -2743,6 +2817,28 @@ margin: 0 auto;
 
 /* Alterações 29-03 J */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*image padding*/
 
 .template1 .boof img,
@@ -2751,8 +2847,24 @@ margin: 0 auto;
     padding: 20px 0;
 }
 
-/*quote*/
 
+
+
+
+
+/*quote*/
+@media only screen and (max-width: 1200px) {
+.quoteEl {
+    display:none;
+}
+}
+
+
+/* style.css | http://localhost:3000/style.css */
+
+  
+
+@media only screen and (min-width: 1200px) {
 .quoteEl {
     max-width: 140px;
     text-align: left;
@@ -2761,7 +2873,6 @@ margin: 0 auto;
     background-color: transparent;
 }
 
-
 .quoteEl1 {
     bottom: -280px;
 }
@@ -2769,6 +2880,31 @@ margin: 0 auto;
 .quoteEl2 {
     left: -230px;
 }
+
+}
+@media only screen and (min-width: 1400px) {
+    .quoteEl {
+        max-width: 170px;
+        right: -250px;
+    }
+}
+
+@media only screen and (max-width: 1320px) {
+    .quoteEl {
+      /* font-size: 18px; */
+      font-size: 16px;
+    }
+    .quoteEl2 {
+      /* left: -230px; */
+      left: -199px;
+    }
+  
+  
+  }
+
+
+
+
 
 /*Sobre*/
 
@@ -2795,7 +2931,7 @@ margin: 0 auto;
         display:grid;
         grid-template-columns:1fr;
 }
-
+}
 /*Fale Conosco*/
 
 .fale-conosco {

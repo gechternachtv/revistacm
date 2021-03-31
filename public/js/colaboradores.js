@@ -6,10 +6,6 @@ console.log(postId);
 const allAuthors = async () => {
     const authorData = await graphqlQuery(`
   query{
-    categories{
-      id
-      Title
-    }
     colaboradorestexto{
       colaboradorestexto
     }
@@ -45,7 +41,7 @@ const allAuthors = async () => {
   }
   `);
     console.log('authorData', authorData);
-    footerCreator(authorData.data.categories);
+    footerCreator();
     const authors = authorData.data.authors;
     const entrevistados = authorData.data.entrevistados;
     const markd = new Remarkable();
@@ -126,10 +122,7 @@ const singleAuthor = async () => {
     }
 }`,
         entrevistado: ` query{
-    categories{
-      id
-      Title
-    }
+
     entrevistados(where:{
       id:${postentId}
     }){
@@ -162,7 +155,7 @@ const singleAuthor = async () => {
 
     const authorData = await graphqlQuery(postId ? query.author : query.entrevistado);
     console.log('authorData', authorData);
-    footerCreator(authorData.data.categories);
+    footerCreator();
     const authors = authorData.data[postId ? 'authors' : 'entrevistados'];
 
     //card grid

@@ -8,10 +8,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         edicoesTexto{
             edicoestexto
           }
-        categories{
-            id
-            Title
-          }
         editions{
             id
             Title
@@ -28,7 +24,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     //console.log(homeData.data)
     console.log(homeData)
-    footerCreator(homeData.data.categories);
+    footerCreator();
     
     const edicoesContainer = document.querySelector('.edicoes-container')
     const editions = homeData.data.editions

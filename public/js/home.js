@@ -5,10 +5,6 @@ const edition = postId ? `id:${postId}` : `frontpage: true`
 window.addEventListener('load', async () => {
     const homeData = await graphqlQuery(`
 	query{
-    categories{
-      id
-      Title
-    }
         editions(where: {
           ${edition}
         }){
@@ -52,7 +48,7 @@ window.addEventListener('load', async () => {
 
 
     console.log(homeData)
-    footerCreator(homeData.data.categories);
+    footerCreator();
     //banner
     homeData.data.editions[0][(screen.width > 580) ? 'GaleryHome' : 'GaleryMobile'].forEach(banner => {
         console.log(banner);

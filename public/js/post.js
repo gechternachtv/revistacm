@@ -8,10 +8,7 @@ if (!postId) {
 window.addEventListener('load', async () => {
     const postData = await graphqlQuery(`
     query{
-      categories{
-        id
-        Title
-      }
+
       article(id:${postId}){
         id
         Title
@@ -56,7 +53,7 @@ window.addEventListener('load', async () => {
     }
     `);
     //console.log(postData);
-    footerCreator(postData.data.categories);
+    footerCreator();
     const articleData = postData.data.article;
 
     document.querySelector('title').innerHTML = articleData.Title

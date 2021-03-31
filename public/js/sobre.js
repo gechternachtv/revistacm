@@ -1,10 +1,6 @@
 window.addEventListener('DOMContentLoaded', async () => {
     const homeData = await graphqlQuery(`
 query{
-categories{
-    id
-    Title
-  }
 
   sobreTexto
           
@@ -21,7 +17,7 @@ categories{
 
     //console.log(homeData.data)
     console.log(homeData)
-    footerCreator(homeData.data.categories);
+    footerCreator();
 /*
     document.querySelector('.main-sobre-container .main-coluna').innerHTML = homeData.data.sobreTexto.Maincoluna; 
     document.querySelector('.sobre-container .coluna1').innerHTML = homeData.data.sobreTexto.Coluna1; 

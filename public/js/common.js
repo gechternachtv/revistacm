@@ -114,7 +114,7 @@ window.customElements.define(`nav-component`, navComponent)
 
 
 class footerComponent extends HTMLElement {
-    constructor(categoryArr) {
+    constructor() {
         super();
         this.innerHTML = `
 
@@ -183,8 +183,8 @@ window.customElements.define(`footer-component`, footerComponent);
 
 
 
-function footerCreator(arr) {
-    document.querySelector('footer').append(new footerComponent(arr))
+function footerCreator() {
+    document.querySelector('footer').append(new footerComponent())
 }
 
 function dokodon() {
