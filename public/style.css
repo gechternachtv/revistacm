@@ -1661,6 +1661,37 @@ header.article-header {
 
 
 
+.template4 .boof img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    display: inline-block;
+    margin-top:40px;
+    margin-bottom:40px;
+}
+
+.template4 .boof {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.template4 .boof.faar {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.template4 .article-Banner.boof {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+
+}
+
+.template4 .article-Banner.boof img {
+    max-height: unset;
+}
 
 
 
@@ -3205,4 +3236,9 @@ background-color: #FF6600
 
 .documento-template--q .quoteEl:before {
     background-image: url('img/aspas-por-dentro.png');
+}
+
+.edition-title{
+    color:#696969;
+    font-weight: bold;
 }

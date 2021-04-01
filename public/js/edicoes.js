@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         editionBox.classList.add('edition-box')
         editionBox.innerHTML = `
                 <div class="edition-box__picture"><img alt="${edition.Title}" src="${edition.Picture.url}" /></div>
+                <div class="edition-title">${edition.Title}</div>
                 <a class="edition-box__online" href="/?ed=${edition.id}"><i class="fas fa-link"></i> Edição online</a>
                 ${edition.pdf ? '<a class="edition-box__pdf" target="_blank"1 href="'+edition.pdf.url+'"><i class="far fa-file-pdf"></i>PDF</a>' : ''}
             `
