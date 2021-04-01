@@ -3165,3 +3165,44 @@ background-color: #FF6600
     justify-content: center;
   }
   
+
+
+/* style.css | http://localhost:3000/style.css */
+
+.shareBox {
+    /* max-width: 282px; */
+    width: 282px;
+    right: 0px;
+    bottom: -90px;
+    display:none
+  }
+  
+  .share-item {
+    position: relative;
+  }
+
+  
+  .share-item:hover .shareBox{
+      display:flex;
+  }
+
+
+  .revisitando-template--q .quoteEl:before {
+    background-image: url('img/aspas.png');
+  }
+
+  .dossie-template--q .quoteEl:before {
+    background-image: url('img/aspas-dossi.png');
+  }
+
+  .entrevista-template--q .quoteEl:before {
+    background-image: url('img/aspas-entrevista.png');
+  }
+
+.artigos-template--q .quoteEl:before {
+    background-image: url('img/aspas-olhares.png');
+}
+
+.documento-template--q .quoteEl:before {
+    background-image: url('img/aspas-por-dentro.png');
+}

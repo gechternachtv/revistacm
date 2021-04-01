@@ -72,6 +72,7 @@ window.addEventListener('load', async () => {
     console.log(fullName)
     console.log(pictures)
     //header
+    document.querySelector('body').classList.add(`${articleData.category.Class}--q`)
     const articleHeader = document.querySelector('.article-header')
     articleHeader.innerHTML = `
     <div class="article-header ${articleData.category.Class}">
@@ -209,7 +210,7 @@ window.addEventListener('load', async () => {
     }
 
 
-/*
+
     const shareBox = document.createElement('div');
     shareBox.classList.add('shareBox')
     shareBox.innerHTML = `
@@ -260,5 +261,5 @@ window.addEventListener('load', async () => {
     document.querySelector('.share-item__compartilhar').parentElement.append(shareBox)
 
 
-*/
+
 })
