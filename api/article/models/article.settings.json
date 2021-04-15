@@ -24,8 +24,8 @@
       "via": "articles"
     },
     "edition": {
-      "via": "articles",
-      "model": "edition"
+      "model": "edition",
+      "via": "articles"
     },
     "authors": {
       "collection": "author",
@@ -59,7 +59,8 @@
       "enum": [
         "template1",
         "template2",
-        "template3"
+        "template3",
+        "template4"
       ],
       "default": "template1"
     },

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/post-carrossel",
+      "handler": "post-carrossel.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/post-carrossel",
+      "handler": "post-carrossel.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/post-carrossel",
+      "handler": "post-carrossel.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
