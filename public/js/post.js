@@ -9,6 +9,21 @@ window.addEventListener('load', async () => {
     const postData = await graphqlQuery(`
     query{
 
+
+      postCarrossel{
+          GaleryDesktop{
+                  url
+                  caption
+              }
+              
+              GaleryMobile{
+                  url
+                  caption
+              }
+              
+      }
+
+
       article(id:${postId}){
         id
         Title
@@ -52,6 +67,48 @@ window.addEventListener('load', async () => {
       }
     }
     `);
+
+
+
+
+
+    postData.data.postCarrossel[(screen.width > 580) ? 'GaleryDesktop' : 'GaleryMobile'].forEach(banner => {
+        console.log(banner);
+        const ownitem = document.createElement('li');
+        ownitem.innerHTML = `<a href="${banner.caption ? banner.caption : '#' }"><img src="${banner.url}"/></a>`
+        ownitem.classList.add('glide__slide');
+        document.querySelector('.glide__slides').append(ownitem);
+
+
+    })
+
+    let imgloaded = 0;
+    let caroulSelrunning = false;
+
+    $('.glide__slides img').on('load', () => {
+        imgloaded++;
+
+        if (!caroulSelrunning && imgloaded === $('.glide__slides img').length) {
+            caroulSelrunning = true;
+
+            console.log(imgloaded, $('.glide__slides img').length)
+            $('.glide__slides').slick({
+                infinite: true,
+                arrows: true,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 4400,
+                dots: true
+            });
+        }
+
+    });
+
+
+
+
+
+
     //console.log(postData);
     footerCreator();
     const articleData = postData.data.article;
