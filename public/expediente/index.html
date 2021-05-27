@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Fale Conosco</title>
+    <title>Expediente</title>
     <link rel="icon" href="img/favicon.jpg" type="image/icon type">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,40 +42,66 @@
 
 </head>
 
-<body>
+<body class="sobre-body">
     <header-component></header-component>
     <div class="banner-principal"></div>
     <nav-component></nav-component>
+<!--     <div class="max-container main-sobre-container">
+        <div class="main-coluna"></div>
+    </div>
+     <div class="max-container sobre-container">
+         <div class="coluna1"></div>
+         <div class="coluna2"></div>
+         <div class="coluna3"></div>
+         
+     </div> -->
 
-    <div class="max-container">
-        <div class="fale-conosco">
-        <img src="../img/fale-conosco.jpg" />
-        <h3><a href="mailto:revista@memoriadaeletricidade.com.br">revista@memoriadaeletricidade.com.br</a><h3>
-        <p>Av. Presidente Vargas, 409 - 13º andar - Centro, Rio de Janeiro - RJ, CEP 20071-003</p>
-        <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSck6e0GvlN2blCN5c3IrRqx9vaPzHkySra9lrU_8iX83RAGDA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
-        </div>
+     <div class="max-container sobre-container">
+         <div class="coluna1">
+            <li>
+                <ul><strong>EQUIPE</strong></ul>
+                <br>
+                <ul><u>Editor-chefe:</u><br>Augusto Rodrigues</ul><br>
+                <ul><u>Editoras-executivas:</u><br>Ana Paula Goulart<br>Amanda Carvalho</ul><br>
+                <ul><u>Editora de conteúdo:</u><br>Cristiane Nascimento</ul><br>
+                <ul><u>Produtora editorial:</u><br>Claudia Trigueiro</ul><br>
+                <ul><u>Pesquisadora responsável:</u><br>Bruna Martoni</ul><br>
+                <ul><u>Pesquisadora de imagem:</u><br>Vanessa Baranda</ul><br>
+                <ul><u>Preparador de texto e revisor:</u><br>Lorenzo Aldé</ul><br>
+                <ul><u>Diretora de arte:</u><br>Mary Paz Guillén</ul>
+            </li>
+         </div>
+         <div class="coluna2">
+            <li>
+                <ul><strong>CONSELHO EDITORIAL</strong></ul>
+                <br>
+                <ul>Beatriz Kushnir</ul>
+                <ul>Carlos Vogt</ul>
+                <ul>Eugênio Bucci</ul>
+                <ul>Joaquim Marçal</ul>
+                <ul>Karen Worcman</ul>
+                <ul>Luciana Heymann</ul>
+                <ul>Luiz Augusto Milanesi</ul>
+                <ul>Maria Alice Rezende de Carvalho</ul>
+                <ul>Maurício Lissovsky</ul>
+                <ul>Muniz Sodré</ul>
+                <ul>Paulo Knauss</ul>
+                <ul>Paulo Nassar</ul>
+                <ul>Pierre Ruprecht</ul>
+                <ul>Renata Petrocelli</ul>
+                <ul>Sílvia Fiuza</ul>
+            </li>
+         </div>
+    </div>
+    <div class="max-container linha-sobre p">
+        <p></p>
     </div>
 
     <footer></footer>
 
     <script src="/js/common.js"></script>
-    <script>
-        window.addEventListener('load', async () => {
-            const homeData = await graphqlQuery(`
-	query{
-        categories{
-            id
-            Title
-          }
-    }
-    `);
-
-
-            //console.log(homeData.data)
-            console.log(homeData)
-            footerCreator(homeData.data.categories);
-        })
-    </script>
+    <script src="/js/remarkable.js"></script>
+    <script src="/js/sobre.js"></script>
 
 </body>
 
