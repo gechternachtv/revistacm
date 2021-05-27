@@ -3242,3 +3242,15 @@ background-color: #FF6600
     color:#696969;
     font-weight: bold;
 }
+
+.post-body .glide__slides{
+	max-width:90%;
+	width:800px;
+	margin:auto;
+	margin-bottom:50px;
+}
+
+.post-body .glide__slides img{
+	max-width:100%;
+	margin:auto;
+}
