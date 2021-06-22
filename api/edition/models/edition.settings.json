@@ -15,8 +15,8 @@
       "type": "string"
     },
     "articles": {
-      "via": "edition",
-      "collection": "article"
+      "collection": "article",
+      "via": "edition"
     },
     "Picture": {
       "model": "file",
@@ -81,6 +81,10 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "revisao": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

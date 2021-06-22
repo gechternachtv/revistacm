@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         edicoesTexto{
             edicoestexto
           }
-        editions{
+        editions(where : {revisao: false } ){
             id
             Title
             Picture{
@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     //console.log(homeData.data)
     console.log(homeData)
     footerCreator();
-    
+
     const edicoesContainer = document.querySelector('.edicoes-container')
     const editions = homeData.data.editions
 

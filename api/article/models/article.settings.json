@@ -24,8 +24,8 @@
       "via": "articles"
     },
     "edition": {
-      "model": "edition",
-      "via": "articles"
+      "via": "articles",
+      "model": "edition"
     },
     "authors": {
       "collection": "author",
@@ -78,6 +78,10 @@
     },
     "ordem": {
       "type": "integer"
+    },
+    "revisao": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

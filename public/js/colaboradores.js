@@ -18,7 +18,7 @@ const allAuthors = async () => {
         Picture{
           url
         }
-        articles{
+        articles(where : {revisao: false } ){
           id
         }
       }
@@ -34,7 +34,7 @@ const allAuthors = async () => {
         Picture{
           url
         }
-        articles{
+        articles(where : {revisao: false } ){
           id
         }
       }
@@ -103,17 +103,18 @@ const singleAuthor = async () => {
       Picture{
         url
       }
-      articles{
+      articles(where : {revisao: false } ){
         id
         Title
         edition{
+          Title
           id
         }
         category{
           Title
           Class
         }
-        created_at
+        published_at
         articleCardImage{
           url
         }
@@ -131,17 +132,18 @@ const singleAuthor = async () => {
       Picture{
         url
       }
-      articles{
+      articles(where : {revisao: false } ){
         id
         Title
         edition{
           id
+          Title
         }
         category{
           Title
           Class
         }
-        created_at
+        published_at
         articleCardImage{
           url
         }
@@ -182,7 +184,8 @@ const singleAuthor = async () => {
 
     const articlesContainer = document.querySelector('.single-author-articles');
 
-    authors[0].articles.forEach(article => {
+    const articles = authors[0].articles.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+    articles.forEach(article => {
         console.log(article);
         if (article) {
             const articleBox = document.createElement('div');
@@ -192,7 +195,7 @@ const singleAuthor = async () => {
             <div class="article-box__picture"><img loading="lazy" src="${article.articleCardImage.url}" /></div>
             <div class="article-box__box">
               <div class="article-box__title">${article.Title}</div>
-              <div class="article-card__edition">Revista ${article.edition.id}</div>
+              <div class="article-card__edition">${article.edition.Title}</div>
               <div class="article-box__category ${article.category.Class}">${article.category.Title}</div>
             </div>
         </a>

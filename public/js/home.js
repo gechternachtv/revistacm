@@ -19,7 +19,7 @@ window.addEventListener('load', async () => {
             caption
         }
       
-          articles{
+          articles(where : {revisao: false } ){
             ordem
             Title
             id
@@ -77,7 +77,7 @@ window.addEventListener('load', async () => {
                 adaptiveHeight: true,
                 autoplay: true,
                 autoplaySpeed: 4400,
-                dots:true
+                dots: true
             });
         }
 

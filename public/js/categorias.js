@@ -11,7 +11,8 @@ const categoriaPage = async () => {
             Title
             Class
 
-            articles{
+            articles(where : {revisao: false } ){
+                published_at
                 id
                 Title
                 articleCardImage{
@@ -36,7 +37,11 @@ const categoriaPage = async () => {
     console.log('pageData', authorData.data.category);
     document.querySelector('title').innerHTML = authorData.data.category.Title;
     footerCreator();
-    const articles = authorData.data.category.articles;
+    const articlesRes = authorData.data.category.articles;
+
+    const articles = articlesRes.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+
+
 
     //card grid
 
@@ -48,7 +53,7 @@ const categoriaPage = async () => {
             const articleBox = document.createElement('div');
             articleBox.classList.add('article-box');
 
-            const fullname = article.entrevistado ? `<div class="article-box__author box__author--entrevistado">COM ${article.entrevistado.Name}` : `<div class="article-box__author box__author--author">${article.authors[0].Name}</div>
+            const fullname = article.entrevistado ? `<div class="article-box__author box__author--entrevistado">COM ${article.entrevistado.Name}` : `<div class="article-box__author box__author--author">${article.authors[0].Name}
             ${article.authors[1] ? ` <div class="article-box__author box__author--author">E ${article.authors[1].Name}</div>` : ''}
 `
 
@@ -56,10 +61,11 @@ const categoriaPage = async () => {
         <a href="/post?id=${article.id}">
             <div class="article-box__picture"><img loading="lazy" src="${article.articleCardImage.url}" /></div>
             <div class="article-box__box">
-            <div class="article-box__title">${article.Title}</div>
-            ${fullname}
+                <div class="article-box__title">${article.Title}</div>
+                ${fullname}
+                <div class="article-card__edition">${article.edition.Title}</div>
             </div>
-              <div class="article-card__edition">${article.edition.Title}</div>
+
             </div>
         </a>
         `
@@ -93,7 +99,7 @@ const Allcategories = async () => {
             Title
             Class
 
-            articles{
+            articles(where : {revisao: false } ){
                 id
                 Title
                 articleCardImage{
