@@ -35,7 +35,6 @@ const categoriaPage = async () => {
         if (article) {
             const articleBox = document.createElement('div');
             articleBox.classList.add('article-box');
-
             const fullname = article.entrevistado ? `<div class="article-box__author box__author--entrevistado">COM ${article.entrevistado.Name}` : `<div class="article-box__author box__author--author">${article.authors[0].Name}</div>
             ${article.authors[1] ? ` <div class="article-box__author box__author--author">E ${article.authors[1].Name}</div>` : ''}
 `
