@@ -2,6 +2,9 @@ const params = (new URL(document.location)).searchParams;
 const postId = params.get('ed');
 const edition = postId ? `id:${postId}` : `frontpage: true`
 
+const showrevisao = params.get('revisao') ? true : false;
+
+
 window.addEventListener('load', async () => {
     const homeData = await graphqlQuery(`
 	query{
@@ -19,7 +22,7 @@ window.addEventListener('load', async () => {
             caption
         }
       
-          articles(where : {revisao: false } ){
+          articles${showrevisao ? "" : "(where : {revisao: false } )"}{
             ordem
             Title
             id
