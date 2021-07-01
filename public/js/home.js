@@ -11,6 +11,7 @@ window.addEventListener('load', async () => {
         editions(where: {
           ${edition}
         }){
+          id
           subTitle
       		CartaDosEditores
       		GaleryHome{
@@ -50,11 +51,11 @@ window.addEventListener('load', async () => {
     `);
 
 
-    console.log(homeData)
+    // console.log(homeData)
     footerCreator();
     //banner
     homeData.data.editions[0][(screen.width > 580) ? 'GaleryHome' : 'GaleryMobile'].forEach(banner => {
-        console.log(banner);
+        //console.log(homeData)
         const ownitem = document.createElement('li');
         ownitem.innerHTML = `<a href="${banner.caption ? banner.caption : '#' }"><img src="${banner.url}"/></a>`
         ownitem.classList.add('glide__slide');
@@ -73,7 +74,7 @@ window.addEventListener('load', async () => {
         if (!caroulSelrunning && imgloaded === $('.glide__slides img').length) {
             caroulSelrunning = true;
 
-            console.log(imgloaded, $('.glide__slides img').length)
+            // console.log(imgloaded, $('.glide__slides img').length)
             $('.glide__slides').slick({
                 infinite: true,
                 arrows: true,
@@ -102,7 +103,7 @@ window.addEventListener('load', async () => {
         categoryBox.innerHTML = `
         <div class="article-container">
           <div class="category-box ${category.Class}">
-              <a href="/categoria?id=${category.id}" id="category-${category.id}" class="category-title">${category.Title}</a>
+              <a href="/categoria?id=${category.id}${postId ? ("&ed=")+postId : ""}" id="category-${category.id}" class="category-title">${category.Title}</a>
               <div id="article-holder-${category.id}" class="article-holder"></div>
           </div>
         </div>
@@ -117,7 +118,7 @@ window.addEventListener('load', async () => {
 
 
     orderedArticles.forEach(article => {
-        console.log(article.ordem);
+        //console.log(article.ordem);
         if (article) {
             const articleBox = document.createElement('div');
             articleBox.classList.add('article-box');
