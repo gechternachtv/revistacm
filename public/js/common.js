@@ -189,4 +189,3 @@ window.customElements.define(`footer-component`, footerComponent);
 function footerCreator() {
     document.querySelector('footer').append(new footerComponent())
 }
-

@@ -146,8 +146,18 @@ const categoriaPage = async () => {
 
 
 const Allcategories = async () => {
+    const params = (new URL(document.location)).searchParams;
+    const postId = params.get('ed');
+    const editions = postId ? `id:${postId}` : `frontpage: true`
+
+
     const authorData = await graphqlQuery(`
     query{
+        editions(where: {
+            ${editions}
+          }){
+            id
+        }
         categories{
             id
             Title
@@ -180,6 +190,8 @@ const Allcategories = async () => {
 
     footerCreator();
     const categories = authorData.data.categories;
+    const edition = authorData.data.editions[0].id;
+    console.log(editions)
     // console.log('pageData', categories)
     //card grid
 
@@ -191,7 +203,7 @@ const Allcategories = async () => {
         el.classList.add(category.Class)
         el.innerHTML = `
 
-            <a href="/categoria?id=${category.id}" id="category-${category.id}">
+            <a href="/categoria?id=${category.id}&ed=${edition}" id="category-${category.id}">
                 
                 <div class="category-box-title">${category.Title}</div>
             

@@ -618,13 +618,18 @@ footer {
     grid-column: 1;
 }
 
-.resenha-template-holder {
+.energia-template-holder {
     grid-row: 7;
     grid-column: 1;
 }
 
-.comunicando-template-holder {
+.resenha-template-holder {
     grid-row: 8;
+    grid-column: 1;
+}
+
+.comunicando-template-holder {
+    grid-row: 9;
     grid-column: 1;
 }
 
@@ -918,7 +923,8 @@ header-component {
 .category-box.documento-template,
 .category-box.resenha-template,
 .category-box.comunicando-template,
-.category-box.editorial-template {
+.category-box.editorial-template,
+.category-box.energia-template {
     position: unset;
     padding-left: unset;
     min-height: unset;
@@ -926,6 +932,7 @@ header-component {
     margin-top: 26px;
 }
 
+.category-box.energia-template .category-title,
 .category-box.documento-template .category-title,
 .category-box.resenha-template .category-title,
 .category-box.comunicando-template .category-title,
@@ -952,6 +959,7 @@ header-component {
     margin-left: 0;
 }
 
+.category-box.energia-template .article-holder,
 .category-box.documento-template .article-holder,
 .category-box.resenha-template .article-holder,
 .category-box.comunicando-template .article-holder,
@@ -1110,6 +1118,11 @@ header.article-header {
     background-color: #015172;
 }
 
+.energia-template {
+    background-color: #f1602e;
+}
+
+
 .documento-template .article-header__author-card:after {
     content: 'POR DENTRO DO DOCUMENTO';
     top: -43px;
@@ -1119,6 +1132,20 @@ header.article-header {
 
 .documento-template .article-header__author-card:before {
     content: 'POR DENTRO DO DOCUMENTO';
+    right: auto;
+    width: 100%;
+    left: 158px;
+}
+
+.energia-template .article-header__author-card:after {
+    content: 'NO SETOR DA ENERGIA';
+    top: -43px;
+    right: -92%;
+    width: 236%;
+}
+
+.energia-template .article-header__author-card:before {
+    content: 'NO SETOR DA ENERGIA';
     right: auto;
     width: 100%;
     left: 158px;
@@ -1245,6 +1272,13 @@ header.article-header {
     display: grid;
     grid-template-columns: 1fr 810px 1fr;
 }
+
+.article-header .energia-template {
+    background-color: #f1602e;
+    display: grid;
+    grid-template-columns: 1fr 810px 1fr;
+}
+
 
 .article-header .documento-template .article-header__border {
     background-color: transparent;
@@ -1776,11 +1810,13 @@ header.article-header {
     padding-top: 21px;
     font-weight: bold;
     font-size: 17px;
-    text-transform: capitalize; /* 05/07 */
+    text-transform: capitalize;
+    /* 05/07 */
 }
 
 .author-card__name span {
-    text-transform: lowercase; /* 16/07 */
+    text-transform: lowercase;
+    /* 16/07 */
 }
 
 .author-card__bio {
@@ -2572,69 +2608,122 @@ a.cssbox_next {
 
 
 .category-page-all .editorial-template {
-    grid-column: 1;
+    grid-column: 1/5;
     grid-row: 1;
-    background-image: url('/img/editorial.jpg');
+    height: 44px;
+}
+
+.category-page-all .editorial-template .category-box-title {
+    background-color: #eaeaea;
+    color: #606060c2;
+    transform: none;
+    width: auto;
+    margin: 0 auto;
+}
+
+.category-page-all .editorial-template .category-box-title {
+    border-right: 0px solid white;
+    border-left: 0px solid white;
+    text-align: left;
+    padding-left: 25px;
+    color: #606060;
+    transition: all .3s;
+    font-size: 36px;
+    text-align: center;
+}
+
+.category-page-all .editorial-template .category-box-title:after {
+    content: '';
+    margin-bottom: -7px;
+    display: inline-block;
+    margin-left: 10px;
+    background: url('/img/icone-editorial.png');
     background-size: contain;
     background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    transition: all .3s;
+}
+
+
+.category-page-all .editorial-template:hover .category-box-title {
+    color: #606060c2
+}
+
+.category-page-all .editorial-template:hover .category-box-title:after {
+    opacity: .6;
+    transform: translateX(5px)
+}
+
+
+
+.category-page-all .category-box-page a:hover .category-box-title {
+    transform: none
 }
 
 .category-page-all .revisitando-template {
-    grid-column: 2;
-    grid-row: 1;
-    background-image: url('/img/revisitando.jpg');
+    grid-column: 1;
+    grid-row: 2;
+    background-image: url('/img/revisitando_2.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .category-page-all .dossie-template {
-    grid-row: 1;
-    grid-column: 3;
-    background-image: url('/img/dossie.jpg');
+    grid-row: 2;
+    grid-column: 2;
+    background-image: url('/img/dossie_2.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .category-page-all .entrevista-template {
-    grid-row: 1;
-    grid-column: 4;
-    background-image: url('/img/entrecistas.jpg');
+    grid-row: 2;
+    grid-column: 3;
+    background-image: url('/img/entrevistas_2.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .category-page-all .artigos-template {
     grid-row: 2;
-    grid-column: 1;
-    background-image: url('/img/olhares.jpg');
+    grid-column: 4;
+    background-image: url('/img/olhares_2.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .category-page-all .documento-template {
-    grid-row: 2;
+    grid-row: 3;
     grid-column: 2;
-    background-image: url('/img/por_dentro.jpg');
+    background-image: url('/img/por_dentro_2.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .category-page-all .resenha-template {
-    grid-row: 2;
+    grid-row: 3;
     grid-column: 3;
-    background-image: url('/img/resenhas.jpg');
+    background-image: url('/img/resenhas_2.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .category-page-all .comunicando-template {
-    grid-row: 2;
+    grid-row: 3;
     grid-column: 4;
-    background-image: url('/img/comunicando.jpg');
+    background-image: url('/img/comunicando_2.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
+.category-page-all .energia-template {
+    grid-row: 3;
+    grid-column: 1;
+    background-image: url('/img/no_setor.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
 
 
@@ -2775,20 +2864,6 @@ a.cssbox_next {
 
 
 
-.home-body #category-6 {
-
-    background: url('/img/tresenhascor.jpg');
-    background-repeat: no-repeat;
-    background-size: cover
-}
-
-
-.home-body #category-8 {
-
-    background: url('/img/tcomunicandocor.jpg');
-    background-repeat: no-repeat;
-    background-size: cover
-}
 
 .footer-logo {
     display: flex;
@@ -2863,7 +2938,8 @@ a.cssbox_next {
     .category-box.documento-template .category-title,
     .category-box.resenha-template .category-title,
     .category-box.comunicando-template .category-title,
-    .category-box.editorial-template .category-title {
+    .category-box.editorial-template .category-title,
+    .category-box.energia-template .category-title {
         font-size: 24px;
     }
 
@@ -3285,6 +3361,10 @@ i {
     background-image: url('img/aspas-por-dentro.png');
 }
 
+.energia-template--q .quoteEl:before {
+    background-image: url('img/aspas-por-dentro.png');
+}
+
 .edition-title {
     color: #696969;
     font-weight: bold;
@@ -3363,9 +3443,11 @@ i {
 /* Element | http://localhost:3000/categoria?id=1&ed=1 */
 
 .category-page-single .pager>button {
-    background: transparent; /* #696969; */
+    background: transparent;
+    /* #696969; */
     border: 0px;
-    color: transparent; /* white; */
+    color: transparent;
+    /* white; */
     font-size: 12px;
     margin: 3px;
     opacity: 0.6;
@@ -3373,9 +3455,38 @@ i {
 }
 
 .category-page-single .pager>button:hover {
-    cursor: none; /*pointer*/
+    cursor: none;
+    /*pointer*/
 }
 
 .category-page-single .pager>button.active {
     opacity: 1;
+}
+
+
+
+/* style.css | http://localhost:3000/style.css */
+
+.category-box.energia-template a {
+    /* padding: 35px 0; */
+    /* margin-top: -49px; */
+    padding: 12px 0 !important;
+    margin-top: 0px !important;
+}
+
+.home-body .resenha-template.resenha-template a {
+    background: url('/img/tresenhascor.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.home-body .comunicando-template a {
+    background: url('/img/tcomunicandocor.jpg') !important;
+    background-repeat: repeat;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

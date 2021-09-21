@@ -103,7 +103,7 @@ window.addEventListener('load', async () => {
         categoryBox.innerHTML = `
         <div class="article-container">
           <div class="category-box ${category.Class}">
-              <a href="/categoria?id=${category.id}${postId ? ("&ed=")+postId : ""}" id="category-${category.id}" class="category-title">${category.Title}</a>
+              <a href="/categoria?id=${category.id}&ed=${homeData.data.editions[0].id}" class="category-title">${category.Title}</a>
               <div id="article-holder-${category.id}" class="article-holder"></div>
           </div>
         </div>
@@ -146,7 +146,7 @@ window.addEventListener('load', async () => {
             item.parentNode.querySelector('.category-title').classList.add('hidden')
         } else if (articlesa.length < 2) {
             item.parentNode.querySelector('.category-title')
-                .setAttribute('href', `${articlesa[0] ? articlesa[0].getAttribute('href') : '#' }`);
+                .setAttribute('href', `${articlesa[0] ? articlesa[0].getAttribute('href') : '#' }`)
         }
 
     })
