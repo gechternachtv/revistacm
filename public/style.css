@@ -1106,11 +1106,11 @@ header.article-header {
 }
 
 .dossie-template .article-header__author-card:after {
-    content: 'DOSSIE';
+    content: 'DOSSIÊ';
 }
 
 .dossie-template .article-header__author-card:before {
-    content: 'DOSSIE';
+    content: 'DOSSIÊ';
 }
 
 
@@ -3489,4 +3489,12 @@ i {
     background-size: auto;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+
+/* Element | http://localhost:3000/post?id=57 */
+
+.article-container>ol {
+    margin-left: 20px;
+    margin-bottom: 6px;
 }
