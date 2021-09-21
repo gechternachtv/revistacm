@@ -1776,6 +1776,11 @@ header.article-header {
     padding-top: 21px;
     font-weight: bold;
     font-size: 17px;
+    text-transform: capitalize; /* 05/07 */
+}
+
+.author-card__name span {
+    text-transform: lowercase; /* 16/07 */
 }
 
 .author-card__bio {
@@ -3358,9 +3363,9 @@ i {
 /* Element | http://localhost:3000/categoria?id=1&ed=1 */
 
 .category-page-single .pager>button {
-    background: #696969;
+    background: transparent; /* #696969; */
     border: 0px;
-    color: white;
+    color: transparent; /* white; */
     font-size: 12px;
     margin: 3px;
     opacity: 0.6;
@@ -3368,7 +3373,7 @@ i {
 }
 
 .category-page-single .pager>button:hover {
-    cursor: pointer;
+    cursor: none; /*pointer*/
 }
 
 .category-page-single .pager>button.active {
