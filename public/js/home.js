@@ -95,6 +95,7 @@ window.addEventListener('load', async () => {
     //categories
     const categories = homeData.data.categories;
     const mainContainer = document.querySelector('.main-container');
+
     categories.forEach(category => {
         const categoryBox = document.createElement('div');
         categoryBox.classList.add('article-holder-full');
@@ -110,6 +111,7 @@ window.addEventListener('load', async () => {
         `
         mainContainer.append(categoryBox)
     })
+
 
     //articles
     const articles = homeData.data.editions[homeData.data.editions.length - 1].articles;
@@ -138,12 +140,12 @@ window.addEventListener('load', async () => {
     })
 
     //
-    document.querySelectorAll('.article-holder').forEach(item => {
+    document.querySelectorAll('.article-container').forEach(item => {
         const articlesa = item.querySelectorAll('.article-box a');
 
         //console.log(item, articles.length)
         if (articlesa.length < 1) {
-            item.parentNode.querySelector('.category-title').classList.add('hidden')
+            item.classList.add('hidden')
         } else if (articlesa.length < 2) {
             item.parentNode.querySelector('.category-title')
                 .setAttribute('href', `${articlesa[0] ? articlesa[0].getAttribute('href') : '#' }`)

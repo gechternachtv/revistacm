@@ -614,12 +614,12 @@ footer {
 }
 
 .documento-template-holder {
-    grid-row: 6;
+    grid-row: 7;
     grid-column: 1;
 }
 
 .energia-template-holder {
-    grid-row: 7;
+    grid-row: 6;
     grid-column: 1;
 }
 
@@ -923,8 +923,7 @@ header-component {
 .category-box.documento-template,
 .category-box.resenha-template,
 .category-box.comunicando-template,
-.category-box.editorial-template,
-.category-box.energia-template {
+.category-box.editorial-template {
     position: unset;
     padding-left: unset;
     min-height: unset;
@@ -932,7 +931,6 @@ header-component {
     margin-top: 26px;
 }
 
-.category-box.energia-template .category-title,
 .category-box.documento-template .category-title,
 .category-box.resenha-template .category-title,
 .category-box.comunicando-template .category-title,
@@ -959,7 +957,7 @@ header-component {
     margin-left: 0;
 }
 
-.category-box.energia-template .article-holder,
+
 .category-box.documento-template .article-holder,
 .category-box.resenha-template .article-holder,
 .category-box.comunicando-template .article-holder,
@@ -3497,4 +3495,12 @@ i {
 .article-container>ol {
     margin-left: 20px;
     margin-bottom: 6px;
+}
+
+
+/* Element | http://localhost:3000/?ed=3&revisao=1 */
+
+.home-body .energia-template>a {
+    width: auto;
+    font-size: 30px;
 }
