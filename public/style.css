@@ -1136,14 +1136,14 @@ header.article-header {
 }
 
 .energia-template .article-header__author-card:after {
-    content: 'NO SETOR DA ENERGIA';
+    content: 'NO SETOR ELÉTRICO';
     top: -43px;
     right: -92%;
     width: 236%;
 }
 
 .energia-template .article-header__author-card:before {
-    content: 'NO SETOR DA ENERGIA';
+    content: 'NO SETOR ELÉTRICO';
     right: auto;
     width: 100%;
     left: 158px;
@@ -3502,5 +3502,5 @@ i {
 
 .home-body .energia-template>a {
     width: auto;
-    font-size: 30px;
+    font-size: 33px;
 }
