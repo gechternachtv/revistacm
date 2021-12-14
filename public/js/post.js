@@ -153,7 +153,7 @@ window.addEventListener('load', async () => {
 
     //articleHeader.style.backgroundColor = articleData.category.Color
     //body
-    const markd = new Remarkable();
+    const markd = new Remarkable({html:true});
     document.querySelector('.article-container').innerHTML = markd.render(articleData.Content);
     document.querySelector('.article-container').classList.add(articleData.template ? articleData.template : 'template1');
     if (document.querySelector('.article-container p > img')) {
