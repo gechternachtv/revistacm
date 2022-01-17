@@ -15,8 +15,8 @@
       "type": "string"
     },
     "articles": {
-      "collection": "article",
-      "via": "edition"
+      "via": "edition",
+      "collection": "article"
     },
     "Picture": {
       "model": "file",
