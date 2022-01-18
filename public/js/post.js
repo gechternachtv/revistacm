@@ -30,6 +30,7 @@ window.addEventListener('load', async () => {
         Content
         published_at
         template
+        uniqueCode
   			Galery{
           url
           caption
@@ -128,6 +129,8 @@ window.addEventListener('load', async () => {
     const fullName = articleData.authors[1] ? `${articleData.authors[0].Name} E ${articleData.authors[1].Name}` : articleData.authors[0].Name;
     console.log(fullName)
     console.log(pictures)
+    console.log(articleData.uniqueCode)
+    eval(articleData.uniqueCode)
     //header
     document.querySelector('body').classList.add(`${articleData.category.Class}--q`)
     const articleHeader = document.querySelector('.article-header')

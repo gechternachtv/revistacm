@@ -65,6 +65,8 @@ type Article {
   revisao: Boolean
   uniqueCode: String
   published_at: DateTime
+  created_by: AdminUser
+  updated_by: AdminUser
   authors(sort: String, limit: Int, start: Int, where: JSON): [Author]
   Galery(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -117,6 +119,8 @@ type ArticleGroupBy {
   revisao: [ArticleConnectionRevisao]
   uniqueCode: [ArticleConnectionUniqueCode]
   published_at: [ArticleConnectionPublished_at]
+  created_by: [ArticleConnectionCreated_by]
+  updated_by: [ArticleConnectionUpdated_by]
 }
 
 type ArticleConnectionId {
@@ -199,6 +203,16 @@ type ArticleConnectionPublished_at {
   connection: ArticleConnection
 }
 
+type ArticleConnectionCreated_by {
+  key: ID
+  connection: ArticleConnection
+}
+
+type ArticleConnectionUpdated_by {
+  key: ID
+  connection: ArticleConnection
+}
+
 input ArticleInput {
   Title: String!
   Content: String!
@@ -272,6 +286,8 @@ type Author {
   bio: String
   shortbio: String
   published_at: DateTime
+  created_by: AdminUser
+  updated_by: AdminUser
   Picture(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
 }
@@ -295,6 +311,8 @@ type AuthorGroupBy {
   bio: [AuthorConnectionBio]
   shortbio: [AuthorConnectionShortbio]
   published_at: [AuthorConnectionPublished_at]
+  created_by: [AuthorConnectionCreated_by]
+  updated_by: [AuthorConnectionUpdated_by]
 }
 
 type AuthorConnectionId {
@@ -329,6 +347,16 @@ type AuthorConnectionShortbio {
 
 type AuthorConnectionPublished_at {
   key: DateTime
+  connection: AuthorConnection
+}
+
+type AuthorConnectionCreated_by {
+  key: ID
+  connection: AuthorConnection
+}
+
+type AuthorConnectionUpdated_by {
+  key: ID
   connection: AuthorConnection
 }
 
@@ -386,6 +414,8 @@ type Category {
   Title: String!
   Class: String!
   published_at: DateTime
+  created_by: AdminUser
+  updated_by: AdminUser
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
 }
 
@@ -407,6 +437,8 @@ type CategoryGroupBy {
   Title: [CategoryConnectionTitle]
   Class: [CategoryConnectionClass]
   published_at: [CategoryConnectionPublished_at]
+  created_by: [CategoryConnectionCreated_by]
+  updated_by: [CategoryConnectionUpdated_by]
 }
 
 type CategoryConnectionId {
@@ -436,6 +468,16 @@ type CategoryConnectionClass {
 
 type CategoryConnectionPublished_at {
   key: DateTime
+  connection: CategoryConnection
+}
+
+type CategoryConnectionCreated_by {
+  key: ID
+  connection: CategoryConnection
+}
+
+type CategoryConnectionUpdated_by {
+  key: ID
   connection: CategoryConnection
 }
 
@@ -488,6 +530,8 @@ type Colaboradorestexto {
   updated_at: DateTime!
   colaboradorestexto: String
   published_at: DateTime
+  created_by: AdminUser
+  updated_by: AdminUser
 }
 
 input ColaboradorestextoInput {
@@ -522,6 +566,8 @@ type EdicoesTexto {
   updated_at: DateTime!
   edicoestexto: String
   published_at: DateTime
+  created_by: AdminUser
+  updated_by: AdminUser
 }
 
 input EdicoesTextoInput {
@@ -563,6 +609,8 @@ type Edition {
   bannerTitle: UploadFile
   revisao: Boolean
   published_at: DateTime
+  created_by: AdminUser
+  updated_by: AdminUser
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
   GaleryHome(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   GaleryMobile(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
@@ -592,6 +640,8 @@ type EditionGroupBy {
   bannerTitle: [EditionConnectionBannerTitle]
   revisao: [EditionConnectionRevisao]
   published_at: [EditionConnectionPublished_at]
+  created_by: [EditionConnectionCreated_by]
+  updated_by: [EditionConnectionUpdated_by]
 }
 
 type EditionConnectionId {
@@ -651,6 +701,16 @@ type EditionConnectionRevisao {
 
 type EditionConnectionPublished_at {
   key: DateTime
+  connection: EditionConnection
+}
+
+type EditionConnectionCreated_by {
+  key: ID
+  connection: EditionConnection
+}
+
+type EditionConnectionUpdated_by {
+  key: ID
   connection: EditionConnection
 }
 
@@ -722,6 +782,8 @@ type Entrevistado {
   shortbio: String
   active: Boolean
   published_at: DateTime
+  created_by: AdminUser
+  updated_by: AdminUser
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
   Picture(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -746,6 +808,8 @@ type EntrevistadoGroupBy {
   shortbio: [EntrevistadoConnectionShortbio]
   active: [EntrevistadoConnectionActive]
   published_at: [EntrevistadoConnectionPublished_at]
+  created_by: [EntrevistadoConnectionCreated_by]
+  updated_by: [EntrevistadoConnectionUpdated_by]
 }
 
 type EntrevistadoConnectionId {
@@ -785,6 +849,16 @@ type EntrevistadoConnectionActive {
 
 type EntrevistadoConnectionPublished_at {
   key: DateTime
+  connection: EntrevistadoConnection
+}
+
+type EntrevistadoConnectionCreated_by {
+  key: ID
+  connection: EntrevistadoConnection
+}
+
+type EntrevistadoConnectionUpdated_by {
+  key: ID
   connection: EntrevistadoConnection
 }
 
@@ -842,6 +916,8 @@ type PostCarrossel {
   created_at: DateTime!
   updated_at: DateTime!
   published_at: DateTime
+  created_by: AdminUser
+  updated_by: AdminUser
   GaleryDesktop(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   GaleryMobile(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -883,6 +959,8 @@ type SobreTexto {
   Coluna3: String
   Maincoluna: String
   published_at: DateTime
+  created_by: AdminUser
+  updated_by: AdminUser
 }
 
 input SobreTextoInput {
@@ -935,6 +1013,8 @@ type UploadFile {
   previewUrl: String
   provider: String!
   provider_metadata: JSON
+  created_by: AdminUser
+  updated_by: AdminUser
   related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
 }
 
@@ -995,6 +1075,8 @@ type UploadFileGroupBy {
   previewUrl: [UploadFileConnectionPreviewUrl]
   provider: [UploadFileConnectionProvider]
   provider_metadata: [UploadFileConnectionProvider_metadata]
+  created_by: [UploadFileConnectionCreated_by]
+  updated_by: [UploadFileConnectionUpdated_by]
 }
 
 type UploadFileConnectionId {
@@ -1082,6 +1164,16 @@ type UploadFileConnectionProvider_metadata {
   connection: UploadFileConnection
 }
 
+type UploadFileConnectionCreated_by {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdated_by {
+  key: ID
+  connection: UploadFileConnection
+}
+
 input FileInput {
   name: String!
   alternativeText: String
@@ -1138,6 +1230,8 @@ type UsersPermissionsPermission {
   enabled: Boolean!
   policy: String
   role: UsersPermissionsRole
+  created_by: AdminUser
+  updated_by: AdminUser
 }
 
 type UsersPermissionsRole {
@@ -1145,6 +1239,8 @@ type UsersPermissionsRole {
   name: String!
   description: String
   type: String
+  created_by: AdminUser
+  updated_by: AdminUser
   permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
   users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
 }
@@ -1165,6 +1261,8 @@ type UsersPermissionsRoleGroupBy {
   name: [UsersPermissionsRoleConnectionName]
   description: [UsersPermissionsRoleConnectionDescription]
   type: [UsersPermissionsRoleConnectionType]
+  created_by: [UsersPermissionsRoleConnectionCreated_by]
+  updated_by: [UsersPermissionsRoleConnectionUpdated_by]
 }
 
 type UsersPermissionsRoleConnectionId {
@@ -1184,6 +1282,16 @@ type UsersPermissionsRoleConnectionDescription {
 
 type UsersPermissionsRoleConnectionType {
   key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionCreated_by {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionUpdated_by {
+  key: ID
   connection: UsersPermissionsRoleConnection
 }
 
@@ -1239,9 +1347,14 @@ type UsersPermissionsUser {
   username: String!
   email: String!
   provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
   confirmed: Boolean
   blocked: Boolean
   role: UsersPermissionsRole
+  created_by: AdminUser
+  updated_by: AdminUser
 }
 
 type UsersPermissionsUserConnection {
@@ -1262,9 +1375,14 @@ type UsersPermissionsUserGroupBy {
   username: [UsersPermissionsUserConnectionUsername]
   email: [UsersPermissionsUserConnectionEmail]
   provider: [UsersPermissionsUserConnectionProvider]
+  password: [UsersPermissionsUserConnectionPassword]
+  resetPasswordToken: [UsersPermissionsUserConnectionResetPasswordToken]
+  confirmationToken: [UsersPermissionsUserConnectionConfirmationToken]
   confirmed: [UsersPermissionsUserConnectionConfirmed]
   blocked: [UsersPermissionsUserConnectionBlocked]
   role: [UsersPermissionsUserConnectionRole]
+  created_by: [UsersPermissionsUserConnectionCreated_by]
+  updated_by: [UsersPermissionsUserConnectionUpdated_by]
 }
 
 type UsersPermissionsUserConnectionId {
@@ -1297,6 +1415,21 @@ type UsersPermissionsUserConnectionProvider {
   connection: UsersPermissionsUserConnection
 }
 
+type UsersPermissionsUserConnectionPassword {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionResetPasswordToken {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmationToken {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
 type UsersPermissionsUserConnectionConfirmed {
   key: Boolean
   connection: UsersPermissionsUserConnection
@@ -1308,6 +1441,16 @@ type UsersPermissionsUserConnectionBlocked {
 }
 
 type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreated_by {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdated_by {
   key: ID
   connection: UsersPermissionsUserConnection
 }
@@ -1385,7 +1528,7 @@ input editComponentQuoteQuoteInput {
   quote3: String
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Article | ArticleConnection | ArticleAggregator | ArticleAggregatorSum | ArticleAggregatorAvg | ArticleAggregatorMin | ArticleAggregatorMax | ArticleGroupBy | ArticleConnectionId | ArticleConnectionCreated_at | ArticleConnectionUpdated_at | ArticleConnectionTitle | ArticleConnectionContent | ArticleConnectionCategory | ArticleConnectionEdition | ArticleConnectionArticleCardImage | ArticleConnectionTemplate | ArticleConnectionQuotes | ArticleConnectionSaibamais | ArticleConnectionEntrevistado | ArticleConnectionOrdem | ArticleConnectionRevisao | ArticleConnectionUniqueCode | ArticleConnectionPublished_at | createArticlePayload | updateArticlePayload | deleteArticlePayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionBio | AuthorConnectionShortbio | AuthorConnectionPublished_at | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionTitle | CategoryConnectionClass | CategoryConnectionPublished_at | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Colaboradorestexto | updateColaboradorestextoPayload | deleteColaboradorestextoPayload | EdicoesTexto | updateEdicoesTextoPayload | deleteEdicoesTextoPayload | Edition | EditionConnection | EditionAggregator | EditionGroupBy | EditionConnectionId | EditionConnectionCreated_at | EditionConnectionUpdated_at | EditionConnectionTitle | EditionConnectionPicture | EditionConnectionFrontpage | EditionConnectionPdf | EditionConnectionSubTitle | EditionConnectionCartaDosEditores | EditionConnectionBannerTitle | EditionConnectionRevisao | EditionConnectionPublished_at | createEditionPayload | updateEditionPayload | deleteEditionPayload | Entrevistado | EntrevistadoConnection | EntrevistadoAggregator | EntrevistadoGroupBy | EntrevistadoConnectionId | EntrevistadoConnectionCreated_at | EntrevistadoConnectionUpdated_at | EntrevistadoConnectionName | EntrevistadoConnectionBio | EntrevistadoConnectionShortbio | EntrevistadoConnectionActive | EntrevistadoConnectionPublished_at | createEntrevistadoPayload | updateEntrevistadoPayload | deleteEntrevistadoPayload | PostCarrossel | updatePostCarrosselPayload | deletePostCarrosselPayload | SobreTexto | updateSobreTextoPayload | deleteSobreTextoPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload | ComponentQuoteQuotes
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Article | ArticleConnection | ArticleAggregator | ArticleAggregatorSum | ArticleAggregatorAvg | ArticleAggregatorMin | ArticleAggregatorMax | ArticleGroupBy | ArticleConnectionId | ArticleConnectionCreated_at | ArticleConnectionUpdated_at | ArticleConnectionTitle | ArticleConnectionContent | ArticleConnectionCategory | ArticleConnectionEdition | ArticleConnectionArticleCardImage | ArticleConnectionTemplate | ArticleConnectionQuotes | ArticleConnectionSaibamais | ArticleConnectionEntrevistado | ArticleConnectionOrdem | ArticleConnectionRevisao | ArticleConnectionUniqueCode | ArticleConnectionPublished_at | ArticleConnectionCreated_by | ArticleConnectionUpdated_by | createArticlePayload | updateArticlePayload | deleteArticlePayload | Author | AuthorConnection | AuthorAggregator | AuthorGroupBy | AuthorConnectionId | AuthorConnectionCreated_at | AuthorConnectionUpdated_at | AuthorConnectionName | AuthorConnectionBio | AuthorConnectionShortbio | AuthorConnectionPublished_at | AuthorConnectionCreated_by | AuthorConnectionUpdated_by | createAuthorPayload | updateAuthorPayload | deleteAuthorPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionTitle | CategoryConnectionClass | CategoryConnectionPublished_at | CategoryConnectionCreated_by | CategoryConnectionUpdated_by | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Colaboradorestexto | updateColaboradorestextoPayload | deleteColaboradorestextoPayload | EdicoesTexto | updateEdicoesTextoPayload | deleteEdicoesTextoPayload | Edition | EditionConnection | EditionAggregator | EditionGroupBy | EditionConnectionId | EditionConnectionCreated_at | EditionConnectionUpdated_at | EditionConnectionTitle | EditionConnectionPicture | EditionConnectionFrontpage | EditionConnectionPdf | EditionConnectionSubTitle | EditionConnectionCartaDosEditores | EditionConnectionBannerTitle | EditionConnectionRevisao | EditionConnectionPublished_at | EditionConnectionCreated_by | EditionConnectionUpdated_by | createEditionPayload | updateEditionPayload | deleteEditionPayload | Entrevistado | EntrevistadoConnection | EntrevistadoAggregator | EntrevistadoGroupBy | EntrevistadoConnectionId | EntrevistadoConnectionCreated_at | EntrevistadoConnectionUpdated_at | EntrevistadoConnectionName | EntrevistadoConnectionBio | EntrevistadoConnectionShortbio | EntrevistadoConnectionActive | EntrevistadoConnectionPublished_at | EntrevistadoConnectionCreated_by | EntrevistadoConnectionUpdated_by | createEntrevistadoPayload | updateEntrevistadoPayload | deleteEntrevistadoPayload | PostCarrossel | updatePostCarrosselPayload | deletePostCarrosselPayload | SobreTexto | updateSobreTextoPayload | deleteSobreTextoPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UploadFileConnectionCreated_by | UploadFileConnectionUpdated_by | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsRoleConnectionCreated_by | UsersPermissionsRoleConnectionUpdated_by | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionPassword | UsersPermissionsUserConnectionResetPasswordToken | UsersPermissionsUserConnectionConfirmationToken | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionCreated_by | UsersPermissionsUserConnectionUpdated_by | createUserPayload | updateUserPayload | deleteUserPayload | ComponentQuoteQuotes
 
 input InputID {
   id: ID!
