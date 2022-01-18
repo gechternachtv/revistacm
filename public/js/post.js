@@ -130,7 +130,6 @@ window.addEventListener('load', async () => {
     console.log(fullName)
     console.log(pictures)
     console.log(articleData.uniqueCode)
-    eval(articleData.uniqueCode)
     //header
     document.querySelector('body').classList.add(`${articleData.category.Class}--q`)
     const articleHeader = document.querySelector('.article-header')
@@ -320,6 +319,6 @@ window.addEventListener('load', async () => {
       `
     document.querySelector('.share-item__compartilhar').parentElement.append(shareBox)
 
-
+    eval(articleData.uniqueCode)
 
 })
